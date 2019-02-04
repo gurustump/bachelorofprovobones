@@ -206,6 +206,9 @@ h5, .h5 {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
+p {
+	margin-top:0;
+}
 
 /*********************
 HEADER STYLES
@@ -1083,6 +1086,39 @@ html body {
 	&.hide-admin-bar {
 		div#wpadminbar {
 			display:none;
+		}
+	}
+}
+
+	
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.single-people {
+	h1 {
+		border-bottom:1px solid $border-color;
+		margin-bottom:$gutter*.5;
+	}
+	.byline {
+		margin-bottom:$gutter;
+		td {
+			vertical-align:baseline;
+		}
+		td:first-child {
+			padding-right:$gutter*.25;
+			font-size:.75em;
+			text-transform:uppercase;
+		}
+		td:last-child {
+			font-weight:bold;
+			text-transform:none;
+			font-size:inherit;
+		}
+	}
+	.image-container {
+		img {
+			display:block;
+			width:100%;
 		}
 	}
 }

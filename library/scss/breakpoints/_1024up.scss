@@ -24,3 +24,23 @@ Stylesheet: Tablet Landscape Stylsheet
 		margin-bottom:1%;
 	}
 }
+
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.single-people {
+	.article-header {
+		//@include clearfix;
+		border-top:1px solid $border-color;
+	}
+	.title-container {
+		float:left;
+		width:40%;
+	}
+	.image-container {
+		padding:$gutter*.5 0 $gutter $gutter;
+		float:right;
+		width:60%;
+		@include box-sizing;
+	}
+}

@@ -1379,6 +1379,9 @@ h5, .h5 {
   text-transform: uppercase;
   letter-spacing: 2px; }
 
+p {
+  margin-top: 0; }
+
 /*********************
 HEADER STYLES
 *********************/
@@ -1812,7 +1815,7 @@ SIDEBARS & ASIDES
   background-color: #fff;
   padding: 1.5em;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   margin-bottom: 1.5em; }
 
@@ -1957,6 +1960,30 @@ html body div#wpadminbar {
 
 html body.hide-admin-bar div#wpadminbar {
   display: none; }
+
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.single-people h1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 8px; }
+
+body.single-people .byline {
+  margin-bottom: 16px; }
+  body.single-people .byline td {
+    vertical-align: baseline; }
+  body.single-people .byline td:first-child {
+    padding-right: 4px;
+    font-size: .75em;
+    text-transform: uppercase; }
+  body.single-people .byline td:last-child {
+    font-weight: bold;
+    text-transform: none;
+    font-size: inherit; }
+
+body.single-people .image-container img {
+  display: block;
+  width: 100%; }
 
 /*********************
 LARGER MOBILE DEVICES
@@ -2199,7 +2226,24 @@ Stylesheet: Tablet Landscape Stylsheet
       margin-right: 1%;
       width: 24%;
       padding-bottom: 24%;
-      margin-bottom: 1%; } }
+      margin-bottom: 1%; }
+  /******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+  body.single-people .article-header {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  body.single-people .title-container {
+    float: left;
+    width: 40%; }
+  body.single-people .image-container {
+    padding: 8px 0 16px 16px;
+    float: right;
+    width: 60%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box; } }
 
 /*********************
 DESKTOP

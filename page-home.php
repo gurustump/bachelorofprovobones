@@ -20,57 +20,22 @@
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 								<section class="entry-content cf" itemprop="articleBody">
-									<?php /*<div class="current-season">
-										<?php print_r( get_option('bachelor_main_options')); ?>
-										<br />
-										<?php echo get_option('bachelor_main_options')['current_season']; ?>
-									</div> */ ?>
+								
 									<?php 
-									$currentSeason = get_option('bachelor_main_options')['current_season'];
-									$currentShowType = get_option('bachelor_main_options')['current_show_type'];
-									$currentContestantType = $currentShowType == 'bachelor' ? 'bachelorette' : 'bachelor';
-									//echo ucfirst($currentShowType);
-									// echo ucfirst($currentContestantType);
-									$testorama = ucfirst($currentContestantType);
-									$currentStar = get_posts(array(
-										'post_type' => 'people',
-										'tax_query' => array(
-											array(
-												'taxonomy' => 'person_cat',
-												'field' => 'slug',
-												'terms' => 'season-'.$currentSeason.'-star',
-											)
-										),
-									));
-									$currentCast = get_posts(array(
-										'post_type' => 'people',
-										'orderby' => 'title',
-										'order' => 'ASC',
-										'tax_query' => array(
-											array(
-												'taxonomy' => 'person_cat',
-												'field' => 'slug',
-												'terms' => 'season-'.$currentSeason.'-competitor',
-											)
-										),
-									));
-									$currentHost = get_posts(array(
-										'post_type' => 'people',
-										'tax_query' => array(
-											array(
-												'taxonomy' => 'person_cat',
-												'field' => 'slug',
-												'terms' => 'season-'.$currentSeason.'-host',
-											)
-										),
-									));
-									function castMemberMarkup($castMember,$type) {
-										global $currentContestantType,$currentShowType;
+									$currentSeasonID = get_option('bachelor_main_options')['current_season'];
+									$currentSeason = get_page_by_path('1',OBJECT,'season');
+									$currentSeasonType = get_post_meta($currentSeasonID,'_bachelor_season_show_type',true);
+									$currentSeasonEpisodes = get_post_meta($currentSeasonID,'_bachelor_season_attached_episodes',true);
+									$currentSeasonCast = get_post_meta($currentSeasonID,'_bachelor_season_attached_people',true);
+									$currentContestantType = $currentSeasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
+								
+									
+									
+									function castMemberMarkup($castMember,$role) {
+										global $currentContestantType,$currentSeasonType;
 										$castMemberMeta = get_post_meta($castMember->ID);
 										$exit_episode = $castMemberMeta['_bachelor_person_exit_episode'][0];
-										$cast_type = 'test';
-										$markup = '<div class="thumb-item '.$type.($exit_episode ? ' retired' : '').'">';
-										$markup .= (string)$testorama;
+										$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
 										$markup .= '<a href="'.get_permalink($castMember->ID).'">';
 										if (has_post_thumbnail($castMember->ID)) {
 											$markup .= '<span class="image-container">';
@@ -80,7 +45,7 @@
 										$markup .= '<div class="cast-info">';
 										$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
 										$markup .= '<span class="cast-type">';
-										$markup .= $type == 'host' ? 'Host' : $type == 'contestant' ? ucfirst($currentContestantType) : 'The '.ucfirst($currentShowType);
+										$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? ucfirst($currentContestantType) : 'The '.ucfirst($currentSeasonType) );
 										$markup .= '</span></div>';
 										$markup .= '</a>';
 										$markup .= '</div>';
@@ -89,19 +54,27 @@
 										//$markup .= '</pre>';
 										return $markup;
 									}
-									if (count($currentStar) > 0 || count($currentCast) > 0) { ?>
+									if ($currentSeasonCast) { ?>
 									<div class="current-cast">
 										<h2>Current Cast</h2>
 										<div class="thumb-list">
-											<?php foreach($currentStar as $key => $castMember) {
-												echo castMemberMarkup($castMember,'star');
+											<?php 
+											foreach($currentSeasonCast as $key => $castMemberID) {
+												$castMember = get_post($castMemberID);
+												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
+												/*echo '<pre>';
+												print_r(get_post_meta($castMemberID));
+												echo '</pre>';*/
+												//$castMemberMeta = 
+												echo castMemberMarkup($castMember,$role);
 											}
-											foreach($currentCast as $key => $castMember) { 
+											/*foreach($currentCast as $key => $castMember) { 
 												echo castMemberMarkup($castMember,'contestant');
 											}
 											foreach($currentHost as $key => $castMember) { 
 												echo castMemberMarkup($castMember,'host');
-											} ?>
+											} */
+											?>
 										</div>
 									</div>
 									<?php } ?>

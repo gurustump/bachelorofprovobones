@@ -48,7 +48,7 @@ function person_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8,
+			'menu_position' => 7,
 			'menu_icon' => 'dashicons-universal-access',
 			'rewrite'	=> array( 'slug' => 'people', 'with_front' => false ),
 			//'has_archive' => 'show',
@@ -86,6 +86,92 @@ register_taxonomy( 'person_cat',
 		'rewrite' => array( 'slug' => 'cast' ),
 	)
 );
+
+// Season custom post type
+function season_custom_type() { 
+	// creating (registering) the custom type 
+	register_post_type( 'seasons', // (http://codex.wordpress.org/Function_Reference/register_post_type) 
+		// let's now add all the options for this post type
+		array( 'labels' => array(
+			'name' => __( 'Seasons', 'bonestheme' ), 
+			'singular_name' => __( 'Season', 'bonestheme' ), 
+			'all_items' => __( 'All Seasons', 'bonestheme' ),
+			'add_new' => __( 'Add New', 'bonestheme' ),
+			'add_new_item' => __( 'Add New Season', 'bonestheme' ),
+			'edit' => __( 'Edit', 'bonestheme' ),
+			'edit_item' => __( 'Edit Season', 'bonestheme' ),
+			'new_item' => __( 'New Season', 'bonestheme' ),
+			'view_item' => __( 'View Season', 'bonestheme' ),
+			'search_items' => __( 'Search Season', 'bonestheme' ),
+			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ),
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ),
+			'parent_item_colon' => ''
+			),
+			'description' => __( 'For seasons involved in shows: cast and crew', 'bonestheme' ),
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 8,
+			'menu_icon' => 'dashicons-calendar-alt',
+			'rewrite'	=> array( 'slug' => 'seasons', 'with_front' => false ),
+			//'has_archive' => 'show',
+			'has_archive' => false,
+			'hierarchical' => false,
+				'capability_type' => 'post',
+			// the next one is important, it tells what's enabled in the post editor 
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+		) // end of options 
+	); // end of register post type 
+	
+}
+
+// adding the function to the Wordpress init
+add_action( 'init', 'season_custom_type');
+
+// Episode custom post type
+function episode_custom_type() { 
+	// creating (registering) the custom type 
+	register_post_type( 'episodes', // (http://codex.wordpress.org/Function_Reference/register_post_type) 
+		// let's now add all the options for this post type
+		array( 'labels' => array(
+			'name' => __( 'Episodes', 'bonestheme' ), 
+			'singular_name' => __( 'Episode', 'bonestheme' ), 
+			'all_items' => __( 'All Episodes', 'bonestheme' ),
+			'add_new' => __( 'Add New', 'bonestheme' ),
+			'add_new_item' => __( 'Add New Episode', 'bonestheme' ),
+			'edit' => __( 'Edit', 'bonestheme' ),
+			'edit_item' => __( 'Edit Episode', 'bonestheme' ),
+			'new_item' => __( 'New Episode', 'bonestheme' ),
+			'view_item' => __( 'View Episode', 'bonestheme' ),
+			'search_items' => __( 'Search Episode', 'bonestheme' ),
+			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ),
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ),
+			'parent_item_colon' => ''
+			),
+			'description' => __( 'For episodes involved in shows: cast and crew', 'bonestheme' ),
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 9,
+			'menu_icon' => 'dashicons-media-video',
+			'rewrite'	=> array( 'slug' => 'episodes', 'with_front' => false ),
+			//'has_archive' => 'show',
+			'has_archive' => false,
+			'hierarchical' => false,
+				'capability_type' => 'post',
+			// the next one is important, it tells what's enabled in the post editor 
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+		) // end of options 
+	); // end of register post type 
+	
+}
+
+// adding the function to the Wordpress init
+add_action( 'init', 'episode_custom_type');
 	
 	/*
 	for more information on taxonomies, go here:
