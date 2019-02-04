@@ -1398,6 +1398,7 @@ HEADER STYLES
   margin: 0;
   padding-top: 10px; }
   #logo a {
+    outline: none;
     display: block;
     width: 240px;
     height: 80px;
