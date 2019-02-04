@@ -1006,6 +1006,13 @@ FOOTER STYLES
 	width:100%;
 	z-index:-1;
 }
+#inner-footer {
+	height:100%;
+	.copyright {
+		margin-bottom:0;
+		@include v-center;
+	}
+}
 
 	/*
 	if you checked out the link above:
