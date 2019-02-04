@@ -599,8 +599,6 @@ CSS3 GRADIENTS
 Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
 /*********************
 BOX SIZING
 *********************/
@@ -948,7 +946,7 @@ textarea,
   padding: 0 12px;
   margin-bottom: 14px;
   font-size: 1em;
-  color: #555;
+  color: #000;
   border-radius: 3px;
   vertical-align: middle;
   -webkit-box-shadow: none;
@@ -1249,7 +1247,7 @@ body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
-  color: #555;
+  color: #000;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -1301,14 +1299,15 @@ LAYOUT & GRID STYLES
   z-index: 1;
   height: 100%; }
   #container #content {
+    background: #fff;
     min-height: 100%;
-    padding-top: 50px;
+    padding-top: 106px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-    margin-bottom: 200px;
+    margin-bottom: 56px;
     position: relative;
     z-index: 1;
     /* stupid spacer for iphones */ }
@@ -1316,12 +1315,12 @@ LAYOUT & GRID STYLES
       content: "";
       position: absolute;
       width: 1px;
-      height: 200px;
+      height: 56px;
       left: 0;
-      bottom: -200px; }
+      bottom: -56px; }
 
 .wrap {
-  margin: 0 15px; }
+  margin: 0 16px; }
 
 /*********************
 LINK STYLES
@@ -1348,7 +1347,8 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
-  font-weight: 500;
+  font-weight: 900;
+  margin-top: 0;
   /*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -1358,11 +1358,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
     text-decoration: none; }
 
 h1, .h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 1.333em; }
 
 h2, .h2 {
-  font-size: 1.75em;
+  font-size: 1.5em;
   line-height: 1.4em;
   margin-bottom: 0.375em; }
 
@@ -1383,12 +1383,24 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 .header {
-  background-color: #000; }
+  position: fixed;
+  z-index: 9990;
+  background: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; }
 
 #logo {
-  margin: 0.75em 0; }
+  margin: 0;
+  padding-top: 10px; }
   #logo a {
-    color: #fff; }
+    display: block;
+    width: 240px;
+    height: 80px;
+    background: url(../images/bachelor-provo-logo.png) no-repeat;
+    background-size: contain;
+    text-indent: -9999px; }
 
 /*********************
 NAVIGATION STYLES
@@ -1433,22 +1445,8 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content {
-  margin-top: 1.5em; }
-
-.hentry {
-  background-color: #fff;
-  border-radius: 3px;
-  margin-bottom: 1.5em;
-  border: 1px solid rgba(0, 0, 0, 0.2); }
-  .hentry header {
-    border-bottom: 1px solid #f8f9fa;
-    padding: 1.5em; }
-  .hentry footer {
-    padding: 1.5em;
-    border-top: 1px solid #f8f9fa; }
-    .hentry footer p {
-      margin: 0; }
+.hentry footer p {
+  margin: 0; }
 
 /* end .hentry */
 .single-title,
@@ -1473,13 +1471,12 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1.5em 0;
   /*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/ }
+	image alignment on a screen this size may be
+	a bit difficult. It's set to start aligning
+	and floating images at the next breakpoint,
+	but it's up to you. Feel free to change it up.
+	*/ }
   .entry-content p {
     margin: 0 0 1.5em; }
   .entry-content table {
@@ -1559,6 +1556,69 @@ POSTS & CONTENT STYLES
 .tags {
   margin: 0; }
 
+.thumb-list {
+  margin-right: -2%; }
+  .thumb-list:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .thumb-list .thumb-item {
+    margin-right: 2%;
+    width: 48%;
+    float: left;
+    position: relative;
+    padding-bottom: 48%;
+    margin-bottom: 2%;
+    background: #fff; }
+    .thumb-list .thumb-item.retired .image-container {
+      opacity: .4; }
+    .thumb-list .thumb-item.retired > a .cast-info {
+      background-color: rgba(0, 0, 0, 0);
+      background-image: -webkit-linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+      background-image: -moz-linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+      background-image: -o-linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+      background-image: -webkit-gradient(  linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7)));
+      background-image: linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); }
+    .thumb-list .thumb-item > a {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      overflow: hidden; }
+      .thumb-list .thumb-item > a:hover .image-container {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: 1; }
+      .thumb-list .thumb-item > a .image-container {
+        display: block;
+        -webkit-transition: all 375ms;
+        -o-transition: all 375ms;
+        transition: all 375ms; }
+      .thumb-list .thumb-item > a .cast-info {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: -webkit-linear-gradient(  rgba(0, 0, 0, 0), black);
+        background-image: -moz-linear-gradient(  rgba(0, 0, 0, 0), black);
+        background-image: -o-linear-gradient(  rgba(0, 0, 0, 0), black);
+        background-image: -webkit-gradient(  linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
+        background-image: linear-gradient(  rgba(0, 0, 0, 0), black);
+        padding: 12% 4% 4%;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
+        .thumb-list .thumb-item > a .cast-info span {
+          display: block; }
+        .thumb-list .thumb-item > a .cast-info .cast-name {
+          font-size: .8em;
+          font-weight: bold; }
+        .thumb-list .thumb-item > a .cast-info .cast-type {
+          font-size: .75em; }
+
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -1598,10 +1658,10 @@ PAGE NAVI STYLES
       color: #fff; }
   .pagination .current {
     cursor: default;
-    color: #555; }
+    color: #000; }
     .pagination .current:hover, .pagination .current:focus {
       background-color: #fff;
-      color: #555; }
+      color: #000; }
 
 /* end .bones_page_navi */
 /* fallback previous & next links */
@@ -1713,7 +1773,7 @@ COMMENT FORM STYLES
   font-style: italic;
   margin: 0; }
   .logged-in-as a {
-    color: #555; }
+    color: #000; }
 
 .comment-form-comment {
   margin: 1.5em 0 0.75em; }
@@ -1761,8 +1821,15 @@ FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  background-color: #000;
-  color: #f8f9fa; }
+  color: #999;
+  background: #000;
+  overflow: hidden;
+  height: 56px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; }
 
 /*
 	if you checked out the link above:
@@ -1960,6 +2027,13 @@ POSTS & CONTENT STYLES
       display: block;
       clear: both; }
   /* end .entry-content */
+  .thumb-list {
+    margin-right: -1.3%; }
+    .thumb-list .thumb-item {
+      margin-right: 1.3%;
+      width: 32%;
+      padding-bottom: 32%;
+      margin-bottom: 1.3%; }
   /*********************
 FOOTER STYLES
 *********************/
@@ -1995,8 +2069,10 @@ GENERAL STYLES
   /*********************
 LAYOUT & GRID STYLES
 *********************/
+  #container #content {
+    padding-top: 114px; }
   .wrap {
-    width: 760px; }
+    margin: 0 24px; }
   /*********************
 HEADER STYLES
 *********************/
@@ -2105,13 +2181,33 @@ mobile. Make sure to double check these!
 			*/ }
   /* end .footer-links */ }
 
+@media only screen and (min-width: 1024px) {
+  /******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet Landscape Stylsheet
+
+******************************************************************/
+  #container #content {
+    padding-top: 122px; }
+  .wrap {
+    margin: 0 32px; }
+  .thumb-list {
+    margin-right: -1%; }
+    .thumb-list .thumb-item {
+      margin-right: 1%;
+      width: 24%;
+      padding-bottom: 24%;
+      margin-bottom: 1%; } }
+
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
-@media only screen and (min-width: 1030px) {
+@media only screen and (min-width: 1025px) {
   /******************************************************************
 Site Name:
 Author:
@@ -2121,9 +2217,7 @@ Stylesheet: Desktop Stylsheet
 This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
-******************************************************************/
-  .wrap {
-    width: 1040px; } }
+******************************************************************/ }
 
 /*********************
 LARGE VIEWING SIZE
@@ -2139,7 +2233,59 @@ Stylesheet: Super Large Monitor Stylesheet
 You can add some advanced styles here if you like. This kicks in
 on larger screens.
 
-******************************************************************/ }
+******************************************************************/
+  #container #content {
+    padding-top: 162px; }
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto; }
+  .header {
+    height: 130px; }
+  #logo {
+    margin: 0;
+    padding-top: 10px; }
+    #logo a {
+      display: block;
+      width: 360px;
+      height: 120px;
+      background: url(../images/bachelor-provo-logo.png) no-repeat;
+      background-size: contain;
+      text-indent: -9999px; } }
+
+@media only screen and (min-width: 1560px) {
+  /******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Super Large Monitor Stylesheet
+
+You can add some advanced styles here if you like. This kicks in
+on larger screens.
+
+******************************************************************/
+  #container #content {
+    padding-top: 182px; }
+  .wrap {
+    max-width: 1500px; }
+  .header {
+    height: 150px; }
+  #logo {
+    margin: 0;
+    padding-top: 10px; }
+    #logo a {
+      display: block;
+      width: 420px;
+      height: 140px;
+      background: url(../images/bachelor-provo-logo.png) no-repeat;
+      background-size: contain;
+      text-indent: -9999px; }
+  .thumb-list {
+    margin-right: -1%; }
+    .thumb-list .thumb-item {
+      margin-right: 1%;
+      width: 19%;
+      padding-bottom: 19%;
+      margin-bottom: 1%; } }
 
 /*********************
 RETINA (2x RESOLUTION DEVICES)

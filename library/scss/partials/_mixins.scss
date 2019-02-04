@@ -65,28 +65,35 @@ Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8, $vstart:"", $vend:"", $hstart:"", $hend:"" ) {
-	$webkitDirectionString1: "";
-	$otherBrowserDirectionString: "";
-	$basicDirectionString: "";
-	@if $vstart or $vend or $hstart or $hend {
-		$webkitDirectionString1: linear, unquote($hstart) unquote($vstart), unquote($hstart) unquote($vend);
-		$otherBrowserDirectionString: unquote($hstart) unquote($vstart);
-		$basicDirectionString: to unquote($hend) unquote($vend);
-	} @else {
-		$webkitDirectionString1: "";
-		$otherBrowserDirectionString: "";
-		$basicDirectionString: "";
+@mixin linear-gradient($from: #dfdfdf, $to: #f8f8f8, $vstart:false, $vend:false, $hstart:false, $hend:false ) {
+	$fromDirectionString: "";
+	$toDirectionString: "";
+	@if $vstart and $vstart != 'none' and $vend and $vend != 'none' and $hstart and $hend {
+		$fromDirectionString: unquote($hstart) unquote($vstart) unquote(",");
+		$toDirectionString: to unquote($hend) unquote($vend) unquote(",");
+	} @else if $hstart or $hend {
+		$fromDirectionString: unquote($hstart) unquote(",");
+		$toDirectionString: to unquote($hend) unquote(",");
 	}
-	background-color: $to;
-	background-image: -webkit-gradient($webkitDirectionString1 from($from), to($to));
-	background-image: -webkit-linear-gradient($otherBrowserDirectionString $from, $to);
-	background-image: -moz-linear-gradient($otherBrowserDirectionString $from, $to);
-	background-image: -o-linear-gradient($otherBrowserDirectionString $from, $to);
-	background-image: linear-gradient($basicDirectionString $from, $to);
+	@else if $vstart or $vend {
+		$fromDirectionString: unquote($vstart) unquote(",");
+		$toDirectionString: to unquote($vend) unquote(",");
+	} @else {
+		$fromDirectionString:unquote(" ");
+		$toDirectionString:unquote(" ");
+	}
+	background-color: $from;
+	background-image: -webkit-linear-gradient($fromDirectionString $from, $to);
+	background-image: -moz-linear-gradient($toDirectionString $from, $to);
+	background-image: -o-linear-gradient($toDirectionString $from, $to);
+	background-image: linear-gradient($toDirectionString $from, $to);
+}
+@mixin angle-gradient($deg: 45deg, $from: #dfdfdf, $to: #f8f8f8) {
+	background-color:$from;
+	@each $prefix in $prefixes {
+		background-image:#{$prefix}linear-gradient($deg, $from, $to);
+	}
+	
 }
 @mixin css-gradient-3($color, $color1, $loc1, $color2, $loc2, $color3, $loc3, $startLoc:top) {
 	background:-webkit-linear-gradient($startLoc, $color1 $loc1, $color2 $loc2, $color3 $loc3);

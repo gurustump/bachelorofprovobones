@@ -11,15 +11,14 @@ on larger screens.
 
 #container {
 	#content {
-		padding-top:$logo-height1240 + $logo-top-padding + $gutter1024;
+		padding-top:$logo-height1560 + $logo-top-padding + $gutter1024;
 	}
 }
 .wrap {
-	max-width:1200px;
-	margin:0 auto;
+	max-width:1500px;
 }
 .header {
-	height:$logo-height1240 + $logo-top-padding;
+	height:$logo-height1560 + $logo-top-padding;
 }
 
 #logo {
@@ -27,10 +26,20 @@ on larger screens.
 	padding-top:10px;
 	a {
 		display:block;
-		width:$logo-height1240*3;
-		height:$logo-height1240;
+		width:$logo-height1560*3;
+		height:$logo-height1560;
 		background:url(../images/bachelor-provo-logo.png) no-repeat;
 		background-size:contain;
 		text-indent:-9999px;
+	}
+}
+
+.thumb-list {
+	margin-right:-1%;
+	.thumb-item {
+		margin-right:1%;
+		width:19%;
+		padding-bottom:19%;
+		margin-bottom:1%;
 	}
 }

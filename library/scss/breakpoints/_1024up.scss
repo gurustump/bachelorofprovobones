@@ -1,0 +1,26 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet Landscape Stylsheet
+
+******************************************************************/
+
+#container {
+	#content {
+		padding-top:$logo-height + $logo-top-padding + $gutter1024;
+	}
+}
+.wrap {
+	margin:0 $gutter1024;
+}
+
+.thumb-list {
+	margin-right:-1%;
+	.thumb-item {
+		margin-right:1%;
+		width:24%;
+		padding-bottom:24%;
+		margin-bottom:1%;
+	}
+}

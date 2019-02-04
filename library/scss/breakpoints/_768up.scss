@@ -23,8 +23,13 @@ body {}
 LAYOUT & GRID STYLES
 *********************/
 
+#container {
+	#content {
+		padding-top:$logo-height + $logo-top-padding + $gutter768;
+	}
+}
 .wrap {
-	width: 760px;
+	margin:0 $gutter768;
 }
 
 /*********************

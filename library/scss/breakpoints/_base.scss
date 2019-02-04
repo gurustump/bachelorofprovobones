@@ -11,6 +11,16 @@ and will be used across all viewports.
 
 ******************************************************************/
 
+$gutter:16px;
+$gutter768:24px;
+$gutter1024:32px;
+$logo-height:80px;
+$logo-top-padding:10px;
+$logo-height1240:120px;
+$logo-height1560:140px;
+$logo-top-padding:10px;
+$footer-height:56px;
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -48,7 +58,7 @@ html.b-o-p {
 body {
 	height:100%;
 	font-family:$bodyfont;
-	font-size:16px;
+	font-size:$gutter;
 	line-height:1.4;
 	color:$text-color;
 	background-color:$white;
@@ -105,10 +115,11 @@ LAYOUT & GRID STYLES
 	z-index:1;
 	height:100%;
 	#content {
+		background:$white;
 		min-height:100%;
-		padding-top:50px;
+		padding-top:$logo-height + $logo-top-padding + $gutter;
 		@include box-sizing;
-		margin-bottom:200px;
+		margin-bottom:$footer-height;
 		position:relative;
 		z-index:1;
 		/* stupid spacer for iphones */
@@ -116,14 +127,14 @@ LAYOUT & GRID STYLES
 			content:"";
 			position:absolute;
 			width:1px;
-			height:200px;
+			height:$footer-height;
 			left:0;
-			bottom:-200px;
+			bottom:$footer-height*-1;
 		}
 	}
 }
 .wrap {
-	margin:0 15px;
+	margin:0 $gutter;
 }
 
 /*********************
@@ -156,7 +167,8 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
-	font-weight:500;
+	font-weight:900;
+	margin-top:0;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -169,12 +181,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 	line-height: 1.333em;
 }
 
 h2, .h2 {
-	font-size: 1.75em;
+	font-size: 1.5em;
 	line-height: 1.4em;
 	margin-bottom: 0.375em;
 }
@@ -200,16 +212,27 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	position:fixed;
+	z-index:9990;
+	background:rgba($white,.9);
+	top:0;
+	left:0;
+	width:100%;
+	height:$logo-height + $logo-top-padding;
 }
 
-	#logo {
-		margin: 0.75em 0;
-
-		a {
-			color: $white;
-		}
+#logo {
+	margin:0;
+	padding-top:10px;
+	a {
+		display:block;
+		width:$logo-height*3;
+		height:$logo-height;
+		background:url(../images/bachelor-provo-logo.png) no-repeat;
+		background-size:contain;
+		text-indent:-9999px;
 	}
+}
 
 /*********************
 NAVIGATION STYLES
@@ -297,243 +320,292 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+.hentry {
 
-#content {
-	margin-top: 1.5em;
+	header {
+	}
+
+	footer {
+
+		p {
+			margin: 0;
+		}
+	}
+
+} /* end .hentry */
+
+.single-title,
+.page-title,
+.entry-title {
+	margin: 0;
 }
 
-		.hentry {
-			background-color: $white;
-			border-radius: 3px;
-			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
+.single-title {}
 
-			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
-			}
+.page-title {}
 
-			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
+.entry-title {}
 
-				p {
-					margin: 0;
-				}
-			}
+.archive-title {}
 
-		} /* end .hentry */
+/* want to style individual post classes? Booya! */
+.post-id {}         /* post by id (i.e. post-3) */
+.post {}            /* general post style */
+.page {}            /* general article on a page style */
+.attachment {}      /* general style on an attatchment */
+.sticky {}          /* sticky post style */
+.hentry {}          /* hentry class */
+.category-slug {}   /* style by category (i.e. category-videos) */
+.tag-slug {}        /* style by tag (i.e. tag-news) */
 
-		.single-title,
-		.page-title,
-		.entry-title {
-			margin: 0;
-		}
+/* post meta */
+.byline {
+	color: $meta-gray;
+	font-style: italic;
+	margin: 0;
 
-		.single-title {}
+	time {}
+}
 
-		.page-title {}
+/* entry content */
+.entry-content {
 
-		.entry-title {}
-
-		.archive-title {}
-
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
-
-		/* post meta */
-		.byline {
-			color: $meta-gray;
-			font-style: italic;
-			margin: 0;
-
-			time {}
-		}
-
-		/* entry content */
-		.entry-content {
-			padding: 1.5em 1.5em 0;
-
-			p {
-				margin: 0 0 1.5em;
-			}
-
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			table {
-				width: 100%;
-				border: 1px solid $gray;
-				margin-bottom: 1.5em;
-
-				caption {
-					margin: 0 0 7px;
-					font-size: 0.75em;
-					color: $meta-gray;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-			}
-
-			tr {
-				border-bottom: 1px solid $gray;
-
-				&:nth-child(even) {
-					background-color: $light-gray;
-				}
-			}
-
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			blockquote {
-				margin: 0 0 1.5em 0.75em;
-				padding: 0 0 0 0.75em;
-				border-left: 3px solid $blue;
-				font-style: italic;
-				color: $meta-gray;
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
-			}
-
-			img {
-				margin: 0 0 1.5em 0;
-				max-width: 100%;
-				height: auto;
-			}
-
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
-
-			.size-auto,
-			.size-full,
-			.size-large,
-			.size-medium,
-			.size-thumbnail {
-				max-width: 100%;
-				height: auto;
-			}
-
-			pre {
-				background: $black;
-				color: $light-gray;
-				font-size: 0.9em;
-				padding: 1.5em;
-				margin: 0 0 1.5em;
-				border-radius: 3px;
-			}
-
-		} /* end .entry-content */
-
-		.wp-caption {
-			max-width: 100%;
-			background: #eee;
-			padding: 5px;
-
-			/* images inside wp-caption */
-			img {
-				max-width: 100%;
-				margin-bottom: 0;
-				width: 100%;
-			}
-
-			p.wp-caption-text {
-				font-size: 0.85em;
-				margin: 4px 0 7px;
-				text-align: center;
-			}
-
-		} /* end .wp-caption */
-
-		/* image gallery styles */
-		.gallery {
-
-			dl {
-
-				a {}
-
-				img {}
-
-			}
-
-			dt {}
-
-			dd {}
-
-		} /* end .gallery */
-
-		/* gallery caption styles */
-		.gallery-caption {}
-
-		.size-full {}
-		.size-large {}
-		.size-medium {}
-		.size-thumbnail {}
-
-	// the tag output
-	.tags {
-		margin: 0;
+	p {
+		margin: 0 0 1.5em;
 	}
+
+
+	ul, ol, table, dl {}
+
+	ul, ol {
+
+		li {}
+
+	}
+
+	ul {
+
+		li {}
+
+	}
+
+	ol {
+
+		li {}
+
+	}
+
+	table {
+		width: 100%;
+		border: 1px solid $gray;
+		margin-bottom: 1.5em;
+
+		caption {
+			margin: 0 0 7px;
+			font-size: 0.75em;
+			color: $meta-gray;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+	}
+
+	tr {
+		border-bottom: 1px solid $gray;
+
+		&:nth-child(even) {
+			background-color: $light-gray;
+		}
+	}
+
+	td {
+		padding: 7px;
+		border-right: 1px solid $gray;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	th {
+		background-color: $light-gray;
+		border-bottom: 1px solid $gray;
+		border-right: 1px solid $gray;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	blockquote {
+		margin: 0 0 1.5em 0.75em;
+		padding: 0 0 0 0.75em;
+		border-left: 3px solid $blue;
+		font-style: italic;
+		color: $meta-gray;
+
+		&:before {}
+
+	}
+
+	dl {}
+
+	dt {}
+
+	dd {
+		margin-left: 0;
+		font-size: 0.9em;
+		color: #787878;
+		margin-bottom: 1.5em;
+	}
+
+	img {
+		margin: 0 0 1.5em 0;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/*
+	image alignment on a screen this size may be
+	a bit difficult. It's set to start aligning
+	and floating images at the next breakpoint,
+	but it's up to you. Feel free to change it up.
+	*/
+	.alignleft, img.alignleft {}
+	.alignright, img.alignright {}
+	.aligncenter, img.aligncenter {}
+
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		max-width: 100%;
+		height: auto;
+	}
+
+	pre {
+		background: $black;
+		color: $light-gray;
+		font-size: 0.9em;
+		padding: 1.5em;
+		margin: 0 0 1.5em;
+		border-radius: 3px;
+	}
+
+} /* end .entry-content */
+
+.wp-caption {
+	max-width: 100%;
+	background: #eee;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+
+} /* end .wp-caption */
+
+/* image gallery styles */
+.gallery {
+
+	dl {
+
+		a {}
+
+		img {}
+
+	}
+
+	dt {}
+
+	dd {}
+
+} /* end .gallery */
+
+/* gallery caption styles */
+.gallery-caption {}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+
+// the tag output
+.tags {
+	margin: 0;
+}
+
+.thumb-list {
+	@include clearfix;
+	margin-right:-2%;
+	.thumb-item {
+		margin-right:2%;
+		width:48%;
+		float:left;
+		position:relative;
+		padding-bottom:48%;
+		margin-bottom:2%;
+		background:$white;
+		&.retired {
+			.image-container {
+				opacity:.4;
+			}
+			& > a {
+				.cast-info {
+					@include linear-gradient(rgba($black,0),rgba($black,.7));
+				}
+			}
+		}
+		& > a {
+			display:block;
+			position:absolute;
+			top:0;
+			left:0;
+			height:100%;
+			width:100%;
+			color:$white;
+			overflow:hidden;
+			&:hover {
+				.image-container {
+					transform:scale(1.2);
+					opacity:1;
+				}
+			}
+			.image-container {
+				display:block;
+				transition:all $transition-speed;
+			}
+			.cast-info {
+				position:absolute;
+				left:0;
+				bottom:0;
+				width:100%;
+				@include linear-gradient(rgba($black,0),rgba($black,1));
+				padding:12% 4% 4%;
+				text-shadow:0 2px 2px rgba($black,.5);
+				span {
+					display:block;
+				}
+				.cast-name {
+					font-size:.8em;
+					font-weight:bold;
+				}
+				.cast-type {
+					font-size:.75em;
+				}
+			}
+		}
+	}
+}
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -909,8 +981,15 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
-	color: $light-gray;
+	color: $meta-gray;
+	background:$black;
+	overflow:hidden;
+	height:$footer-height;
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	z-index:-1;
 }
 
 	/*

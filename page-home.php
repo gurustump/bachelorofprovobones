@@ -20,11 +20,11 @@
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 								<section class="entry-content cf" itemprop="articleBody">
-									<div class="current-season">
+									<?php /*<div class="current-season">
 										<?php print_r( get_option('bachelor_main_options')); ?>
 										<br />
 										<?php echo get_option('bachelor_main_options')['current_season']; ?>
-									</div>
+									</div> */ ?>
 									<?php 
 									$currentSeason = get_option('bachelor_main_options')['current_season'];
 									$currentShowType = get_option('bachelor_main_options')['current_show_type'];
@@ -44,6 +44,8 @@
 									));
 									$currentCast = get_posts(array(
 										'post_type' => 'people',
+										'orderby' => 'title',
+										'order' => 'ASC',
 										'tax_query' => array(
 											array(
 												'taxonomy' => 'person_cat',
@@ -67,7 +69,7 @@
 										$castMemberMeta = get_post_meta($castMember->ID);
 										$exit_episode = $castMemberMeta['_bachelor_person_exit_episode'][0];
 										$cast_type = 'test';
-										$markup = '<div class="'.$type.($exit_episode ? ' retired' : '').'">';
+										$markup = '<div class="thumb-item '.$type.($exit_episode ? ' retired' : '').'">';
 										$markup .= (string)$testorama;
 										$markup .= '<a href="'.get_permalink($castMember->ID).'">';
 										if (has_post_thumbnail($castMember->ID)) {
@@ -75,30 +77,32 @@
 											$markup .= '<img src="'.get_the_post_thumbnail_url($castMember->ID,'thumbnail').'" alt="'.$castMember->post_name.'" />';
 											$markup .= '</span>';
 										}
+										$markup .= '<div class="cast-info">';
 										$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
 										$markup .= '<span class="cast-type">';
-										$markup .= $type == 'host' ? 'Host' : $type == 'contestant' ? ucfirst($currentContestantType) : ucfirst($currentShowType);
-										$markup .= '</span>';
+										$markup .= $type == 'host' ? 'Host' : $type == 'contestant' ? ucfirst($currentContestantType) : 'The '.ucfirst($currentShowType);
+										$markup .= '</span></div>';
 										$markup .= '</a>';
 										$markup .= '</div>';
-										$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
-										$markup .= print_r($castMember,true);
-										$markup .= '</pre>';
+										//$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
+										//$markup .= print_r($castMember,true);
+										//$markup .= '</pre>';
 										return $markup;
 									}
 									if (count($currentStar) > 0 || count($currentCast) > 0) { ?>
-									<div class="current-contestants">
+									<div class="current-cast">
 										<h2>Current Cast</h2>
-										<?php foreach($currentStar as $key => $castMember) {
-											echo castMemberMarkup($castMember,'star');
-										}
-										foreach($currentCast as $key => $castMember) { 
-											echo castMemberMarkup($castMember,'contestant');
-											print_r( setCastMemberType('contestant'));
-										}
-										foreach($currentHost as $key => $castMember) { 
-											echo castMemberMarkup($castMember,'host');
-										} ?>
+										<div class="thumb-list">
+											<?php foreach($currentStar as $key => $castMember) {
+												echo castMemberMarkup($castMember,'star');
+											}
+											foreach($currentCast as $key => $castMember) { 
+												echo castMemberMarkup($castMember,'contestant');
+											}
+											foreach($currentHost as $key => $castMember) { 
+												echo castMemberMarkup($castMember,'host');
+											} ?>
+										</div>
 									</div>
 									<?php } ?>
 									<?php the_content(); ?>
