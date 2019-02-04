@@ -28,6 +28,14 @@
 		<meta name="msapplication-TileColor" content="#f01d4f">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
             <meta name="theme-color" content="#121212">
+		
+		<?php if (is_front_page()) { ?>
+		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/library/images/bachelor-provo-og.png" />
+		<?php } ?>
+		
+		<?php if (is_singular() && has_post_thumbnail(get_the_ID())) { ?>
+		<meta property="og:image" content="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" />
+		<?php } ?>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
