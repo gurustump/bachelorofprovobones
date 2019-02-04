@@ -1622,6 +1622,17 @@ POSTS & CONTENT STYLES
         .thumb-list .thumb-item > a .cast-info .cast-type {
           font-size: .75em; }
 
+.video-container {
+  width: 100%;
+  padding-bottom: 56.25%;
+  position: relative; }
+  .video-container > iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -1964,6 +1975,11 @@ html body.hide-admin-bar div#wpadminbar {
 /******************************************
 PAGE SPECIFIC STYLES
 ******************************************/
+body.home .current-episode {
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 16px; }
+
 body.single-people h1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   margin-bottom: 8px; }

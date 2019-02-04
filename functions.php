@@ -485,5 +485,12 @@ function gurustump_gallery_shortcode( $attr ) {
 
 	return $output;
 } // end gurustump_gallery_shortcode
+function getYoutubeIDfromURL($url) {
+	preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+	return $match[1];
+}
+function createYoutubePlayer($youtubeID) {
+	return '<div class="video-container"><iframe src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

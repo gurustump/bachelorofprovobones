@@ -61,10 +61,10 @@ function person_custom_type() {
 	); // end of register post type 
 	
 }
-
 // adding the function to the Wordpress init
 add_action( 'init', 'person_custom_type');
 
+/*
 register_taxonomy( 'person_cat', 
 	array('people'),
 	array('hierarchical' => true,
@@ -86,6 +86,7 @@ register_taxonomy( 'person_cat',
 		'rewrite' => array( 'slug' => 'cast' ),
 	)
 );
+*/
 
 // Season custom post type
 function season_custom_type() { 

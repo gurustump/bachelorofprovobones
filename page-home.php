@@ -23,14 +23,24 @@
 								
 									<?php 
 									$currentSeasonID = get_option('bachelor_main_options')['current_season'];
-									$currentSeason = get_page_by_path('1',OBJECT,'season');
+									$currentSeasonEpisodeIDs = get_post_meta($currentSeasonID,'_bachelor_season_attached_episodes',true);
+									
+									?>
+									
+									<div class="current-episode">
+										<h2>Latest Episode</h2>
+										<?php $currentMostRecentEpisode = get_posts(array(
+											'post_type' => 'episodes',
+											'post__in' => $currentSeasonEpisodeIDs,
+											'numberposts' => 1,
+										));
+										echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true))); ?>
+									</div>
+									
+									<?php
 									$currentSeasonType = get_post_meta($currentSeasonID,'_bachelor_season_show_type',true);
-									$currentSeasonEpisodes = get_post_meta($currentSeasonID,'_bachelor_season_attached_episodes',true);
 									$currentSeasonCast = get_post_meta($currentSeasonID,'_bachelor_season_attached_people',true);
 									$currentContestantType = $currentSeasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
-								
-									
-									
 									function castMemberMarkup($castMember,$role) {
 										global $currentContestantType,$currentSeasonType;
 										$castMemberMeta = get_post_meta($castMember->ID);
@@ -58,23 +68,11 @@
 									<div class="current-cast">
 										<h2>Current Cast</h2>
 										<div class="thumb-list">
-											<?php 
-											foreach($currentSeasonCast as $key => $castMemberID) {
+											<?php foreach($currentSeasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												/*echo '<pre>';
-												print_r(get_post_meta($castMemberID));
-												echo '</pre>';*/
-												//$castMemberMeta = 
 												echo castMemberMarkup($castMember,$role);
-											}
-											/*foreach($currentCast as $key => $castMember) { 
-												echo castMemberMarkup($castMember,'contestant');
-											}
-											foreach($currentHost as $key => $castMember) { 
-												echo castMemberMarkup($castMember,'host');
-											} */
-											?>
+											} ?>
 										</div>
 									</div>
 									<?php } ?>
