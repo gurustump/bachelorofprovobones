@@ -112,6 +112,19 @@ jQuery(document).ready(function($) {
 	var win = $(window);
 	var html = $('html');
 	var body = $('body');
+	
+	// Control mobile main nav
+	$('.TRIGGER_NAV').click(function(e) {
+		e.preventDefault();
+		$(this).add('.MAIN_NAV').toggleClass('active');
+		html.toggleClass('mobile-nav-active');
+	});
+	
+	$('.MAIN_NAV').on('click','a',function(e) {
+		if (mobileDeviceType()) {
+			$('.TRIGGER_NAV').click();
+		}
+	});
 
   /*
    * Let's fire off the gravatar function

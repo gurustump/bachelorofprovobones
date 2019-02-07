@@ -1395,6 +1395,7 @@ HEADER STYLES
   height: 90px; }
 
 #logo {
+  float: left;
   margin: 0;
   padding-top: 10px; }
   #logo a {
@@ -1446,6 +1447,131 @@ and more scalable.
       padding-left: 30px; }
 
 /* end .nav */
+.main-nav-container {
+  position: absolute;
+  left: 110%;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  height: 100%;
+  -webkit-transition: left 0.35s;
+  -moz-transition: left 0.35s;
+  -ms-transition: left 0.35s;
+  -o-transition: left 0.35s;
+  transition: left 0.35s; }
+  .main-nav-container.active {
+    left: 0; }
+  .main-nav-container > h5 {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 0; }
+
+.main-menu {
+  border-bottom: 0;
+  margin: 0;
+  overflow: auto;
+  z-index: 9998;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  .main-menu li a {
+    outline: 0;
+    padding: 0;
+    height: 80px;
+    line-height: 80px;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.04); }
+    .main-menu li a:hover {
+      color: #000; }
+
+.trigger-nav {
+  height: 50px;
+  margin-right: 8px;
+  color: #fff;
+  position: fixed;
+  padding: 13px;
+  top: 0;
+  right: -4px;
+  font-size: 17px;
+  z-index: 9999;
+  border-bottom: 0;
+  outline: none !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: top 0.275ms;
+  -moz-transition: top 0.275ms;
+  -ms-transition: top 0.275ms;
+  -o-transition: top 0.275ms;
+  transition: top 0.275ms; }
+  .trigger-nav.active {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box; }
+  .trigger-nav > span {
+    float: left;
+    height: 24px;
+    line-height: 24px; }
+  .trigger-nav .ic {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 5px;
+    -webkit-transition: all 275ms;
+    -moz-transition: all 275ms;
+    -ms-transition: all 275ms;
+    -o-transition: all 275ms;
+    transition: all 275ms; }
+    .trigger-nav .ic > span {
+      background: #000;
+      -webkit-border-radius: 1px;
+      -moz-border-radius: 1px;
+      -ms-border-radius: 1px;
+      -o-border-radius: 1px;
+      border-radius: 1px;
+      display: block;
+      height: 2px;
+      margin-bottom: 4px;
+      -webkit-transition: all 275ms;
+      -moz-transition: all 275ms;
+      -ms-transition: all 275ms;
+      -o-transition: all 275ms;
+      transition: all 275ms;
+      width: 22px; }
+  .trigger-nav.active .ic {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+    .trigger-nav.active .ic > span {
+      background: #aaa; }
+      .trigger-nav.active .ic > span.bar-1 {
+        -webkit-transform: translateY(6px);
+        -moz-transform: translateY(6px);
+        -ms-transform: translateY(6px);
+        -o-transform: translateY(6px);
+        transform: translateY(6px); }
+      .trigger-nav.active .ic > span.bar-2 {
+        opacity: 0; }
+      .trigger-nav.active .ic > span.bar-3 {
+        -webkit-transform: rotate(-90deg) translateX(5px);
+        -moz-transform: rotate(-90deg) translateX(5px);
+        -ms-transform: rotate(-90deg) translateX(5px);
+        -o-transform: rotate(-90deg) translateX(5px);
+        transform: rotate(-90deg) translateX(5px); }
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -1639,6 +1765,13 @@ POSTS & CONTENT STYLES
   margin: 32px auto;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 24px 32px; }
+  .contact-form-container .instructions {
+    font-size: .8em;
+    line-height: 1.2em;
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -2141,64 +2274,6 @@ HEADER STYLES
   /*********************
 NAVIGATION STYLES
 *********************/
-  .nav {
-    border: 0;
-    /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
-    .nav ul {
-      background: #000;
-      margin-top: 0; }
-    .nav li {
-      float: left;
-      position: relative;
-      /*
-		plan your menus and drop-downs wisely.
-		*/
-      /* showing sub-menus */ }
-      .nav li a {
-        border-bottom: 0;
-        /*
-			you can use hover styles here even though this size
-			has the possibility of being a mobile device.
-			*/ }
-        .nav li a:hover, .nav li a:focus {
-          color: #fff;
-          text-decoration: underline; }
-      .nav li ul.sub-menu,
-      .nav li ul.children {
-        margin-top: 0;
-        border: 1px solid #ccc;
-        border-top: 0;
-        position: absolute;
-        visibility: hidden;
-        z-index: 8999;
-        /* highlight sub-menu current page */ }
-        .nav li ul.sub-menu li,
-        .nav li ul.children li {
-          /*
-				if you need to go deeper, go nuts
-				just remember deeper menus suck
-				for usability. k, bai.
-				*/ }
-          .nav li ul.sub-menu li a,
-          .nav li ul.children li a {
-            padding-left: 10px;
-            border-right: 0;
-            display: block;
-            width: 180px;
-            border-bottom: 1px solid #ccc; }
-          .nav li ul.sub-menu li:last-child a,
-          .nav li ul.children li:last-child a {
-            border-bottom: 0; }
-          .nav li ul.sub-menu li ul,
-          .nav li ul.children li ul {
-            top: 0;
-            left: 100%; }
-      .nav li:hover > ul {
-        top: auto;
-        visibility: visible; }
-  /* end .nav */
   /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -2296,7 +2371,80 @@ Stylesheet: Desktop Stylsheet
 This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
-******************************************************************/ }
+******************************************************************/
+  /*********************
+NAVIGATION STYLES
+*********************/
+  .main-nav-container {
+    float: right;
+    position: static;
+    background: none;
+    width: auto;
+    height: auto; }
+  .main-menu {
+    border: 0;
+    overflow: visible;
+    background: none;
+    /* end .menu ul li */
+    /* highlight current page */
+    /* end current highlighters */ }
+    .main-menu li {
+      float: left;
+      position: relative;
+      /* showing sub-menus */ }
+      .main-menu li a {
+        border-bottom: 0;
+        border-color: transparent;
+        -webkit-transition: height 375ms, line-height 375ms, border 375ms;
+        -moz-transition: height 375ms, line-height 375ms, border 375ms;
+        -ms-transition: height 375ms, line-height 375ms, border 375ms;
+        -o-transition: height 375ms, line-height 375ms, border 375ms;
+        transition: height 375ms, line-height 375ms, border 375ms;
+        background: none;
+        font-size: 18px;
+        height: 65px;
+        line-height: 65px;
+        padding: 0 12px; }
+        .main-menu li a:hover {
+          text-decoration: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+          html.secondary-scrolled .main-menu li a:hover {
+            background-color: rgba(0, 0, 0, 0.5); }
+      .main-menu li li a {
+        height: 55px;
+        line-height: 55px; }
+      .main-menu li ul.sub-menu,
+      .main-menu li ul.children {
+        margin-top: 0;
+        border-top: 0;
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.5s;
+        -moz-transition: opacity 0.5s;
+        -ms-transition: opacity 0.5s;
+        -o-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+        height: 0;
+        overflow: hidden;
+        z-index: 8999;
+        /* highlight sub-menu current page */ }
+        .main-menu li ul.sub-menu li a,
+        .main-menu li ul.children li a {
+          padding-left: 10px;
+          border-right: 0;
+          display: block;
+          border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .main-menu li ul.sub-menu li ul,
+        .main-menu li ul.children li ul {
+          top: 0;
+          left: 100%; }
+      .main-menu li:hover > ul {
+        top: auto;
+        opacity: 1;
+        height: auto; }
+  /* end .nav */
+  .trigger-nav {
+    display: none; } }
 
 /*********************
 LARGE VIEWING SIZE
