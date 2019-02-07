@@ -622,6 +622,12 @@ POSTS & CONTENT STYLES
 		height:100%;
 	}
 }
+.contact-form-container {
+	max-width:600px;
+	margin:$gutter*2 auto;
+	border:1px solid $border-color;
+	padding:$gutter*1.5 $gutter*2;
+}
 
 /******************************************************************
 PAGE NAVI STYLES
