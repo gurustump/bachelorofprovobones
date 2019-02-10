@@ -54,7 +54,8 @@
 											<h2>Episode Guide</h2>
 											<ul class="episode-list">
 											<?php foreach($seasonEpisodes as $episodeID) { 
-												$episode = get_post($episodeID); ?>
+												$episode = get_post($episodeID);
+												if ($episode->post_status != 'publish') { continue; } ?>
 												<li>
 													<?php 
 													$youtubeURL = get_post_meta($episodeID,'_bachelor_episode_youtube_url',true);
