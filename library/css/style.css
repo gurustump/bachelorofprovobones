@@ -865,30 +865,34 @@ Here's a quick video to show how it works:
 http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
-.blue-btn, .comment-reply-link, #submit {
+.btn, .blue-btn, .comment-reply-link, #submit, .btn:visited, .blue-btn:visited, .comment-reply-link:visited, #submit:visited {
   display: inline-block;
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
   color: #fff;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
+  background-color: #999;
+  font-size: 1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  font-weight: bold;
+  padding: 0 1.5em;
+  border-radius: 1.25em;
   border: 0;
   cursor: pointer;
-  -webkit-transition: background-color 0.14s ease-in-out;
-  -moz-transition: background-color 0.14s ease-in-out;
-  -ms-transition: background-color 0.14s ease-in-out;
-  -o-transition: background-color 0.14s ease-in-out;
-  transition: background-color 0.14s ease-in-out; }
-  .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
+  -webkit-transition: background-color 375ms ease-in-out;
+  -moz-transition: background-color 375ms ease-in-out;
+  -ms-transition: background-color 375ms ease-in-out;
+  -o-transition: background-color 375ms ease-in-out;
+  transition: background-color 375ms ease-in-out; }
+  .btn:hover, .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .btn:visited:hover, .blue-btn:visited:hover, .comment-reply-link:visited:hover, #submit:visited:hover {
     color: #fff;
     text-decoration: none;
-    outline: none; }
-  .blue-btn:active, .comment-reply-link:active, #submit:active {
+    outline: none;
+    background-color: gray; }
+  .btn:active, .blue-btn:active, .comment-reply-link:active, #submit:active, .btn:visited:active, .blue-btn:visited:active, .comment-reply-link:visited:active, #submit:visited:active {
     top: 1px; }
 
 /*
@@ -896,6 +900,27 @@ An example button.
 You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
+.btn-red, .btn-red:visited {
+  background-color: #f00; }
+  .btn-red:hover, .btn-red:visited:hover {
+    background-color: #cc0000; }
+
+.btn-blue, .btn-blue:visited {
+  background-color: #2980b9; }
+  .btn-blue:hover, .btn-blue:visited:hover {
+    background-color: #20638f; }
+
+.btn-green, .btn-green:visited {
+  background-color: #00b217; }
+  .btn-green:hover, .btn-green:visited:hover {
+    background-color: #007f10; }
+
+.btn-small {
+  font-size: .75em; }
+
+.btn-large {
+  font-size: 1.25em; }
+
 .blue-btn, .comment-reply-link, #submit {
   background-color: #2980b9; }
   .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
@@ -1379,7 +1404,7 @@ h5, .h5 {
   text-transform: uppercase;
   letter-spacing: 2px; }
 
-p {
+p, ul, ol {
   margin-top: 0; }
 
 /*********************
@@ -1600,6 +1625,9 @@ POSTS & CONTENT STYLES
   margin: 0; }
 
 /* entry content */
+.entry-content.has-content-secondary .content-primary {
+  margin-bottom: 16px; }
+
 .entry-content {
   /*
 	image alignment on a screen this size may be
@@ -1749,6 +1777,41 @@ POSTS & CONTENT STYLES
         .thumb-list .thumb-item > a .cast-info .cast-type {
           font-size: .75em; }
 
+.episode-list > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px; }
+
+.episode-list .image-container {
+  max-width: 400px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 16px; }
+  .episode-list .image-container img {
+    display: block;
+    margin-bottom: 0; }
+
+.modules .module {
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px; }
+  .modules .module:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.video-outer-wrapper {
+  margin-bottom: 1.5em; }
+
 .video-container {
   width: 100%;
   padding-bottom: 56.25%;
@@ -1763,7 +1826,7 @@ POSTS & CONTENT STYLES
 .contact-form-container {
   max-width: 600px;
   margin: 32px auto;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 24px 32px; }
   .contact-form-container .instructions {
     font-size: .8em;
@@ -1771,7 +1834,7 @@ POSTS & CONTENT STYLES
     display: block;
     margin-top: 8px;
     padding-top: 8px;
-    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -1966,7 +2029,7 @@ SIDEBARS & ASIDES
   background-color: #fff;
   padding: 1.5em;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   margin-bottom: 1.5em; }
 
@@ -2127,13 +2190,16 @@ html body.hide-admin-bar div#wpadminbar {
 /******************************************
 PAGE SPECIFIC STYLES
 ******************************************/
-body.home .current-episode {
+body.home .content-primary {
   margin-bottom: 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 16px; }
 
+body.home .home-module-container .current-episode {
+  margin-bottom: 16px; }
+
 body.single-people h1 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 8px; }
 
 body.single-people .byline {
@@ -2152,6 +2218,51 @@ body.single-people .byline {
 body.single-people .image-container img {
   display: block;
   width: 100%; }
+
+body.single-seasons .article-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px; }
+
+body.single-episodes .article-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px; }
+  body.single-episodes .article-header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.single-episodes .article-header .single-title {
+    float: left; }
+  body.single-episodes .article-header .breadcrumb {
+    float: right;
+    height: 2.66em;
+    line-height: 2.66em; }
+    body.single-episodes .article-header .breadcrumb a {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .75em;
+      padding-left: 14px; }
+      body.single-episodes .article-header .breadcrumb a:before {
+        content: "";
+        width: 0;
+        height: 0;
+        display: inline-block;
+        float: none;
+        margin: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative;
+        top: 50%;
+        border-right: 10px solid #f01d4f; }
+      body.single-episodes .article-header .breadcrumb a:before {
+        position: absolute;
+        left: 0; }
 
 /*********************
 LARGER MOBILE DEVICES
@@ -2223,12 +2334,12 @@ POSTS & CONTENT STYLES
       clear: both; }
   /* end .entry-content */
   .thumb-list {
-    margin-right: -1.3%; }
+    margin-right: -1.33%; }
     .thumb-list .thumb-item {
-      margin-right: 1.3%;
+      margin-right: 1.33%;
       width: 32%;
       padding-bottom: 32%;
-      margin-bottom: 1.3%; }
+      margin-bottom: 1.33%; }
   /*********************
 FOOTER STYLES
 *********************/
@@ -2330,6 +2441,39 @@ Stylesheet: Tablet Landscape Stylsheet
     padding-top: 122px; }
   .wrap {
     margin: 0 32px; }
+  .entry-content.has-content-secondary {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .entry-content.has-content-secondary .content-primary {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 75%;
+      flex: 0 0 75%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-right: 32px;
+      margin-bottom: 0; }
+    .entry-content.has-content-secondary .content-secondary {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-left: 32px;
+      border-left: 1px solid rgba(0, 0, 0, 0.1); }
+    .entry-content.has-content-secondary .thumb-list {
+      margin-right: -1.33%; }
+      .entry-content.has-content-secondary .thumb-list .thumb-item {
+        margin-right: 1.33%;
+        margin-bottom: 1.33%;
+        width: 32%;
+        padding-bottom: 32%; }
   .thumb-list {
     margin-right: -1%; }
     .thumb-list .thumb-item {
@@ -2337,11 +2481,43 @@ Stylesheet: Tablet Landscape Stylsheet
       width: 24%;
       padding-bottom: 24%;
       margin-bottom: 1%; }
+  .modules .module {
+    padding-bottom: 32px;
+    margin-bottom: 32px; }
   /******************************************
 PAGE SPECIFIC STYLES
 ******************************************/
+  body.home .home-module-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 32px; }
+    body.home .home-module-container h2 {
+      margin-bottom: 16px; }
+    body.home .home-module-container .current-episode {
+      padding: 16px 32px 0 0;
+      margin-bottom: 0;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+      flex: 0 0 60%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box; }
+    body.home .home-module-container .home-module {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+      flex: 0 0 40%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 16px 0 0 32px;
+      border-left: 1px solid rgba(0, 0, 0, 0.1); }
   body.single-people .article-header {
-    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
   body.single-people .title-container {
     float: left;
     width: 40%; }
@@ -2353,7 +2529,11 @@ PAGE SPECIFIC STYLES
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
-    box-sizing: border-box; } }
+    box-sizing: border-box; }
+  body.single-seasons .article-header {
+    padding-bottom: 32px; }
+  body.single-episodes .article-header {
+    margin-bottom: 16px; } }
 
 /*********************
 DESKTOP
@@ -2402,12 +2582,12 @@ NAVIGATION STYLES
         transition: height 375ms, line-height 375ms, border 375ms;
         background: none;
         font-size: 18px;
-        height: 65px;
-        line-height: 65px;
+        height: 80px;
+        line-height: 80px;
         padding: 0 12px; }
         .main-menu li a:hover {
           text-decoration: none;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
           html.secondary-scrolled .main-menu li a:hover {
             background-color: rgba(0, 0, 0, 0.5); }
       .main-menu li li a {
@@ -2477,7 +2657,10 @@ on larger screens.
       height: 120px;
       background: url(../images/bachelor-provo-logo.png) no-repeat;
       background-size: contain;
-      text-indent: -9999px; } }
+      text-indent: -9999px; }
+  .main-menu li a {
+    height: 120px;
+    line-height: 120px; } }
 
 @media only screen and (min-width: 1560px) {
   /******************************************************************
@@ -2506,6 +2689,9 @@ on larger screens.
       background: url(../images/bachelor-provo-logo.png) no-repeat;
       background-size: contain;
       text-indent: -9999px; }
+  .main-menu li a {
+    height: 140px;
+    line-height: 140px; }
   .thumb-list {
     margin-right: -1%; }
     .thumb-list .thumb-item {

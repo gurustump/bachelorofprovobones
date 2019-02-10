@@ -24,33 +24,37 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
 
-%btn {
-  display: inline-block;
-  position: relative;
-  font-family: $sans-serif;
-  text-decoration: none;
-  color: $white;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  @include transition(background-color 0.14s ease-in-out);
+.btn, .btn:visited {
+	display:inline-block;
+	position:relative;
+	font-family:$buttonfont;
+	text-transform:uppercase;
+	text-decoration:none;
+	text-align:center;
+	color:$white;
+	background-color:$meta-gray;
+	font-size:1em;
+	height:2.5em;
+	line-height:2.5em;
+	font-weight:bold;
+	padding:0 1.5em;
+	border-radius:1.25em;
+	border:0;
+	cursor:pointer;
+	@include transition(background-color $transition-speed ease-in-out);
 
-  // hovering on the btn
-  &:hover, &:focus {
-    color: $white;
-    text-decoration: none;
-    outline: none;
-  } // end hover
+	// hovering on the btn
+	&:hover {
+		color:$white;
+		text-decoration:none;
+		outline:none;
+		background-color:darken($meta-gray, 10%);
+	} // end hover
 
-  // clicking on the button
-  &:active {
-    top: 1px; // adds a tiny hop to the click
-  } // end active
+	// clicking on the button
+	&:active {
+		top: 1px; // adds a tiny hop to the click
+	} // end active
 
 } // end .button
 
@@ -59,8 +63,32 @@ An example button.
 You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
+.btn-red, .btn-red:visited {
+	background-color:$red;
+	&:hover {
+		background-color:darken($red, 10%);
+	}
+}
+.btn-blue, .btn-blue:visited {
+	background-color:$blue;
+	&:hover {
+		background-color:darken($blue, 10%);
+	}
+}
+.btn-green, .btn-green:visited {
+	background-color:$green;
+	&:hover {
+		background-color:darken($green, 10%);
+	}
+}
+.btn-small {
+	font-size:.75em;
+}
+.btn-large {
+	font-size:1.25em;
+}
 .blue-btn {
-  @extend %btn; // here we load the btn defaults
+  @extend .btn; // here we load the btn defaults
   background-color: $blue;
 
   &:hover,

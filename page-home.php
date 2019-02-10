@@ -25,53 +25,48 @@
 									$currentSeasonID = get_option('bachelor_main_options')['current_season'];
 									$currentSeasonEpisodeIDs = get_post_meta($currentSeasonID,'_bachelor_season_attached_episodes',true);
 									
-									?>
-									
-									<div class="current-episode">
-										<h2>Latest Episode</h2>
-										<?php $currentMostRecentEpisode = get_posts(array(
-											'post_type' => 'episodes',
-											'post__in' => $currentSeasonEpisodeIDs,
-											'numberposts' => 1,
-										));
-										echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true))); ?>
+									$homeModule = get_posts(array( 
+										'numberposts' => 1,
+										'post_type' => 'modules',
+										'meta_query' => array(
+											array(
+												'key' => '_bachelor_module_location',
+												'value' => 'home',
+												'compare' => 'LIKE',
+											),
+										),
+									)); ?>
+									<div class="content-primary<?php echo $homeModule ? ' home-module-container':''; ?>">
+										<div class="current-episode">
+											<h2>Latest Episode</h2>
+											<?php $currentMostRecentEpisode = get_posts(array(
+												'post_type' => 'episodes',
+												'post__in' => $currentSeasonEpisodeIDs,
+												'numberposts' => 1,
+											));
+											echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true))); ?>
+										</div>
+										
+										<?php if ($homeModule) { foreach($homeModule as $module) { ?>
+										<div class="home-module">
+											<h2 class="module-title"><?php echo $module->post_title; ?></h2>
+											<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
+										</div>
+										<?php /*<pre style="clear:both"><?php print_r($module); ?></pre>*/ ?>
+										<?php } } ?>
 									</div>
 									
 									<?php
 									$currentSeasonType = get_post_meta($currentSeasonID,'_bachelor_season_show_type',true);
 									$currentSeasonCast = get_post_meta($currentSeasonID,'_bachelor_season_attached_people',true);
-									$currentContestantType = $currentSeasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
-									function castMemberMarkup($castMember,$role) {
-										global $currentContestantType,$currentSeasonType;
-										$castMemberMeta = get_post_meta($castMember->ID);
-										$exit_episode = $castMemberMeta['_bachelor_person_exit_episode'][0];
-										$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
-										$markup .= '<a href="'.get_permalink($castMember->ID).'">';
-										if (has_post_thumbnail($castMember->ID)) {
-											$markup .= '<span class="image-container">';
-											$markup .= '<img src="'.get_the_post_thumbnail_url($castMember->ID,'thumbnail').'" alt="'.$castMember->post_name.'" />';
-											$markup .= '</span>';
-										}
-										$markup .= '<div class="cast-info">';
-										$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
-										$markup .= '<span class="cast-type">';
-										$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? ucfirst($currentContestantType) : 'The '.ucfirst($currentSeasonType) );
-										$markup .= '</span></div>';
-										$markup .= '</a>';
-										$markup .= '</div>';
-										//$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
-										//$markup .= print_r($castMember,true);
-										//$markup .= '</pre>';
-										return $markup;
-									}
 									if ($currentSeasonCast) { ?>
-									<div class="current-cast">
+									<div class="current-cast cast-list">
 										<h2>Current Cast</h2>
 										<div class="thumb-list">
 											<?php foreach($currentSeasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												echo castMemberMarkup($castMember,$role);
+												echo castMemberMarkup($castMember,$role,$currentSeasonType);
 											} ?>
 										</div>
 									</div>

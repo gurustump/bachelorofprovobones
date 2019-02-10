@@ -35,8 +35,8 @@ NAVIGATION STYLES
 			@include transition(height $transition-speed, line-height $transition-speed, border $transition-speed);
 			background:none;
 			font-size:18px;
-			height:65px;
-			line-height:65px;
+			height:$logo-height;
+			line-height:$logo-height;
 			padding:0 12px;
 			&:hover {
 				text-decoration:none;

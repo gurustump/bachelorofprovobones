@@ -244,6 +244,40 @@ function bones_fonts() {
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
+// UTILITY & CONTENT FUNCTIONS
+function castMemberMarkup($castMember,$role,$seasonType) {
+	$contestantType = $seasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
+	$castMemberMeta = get_post_meta($castMember->ID);
+	$exit_episode = $castMemberMeta['_bachelor_person_exit_episode'][0];
+	$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
+	$markup .= '<a href="'.get_permalink($castMember->ID).'">';
+	if (has_post_thumbnail($castMember->ID)) {
+		$markup .= '<span class="image-container">';
+		$markup .= '<img src="'.get_the_post_thumbnail_url($castMember->ID,'thumbnail').'" alt="'.$castMember->post_name.'" />';
+		$markup .= '</span>';
+	}
+	$markup .= '<div class="cast-info">';
+	$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
+	$markup .= '<span class="cast-type">';
+	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? ucfirst($contestantType) : "Provo's Most Eligible ".ucfirst($seasonType) );
+	$markup .= '</span></div>';
+	$markup .= '</a>';
+	$markup .= '</div>';
+	//$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
+	//$markup .= print_r($castMember,true);
+	//$markup .= '</pre>';
+	return $markup;
+}
+function getYoutubeIDfromURL($url) {
+	preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+	return $match[1];
+}
+function getYoutubePoster($youtubeID,$max) {
+	return '<img src="https://i3.ytimg.com/vi/'.$youtubeID.'/'.($max ? 'maxresdefault' : 'hqdefault').'.jpg" />';
+}
+function createYoutubePlayer($youtubeID) {
+	return '<div class="video-container"><iframe src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+}
 
 // SHORTCODES
 // root path shortcode
@@ -253,16 +287,31 @@ function root_path_shortcode() {
 }
 add_shortcode('root_path', 'root_path_shortcode');
 
-// Video embed shortcode: adds container for variable width and height
-function video_embed_shortcode($atts) {
+// Video embed shortcode: adds container for variable width and alignment
+function youtube_embed_shortcode($atts) {
 	$a = shortcode_atts( array(
-		'embed' => '',
+		'url' => '',
 		'width' => '',
 		'align' => 'alignnone'
 	), $atts);
-	return '<div class="video-embed-container'.($a['align'] ?  ' '.$a['align'] : '').'"'.($a['width'] ?  ' style="width:'.$a['width'].'px"' : '').'><div class="video-embed">'.$a['embed'].'</div></div>';
+	return '<div class="video-outer-wrapper'.($a['align'] ?  ' '.$a['align'] : '').'"'.($a['width'] ?  ' style="width:'.$a['width'].'"' : '').'>'.createYoutubePlayer(getYoutubeIDfromURL($a['url'])).'</div>';
 }
-add_shortcode('video_embed','video_embed_shortcode');
+add_shortcode('youtube','youtube_embed_shortcode');
+
+// Button shortcode
+function button_shortcode($atts) {
+	$a = shortcode_atts( array(
+		'label' => '',
+		'url' => '',
+		'color' => '',
+		'size' => '',
+		'align' => 'none',
+		'target' => ''
+	), $atts);
+	return '<a class="align'.$a['align'].' btn'.($a['color'] ? ' btn-'.$a['color'] : '').($a['size'] ? ' btn-'.$a['size'] : '').'"'.($a['target'] ? ' target="'.$a['target'].'"' : '').' href="'.$a['url'].'">'.$a['label'].'</a>';
+	//return '<a class="btn" href="'.$a['url'].'">'.$a['label'].'</a>';
+}
+add_shortcode('button','button_shortcode');
 
 // filtering gallery shortcode
 add_shortcode('gallery', 'gurustump_gallery_shortcode');
@@ -485,12 +534,5 @@ function gurustump_gallery_shortcode( $attr ) {
 
 	return $output;
 } // end gurustump_gallery_shortcode
-function getYoutubeIDfromURL($url) {
-	preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
-	return $match[1];
-}
-function createYoutubePlayer($youtubeID) {
-	return '<div class="video-container"><iframe src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
-}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

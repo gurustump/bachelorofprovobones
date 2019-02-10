@@ -206,7 +206,7 @@ h5, .h5 {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
-p {
+p, ul, ol {
 	margin-top:0;
 }
 
@@ -468,6 +468,11 @@ POSTS & CONTENT STYLES
 }
 
 /* entry content */
+.entry-content.has-content-secondary {
+	.content-primary {
+		margin-bottom:$gutter;
+	}
+}
 .entry-content {
 
 	p {
@@ -706,6 +711,36 @@ POSTS & CONTENT STYLES
 		}
 	}
 }
+.episode-list {
+	& > li {
+		display:flex;
+		padding-bottom:$gutter;
+		border-bottom:1px solid $border-color;
+		margin-bottom:$gutter;
+	}
+	.image-container {
+		max-width:400px;
+		flex:0 0 40%;
+		@include box-sizing;
+		padding-right:$gutter;
+		img {
+			display:block;
+			margin-bottom:0;
+		}
+	}
+	
+}
+.modules {
+	.module {
+		@include clearfix;
+		padding-bottom:$gutter;
+		border-bottom:1px solid $border-color;
+		margin-bottom:$gutter;
+	}
+}
+.video-outer-wrapper {
+	margin-bottom:1.5em;
+}
 .video-container {
 	width:100%;
 	padding-bottom:56.25%;
@@ -736,7 +771,6 @@ POSTS & CONTENT STYLES
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
-
 .pagination,
 .wp-prev-next {
 	margin: 1.5em 0;
@@ -1225,10 +1259,15 @@ html body {
 PAGE SPECIFIC STYLES
 ******************************************/
 body.home {
-	.current-episode {
+	.content-primary {
 		margin-bottom:$gutter;
 		border-bottom:1px solid $border-color;
 		padding-bottom:$gutter;
+	}
+	.home-module-container {
+		.current-episode {
+			margin-bottom:$gutter;
+		}
 	}
 }
 body.single-people {
@@ -1256,6 +1295,40 @@ body.single-people {
 		img {
 			display:block;
 			width:100%;
+		}
+	}
+}
+body.single-seasons {
+	.article-header {
+		border-bottom:1px solid $border-color;
+		margin-bottom:$gutter;
+	}
+}
+body.single-episodes {
+	.article-header {
+		@include clearfix;
+		border-bottom:1px solid $border-color;
+		margin-bottom:$gutter*.5;
+		.single-title {
+			float:left;
+		}
+		.breadcrumb {
+			float:right;
+			height:2.66em;
+			line-height:2.66em;
+			a {
+				position:relative;
+				display:inline-block;
+				text-decoration:none;
+				text-transform:uppercase;
+				font-size:.75em;
+				padding-left:14px;
+				@include tri-before(left, 5px, 10px, $link-color);
+				&:before {
+					position:absolute;
+					left:0;
+				}
+			}
 		}
 	}
 }

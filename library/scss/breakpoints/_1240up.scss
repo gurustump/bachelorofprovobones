@@ -34,3 +34,11 @@ on larger screens.
 		text-indent:-9999px;
 	}
 }
+.main-menu {
+	li {
+		a {
+			height:$logo-height1240;
+			line-height:$logo-height1240;
+		}
+	}
+}

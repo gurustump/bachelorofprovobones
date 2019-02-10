@@ -33,6 +33,14 @@ on larger screens.
 		text-indent:-9999px;
 	}
 }
+.main-menu {
+	li {
+		a {
+			height:$logo-height1560;
+			line-height:$logo-height1560;
+		}
+	}
+}
 
 .thumb-list {
 	margin-right:-1%;

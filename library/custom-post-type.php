@@ -48,13 +48,13 @@ function person_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 7,
+			'menu_position' => 6,
 			'menu_icon' => 'dashicons-universal-access',
 			'rewrite'	=> array( 'slug' => 'people', 'with_front' => false ),
 			//'has_archive' => 'show',
 			'has_archive' => false,
 			'hierarchical' => false,
-				'capability_type' => 'post',
+			'capability_type' => 'post',
 			// the next one is important, it tells what's enabled in the post editor 
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
 		) // end of options 
@@ -114,20 +114,19 @@ function season_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8,
+			'menu_position' => 7,
 			'menu_icon' => 'dashicons-calendar-alt',
 			'rewrite'	=> array( 'slug' => 'seasons', 'with_front' => false ),
 			//'has_archive' => 'show',
 			'has_archive' => false,
 			'hierarchical' => false,
-				'capability_type' => 'post',
+			'capability_type' => 'post',
 			// the next one is important, it tells what's enabled in the post editor 
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
 		) // end of options 
 	); // end of register post type 
 	
 }
-
 // adding the function to the Wordpress init
 add_action( 'init', 'season_custom_type');
 
@@ -157,43 +156,80 @@ function episode_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 9,
+			'menu_position' => 8,
 			'menu_icon' => 'dashicons-media-video',
 			'rewrite'	=> array( 'slug' => 'episodes', 'with_front' => false ),
 			//'has_archive' => 'show',
 			'has_archive' => false,
 			'hierarchical' => false,
-				'capability_type' => 'post',
+			'capability_type' => 'post',
 			// the next one is important, it tells what's enabled in the post editor 
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
 		) // end of options 
 	); // end of register post type 
 	
 }
-
 // adding the function to the Wordpress init
 add_action( 'init', 'episode_custom_type');
+
+
+function module_post_type() { 
+	register_post_type( 'modules', 
+		array( 'labels' => array(
+			'name' => __( 'Modules/Ads', 'bonestheme' ),
+			'singular_name' => __( 'Module', 'bonestheme' ),
+			'all_items' => __( 'All Modules', 'bonestheme' ), 
+			'add_new' => __( 'Add New', 'bonestheme' ),
+			'add_new_item' => __( 'Add New Module', 'bonestheme' ),
+			'edit' => __( 'Edit', 'bonestheme' ),
+			'edit_item' => __( 'Edit Module', 'bonestheme' ),
+			'new_item' => __( 'New Module', 'bonestheme' ),
+			'view_item' => __( 'View Module', 'bonestheme' ),
+			'search_items' => __( 'Search Modules', 'bonestheme' ),
+			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ),
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ),
+			'parent_item_colon' => ''
+			),
+			'description' => __( 'This is the module custom post type, mainly used for sections on various pages', 'bonestheme' ),
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 9, 
+			'menu_icon' => 'dashicons-grid-view',
+			'rewrite'	=> array( 'slug' => 'modules', 'with_front' => false ),
+			'has_archive' => 'module',
+			'hierarchical' => false,
+			'capability_type' => 'post',
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+		)
+	);	
+}
+
+add_action( 'init', 'module_post_type');
 	
 	/*
 	for more information on taxonomies, go here:
 	http://codex.wordpress.org/Function_Reference/register_taxonomy
 	*/
 	
+	/*
 	// now let's add custom categories (these act like categories)
 	register_taxonomy( 'custom_cat', 
-		array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-		array('hierarchical' => true,     /* if this is true, it acts like categories */
+		array('custom_type'), // if you change the name of register_post_type( 'custom_type', then you have to change this 
+		array('hierarchical' => true,     // if this is true, it acts like categories
 			'labels' => array(
-				'name' => __( 'Custom Categories', 'bonestheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Custom Category', 'bonestheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Custom Categories', 'bonestheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Custom Categories', 'bonestheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Custom Category', 'bonestheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Custom Category:', 'bonestheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Custom Category', 'bonestheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Custom Category', 'bonestheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Custom Category', 'bonestheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Custom Category Name', 'bonestheme' ) /* name title for taxonomy */
+				'name' => __( 'Custom Categories', 'bonestheme' ), // name of the custom taxonomy 
+				'singular_name' => __( 'Custom Category', 'bonestheme' ), // single taxonomy name 
+				'search_items' =>  __( 'Search Custom Categories', 'bonestheme' ), // search title for taxomony 
+				'all_items' => __( 'All Custom Categories', 'bonestheme' ), // all title for taxonomies 
+				'parent_item' => __( 'Parent Custom Category', 'bonestheme' ), // parent title for taxonomy 
+				'parent_item_colon' => __( 'Parent Custom Category:', 'bonestheme' ), // parent taxonomy title 
+				'edit_item' => __( 'Edit Custom Category', 'bonestheme' ), // edit custom taxonomy title 
+				'update_item' => __( 'Update Custom Category', 'bonestheme' ), // update title for taxonomy 
+				'add_new_item' => __( 'Add New Custom Category', 'bonestheme' ), // add new title for taxonomy 
+				'new_item_name' => __( 'New Custom Category Name', 'bonestheme' ) // name title for taxonomy 
 			),
 			'show_admin_column' => true, 
 			'show_ui' => true,
@@ -201,7 +237,7 @@ add_action( 'init', 'episode_custom_type');
 			'rewrite' => array( 'slug' => 'custom-slug' ),
 		)
 	);
-	
+	*/
 	
 
 ?>

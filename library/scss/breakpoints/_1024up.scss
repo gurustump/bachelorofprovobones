@@ -15,6 +15,30 @@ Stylesheet: Tablet Landscape Stylsheet
 	margin:0 $gutter1024;
 }
 
+.entry-content.has-content-secondary {
+	display:flex;
+	.content-primary {
+		flex:0 0 75%;
+		@include box-sizing;
+		padding-right:$gutter1024;
+		margin-bottom:0;
+	}
+	.content-secondary {
+		flex:0 0 25%;
+		@include box-sizing;
+		padding-left:$gutter1024;
+		border-left:1px solid $border-color;
+	}
+	.thumb-list {
+	margin-right:-1.33%;
+		.thumb-item {
+			margin-right:1.33%;
+			margin-bottom:1.33%;
+			width:32%;
+			padding-bottom:32%;
+		}
+	}
+}
 .thumb-list {
 	margin-right:-1%;
 	.thumb-item {
@@ -24,10 +48,38 @@ Stylesheet: Tablet Landscape Stylsheet
 		margin-bottom:1%;
 	}
 }
+.modules {
+	.module {
+		padding-bottom:$gutter1024;
+		margin-bottom:$gutter1024;
+	}
+}
 
 /******************************************
 PAGE SPECIFIC STYLES
 ******************************************/
+body.home {
+	.home-module-container {
+		display:flex;
+		padding-bottom:$gutter1024;
+		h2 {
+			margin-bottom:$gutter;
+		}
+		.current-episode {
+			padding:$gutter $gutter1024 0 0;
+			
+			margin-bottom:0;
+			flex:0 0 60%;
+			@include box-sizing;
+		}
+		.home-module {
+			flex:0 0 40%;
+			@include box-sizing;
+			padding:$gutter 0 0 $gutter1024;
+			border-left:1px solid $border-color;
+		}
+	}
+}
 body.single-people {
 	.article-header {
 		//@include clearfix;
@@ -42,5 +94,15 @@ body.single-people {
 		float:right;
 		width:60%;
 		@include box-sizing;
+	}
+}
+body.single-seasons {
+	.article-header {
+		padding-bottom:$gutter1024;
+	}
+}
+body.single-episodes {
+	.article-header {
+		margin-bottom:$gutter;
 	}
 }
