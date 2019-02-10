@@ -41,6 +41,9 @@
 										'compare' => 'LIKE',
 									),
 								),
+								'order' => 'ASC',
+								'orderby' => 'meta_value',
+								'meta_key' => '_bachelor_module_priority',
 							)); ?>
 							<section class="entry-content<?php echo $episodeModules ? ' has-content-secondary':''; ?>">
 								<div class="content-primary">

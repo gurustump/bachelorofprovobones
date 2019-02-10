@@ -38,6 +38,9 @@
 										'compare' => 'LIKE',
 									),
 								),
+								'order' => 'ASC',
+								'orderby' => 'meta_value',
+								'meta_key' => '_bachelor_module_priority',
 							));
 							$seasonType = get_post_meta(get_the_ID(),'_bachelor_season_show_type',true);
 							$seasonCast = get_post_meta(get_the_ID(),'_bachelor_season_attached_people',true);
