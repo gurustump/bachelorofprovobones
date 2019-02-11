@@ -1277,7 +1277,9 @@ html {
       background-image: linear-gradient(  #000, rgba(0, 0, 0, 0));
       background-color: transparent; }
     html.theme-dark #logo a {
-      background-image: url(../images/bachelor-provo-logo.png); }
+      background-image: url(../images/pme-logo-horiz-theme-dark.png);
+      background-position: left center;
+      width: 240px; }
     html.theme-dark .main-nav-container {
       background-color: #000; }
     html.theme-dark .main-menu {
@@ -1286,7 +1288,7 @@ html {
       html.theme-dark .main-menu li a {
         color: #fff;
         border-bottom-color: rgba(255, 255, 255, 0.1);
-        background-color: rgba(0, 0, 0, 0.04); }
+        background-color: transparent; }
         html.theme-dark .main-menu li a:hover {
           color: #fff; }
     html.theme-dark .trigger-nav {
@@ -1295,6 +1297,8 @@ html {
         background-color: #fff; }
       html.theme-dark .trigger-nav.active .ic > span {
         background-color: #white; }
+    html.theme-dark .thumb-list .thumb-item {
+      background: #000; }
     html.theme-dark .episode-list > li {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark .modules .module {
@@ -2350,6 +2354,8 @@ You can't use @extend within media queries
 anymore, so just be aware that if you drop
 them in here, they won't work.
 */
+  html.theme-dark #logo a {
+    width: 320px; }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -2629,7 +2635,8 @@ NAVIGATION STYLES
     position: static;
     background: none;
     width: auto;
-    height: auto; }
+    height: auto;
+    padding-top: 10px; }
   .main-menu {
     border: 0;
     overflow: visible;
@@ -2710,13 +2717,6 @@ You can add some advanced styles here if you like. This kicks in
 on larger screens.
 
 ******************************************************************/
-  #container #content {
-    padding-top: 172px; }
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto; }
-  .header {
-    height: 140px; }
   html.scrolled .header {
     height: 100px; }
   html.scrolled #logo a {
@@ -2725,6 +2725,15 @@ on larger screens.
   html.scrolled .main-menu li a {
     height: 80px;
     line-height: 80px; }
+  html.theme-dark #logo a {
+    width: 480px; }
+  #container #content {
+    padding-top: 172px; }
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto; }
+  .header {
+    height: 140px; }
   #logo {
     margin: 0;
     padding-top: 10px; }
@@ -2746,6 +2755,8 @@ You can add some advanced styles here if you like. This kicks in
 on larger screens.
 
 ******************************************************************/
+  html.theme-dark #logo a {
+    width: 560px; }
   #container #content {
     padding-top: 192px; }
   .wrap {
