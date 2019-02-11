@@ -44,6 +44,14 @@ html.theme-dark {
 		}
 	}
 }
+.entry-content.has-content-secondary {
+	.content-primary {
+		flex:0 0 70%;
+	}
+	.content-secondary {
+		flex:0 0 30%;
+	}
+}
 
 .thumb-list {
 	margin-right:-1%;

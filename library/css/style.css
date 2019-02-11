@@ -2524,8 +2524,8 @@ Stylesheet: Tablet Landscape Stylsheet
     display: flex; }
     .entry-content.has-content-secondary .content-primary {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 75%;
-      flex: 0 0 75%;
+      -ms-flex: 0 0 60%;
+      flex: 0 0 60%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -2535,8 +2535,8 @@ Stylesheet: Tablet Landscape Stylsheet
       margin-bottom: 0; }
     .entry-content.has-content-secondary .content-secondary {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-      flex: 0 0 25%;
+      -ms-flex: 0 0 40%;
+      flex: 0 0 40%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -2780,6 +2780,14 @@ on larger screens.
   .main-menu li a {
     height: 140px;
     line-height: 140px; }
+  .entry-content.has-content-secondary .content-primary {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%; }
+  .entry-content.has-content-secondary .content-secondary {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%; }
   .thumb-list {
     margin-right: -1%; }
     .thumb-list .thumb-item {
