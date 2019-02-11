@@ -29,6 +29,9 @@ html.b-o-p {
 	margin-top:0 !important;
 	overflow-x:hidden;
 	background:$white;
+	&.theme-dark {
+		background:$black;
+	}
 	&.mobile-nav-active {
 		body {
 			overflow:hidden;
@@ -221,13 +224,13 @@ HEADER STYLES
 	top:0;
 	left:0;
 	width:100%;
-	height:$logo-height + $logo-top-padding;
+	height:$logo-height + $logo-top-padding*2;
 }
 
 #logo {
 	float:left;
 	margin:0;
-	padding-top:10px;
+	padding:$logo-top-padding 0;
 	a {
 		outline:none;
 		display:block;
@@ -236,6 +239,7 @@ HEADER STYLES
 		background:url(../images/bachelor-provo-logo.png) no-repeat;
 		background-size:contain;
 		text-indent:-9999px;
+		transition:height $transition-speed, width $transition-speed;
 	}
 }
 

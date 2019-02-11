@@ -113,6 +113,16 @@ jQuery(document).ready(function($) {
 	var html = $('html');
 	var body = $('body');
 	
+	win.resize(function() {
+		waitForFinalEvent( function() {
+			headerHeight();
+		}, timeToWaitForLast, 'resizeWindow');
+	});
+	
+	win.scroll(function() {
+		headerHeight();
+	});
+	
 	// Control mobile main nav
 	$('.TRIGGER_NAV').click(function(e) {
 		e.preventDefault();
@@ -125,6 +135,21 @@ jQuery(document).ready(function($) {
 			$('.TRIGGER_NAV').click();
 		}
 	});
+	
+	function headerHeight() {
+		var scrollTrigger = 0;
+		// var secondaryScrollTrigger = isHome ? $('.HOME_LOGO').outerHeight()*.50: 0;
+		if (win.scrollTop() > scrollTrigger) {
+			html.addClass('scrolled');
+		} else {
+			html.removeClass('scrolled');
+		}
+		/* if (win.scrollTop() > secondaryScrollTrigger) {
+			html.addClass('secondary-scrolled');
+		} else {
+			html.removeClass('secondary-scrolled');
+		} */
+	}
 
   /*
    * Let's fire off the gravatar function

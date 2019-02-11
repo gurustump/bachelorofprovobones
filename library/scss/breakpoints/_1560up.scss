@@ -18,19 +18,15 @@ on larger screens.
 	max-width:1500px;
 }
 .header {
-	height:$logo-height1560 + $logo-top-padding;
+	height:$logo-height1560 + $logo-top-padding*2;
 }
 
 #logo {
 	margin:0;
 	padding-top:10px;
 	a {
-		display:block;
 		width:$logo-height1560*3;
 		height:$logo-height1560;
-		background:url(../images/bachelor-provo-logo.png) no-repeat;
-		background-size:contain;
-		text-indent:-9999px;
 	}
 }
 .main-menu {

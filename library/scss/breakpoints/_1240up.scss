@@ -19,19 +19,34 @@ on larger screens.
 	margin:0 auto;
 }
 .header {
-	height:$logo-height1240 + $logo-top-padding;
+	height:$logo-height1240 + $logo-top-padding*2;
 }
 
+html.scrolled {
+	.header {
+		height:$logo-height + $logo-top-padding*2;
+	}
+	#logo {
+		a {
+			width:$logo-height*3;
+			height:$logo-height;
+		}
+	}
+	.main-menu {
+		li {
+			a {
+				height:$logo-height;
+				line-height:$logo-height;
+			}
+		}
+	}
+}
 #logo {
 	margin:0;
 	padding-top:10px;
 	a {
-		display:block;
 		width:$logo-height1240*3;
-		height:$logo-height1240;
-		background:url(../images/bachelor-provo-logo.png) no-repeat;
-		background-size:contain;
-		text-indent:-9999px;
+		height:$logo-height1240; 
 	}
 }
 .main-menu {
