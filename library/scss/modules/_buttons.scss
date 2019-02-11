@@ -41,7 +41,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 	border-radius:1.25em;
 	border:0;
 	cursor:pointer;
-	outline:none;
+	outline:0;
 	@include transition(background-color $transition-speed ease-in-out);
 
 	// hovering on the btn
@@ -56,6 +56,9 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 	&:active {
 		top: 1px; // adds a tiny hop to the click
 	} // end active
+	&:focus {
+		outline:0;
+	}
 
 } // end .button
 

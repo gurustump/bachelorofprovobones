@@ -882,7 +882,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   border-radius: 1.25em;
   border: 0;
   cursor: pointer;
-  outline: none;
+  outline: 0;
   -webkit-transition: background-color 375ms ease-in-out;
   -moz-transition: background-color 375ms ease-in-out;
   -ms-transition: background-color 375ms ease-in-out;
@@ -895,6 +895,8 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
     background-color: gray; }
   .btn:active, .blue-btn:active, .comment-reply-link:active, #submit:active, .btn:visited:active, .blue-btn:visited:active, .comment-reply-link:visited:active, #submit:visited:active {
     top: 1px; }
+  .btn:focus, .blue-btn:focus, .comment-reply-link:focus, #submit:focus, .btn:visited:focus, .blue-btn:visited:focus, .comment-reply-link:visited:focus, #submit:visited:focus {
+    outline: 0; }
 
 /*
 An example button.
