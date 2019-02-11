@@ -1242,11 +1242,7 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-html.b-o-p {
-  height: 100%;
-  margin-top: 0 !important;
-  overflow-x: hidden;
-  background: #fff;
+html {
   /*&:after {
 		content:"";
 		height:100%;
@@ -1257,14 +1253,70 @@ html.b-o-p {
 		top:0;
 		left:0;
 	}*/ }
-  html.b-o-p.theme-dark {
+  html.b-o-p {
+    height: 100%;
+    margin-top: 0 !important;
+    overflow-x: hidden;
+    background: #fff; }
+  html.scrolled.theme-dark .header {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.9); }
+  html.theme-dark {
     background: #000; }
-  html.b-o-p.mobile-nav-active body {
+    html.theme-dark body {
+      color: #fff;
+      background-color: #000; }
+    html.theme-dark #container #content {
+      background: #000 url(../images/gray-dark-grunge.png); }
+    html.theme-dark .header {
+      background-color: #000;
+      background-image: -webkit-linear-gradient(  #000, rgba(0, 0, 0, 0));
+      background-image: -moz-linear-gradient(  #000, rgba(0, 0, 0, 0));
+      background-image: -o-linear-gradient(  #000, rgba(0, 0, 0, 0));
+      background-image: -webkit-gradient(  linear, left top, left bottom, from(#000), to(rgba(0, 0, 0, 0)));
+      background-image: linear-gradient(  #000, rgba(0, 0, 0, 0));
+      background-color: transparent; }
+    html.theme-dark #logo a {
+      background-image: url(../images/bachelor-provo-logo.png); }
+    html.theme-dark .main-nav-container {
+      background-color: #000; }
+    html.theme-dark .main-menu {
+      background-color: rgba(0, 0, 0, 0.9);
+      border-top-color: rgba(255, 255, 255, 0.1); }
+      html.theme-dark .main-menu li a {
+        color: #fff;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.04); }
+        html.theme-dark .main-menu li a:hover {
+          color: #fff; }
+    html.theme-dark .trigger-nav {
+      color: #000; }
+      html.theme-dark .trigger-nav .ic > span {
+        background-color: #fff; }
+      html.theme-dark .trigger-nav.active .ic > span {
+        background-color: #white; }
+    html.theme-dark .episode-list > li {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .modules .module {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .contact-form-container {
+      border-color-color: rgba(255, 255, 255, 0.15); }
+      html.theme-dark .contact-form-container .instructions {
+        border-top-color: 1px solid rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.home .content-primary {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.single-people h1 {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.single-seasons .article-header {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.single-episodes .article-header {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+  html.mobile-nav-active body {
     overflow: hidden;
     height: 100%; }
-    html.b-o-p.mobile-nav-active body header.header, html.b-o-p.mobile-nav-active body #inner-header {
+    html.mobile-nav-active body header.header, html.mobile-nav-active body #inner-header {
       height: 100%; }
-    html.b-o-p.mobile-nav-active body #inner-header {
+    html.mobile-nav-active body #inner-header {
       position: relative;
       overflow-y: auto;
       overflow-x: hidden; }
@@ -1328,7 +1380,7 @@ LAYOUT & GRID STYLES
   #container #content {
     background: #fff;
     min-height: 100%;
-    padding-top: 106px;
+    padding-top: 116px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -1463,7 +1515,7 @@ and more scalable.
 		*/ }
     .nav li a {
       display: block;
-      color: #fff;
+      color: #000;
       text-decoration: none;
       padding: 0.75em;
       /*
@@ -2442,6 +2494,12 @@ Author:
 Stylesheet: Tablet Landscape Stylsheet
 
 ******************************************************************/
+  html.theme-dark .entry-content.has-content-secondary .content-secondary {
+    border-left-color: rgba(255, 255, 255, 0.15); }
+  html.theme-dark body.home .home-module-container .home-module {
+    border-left-color: rgba(255, 255, 255, 0.15); }
+  html.theme-dark body.single-people .article-header {
+    border-top-color: rgba(255, 255, 255, 0.15); }
   #container #content {
     padding-top: 122px; }
   .wrap {
@@ -2557,6 +2615,12 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+  html.theme-dark .main-nav-container {
+    background: transparent; }
+  html.theme-dark .main-menu {
+    background: transparent; }
+    html.theme-dark .main-menu li a:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -2647,7 +2711,7 @@ on larger screens.
 
 ******************************************************************/
   #container #content {
-    padding-top: 162px; }
+    padding-top: 172px; }
   .wrap {
     max-width: 1200px;
     margin: 0 auto; }
@@ -2683,7 +2747,7 @@ on larger screens.
 
 ******************************************************************/
   #container #content {
-    padding-top: 182px; }
+    padding-top: 192px; }
   .wrap {
     max-width: 1500px; }
   .header {

@@ -5,7 +5,25 @@ Author:
 Stylesheet: Tablet Landscape Stylsheet
 
 ******************************************************************/
-
+html.theme-dark {
+	.entry-content.has-content-secondary {
+		.content-secondary {
+			border-left-color:$border-color-theme-dark;
+		}
+	}
+	body.home {
+		.home-module-container {
+			.home-module {
+				border-left-color:$border-color-theme-dark;
+			}
+		}
+	}
+	body.single-people {
+		.article-header {
+			border-top-color:$border-color-theme-dark;
+		}
+	}
+}
 #container {
 	#content {
 		padding-top:$logo-height + $logo-top-padding + $gutter1024;
@@ -30,7 +48,7 @@ Stylesheet: Tablet Landscape Stylsheet
 		border-left:1px solid $border-color;
 	}
 	.thumb-list {
-	margin-right:-1.33%;
+		margin-right:-1.33%;
 		.thumb-item {
 			margin-right:1.33%;
 			margin-bottom:1.33%;
@@ -67,7 +85,6 @@ body.home {
 		}
 		.current-episode {
 			padding:$gutter $gutter1024 0 0;
-			
 			margin-bottom:0;
 			flex:0 0 60%;
 			@include box-sizing;
@@ -82,7 +99,6 @@ body.home {
 }
 body.single-people {
 	.article-header {
-		//@include clearfix;
 		border-top:1px solid $border-color;
 	}
 	.title-container {

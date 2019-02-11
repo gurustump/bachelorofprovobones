@@ -24,13 +24,108 @@ $footer-height:56px;
 /*********************
 GENERAL STYLES
 *********************/
-html.b-o-p {
-	height:100%;
-	margin-top:0 !important;
-	overflow-x:hidden;
-	background:$white;
+html {
+	&.b-o-p {
+		height:100%;
+		margin-top:0 !important;
+		overflow-x:hidden;
+		background:$white;
+	}
+	&.scrolled.theme-dark {
+		.header {
+			background-image:none;
+			background-color:rgba($black,.9);
+		}
+	}
 	&.theme-dark {
 		background:$black;
+		body {
+			color:$text-color-theme-dark;
+			background-color:$black;
+		}
+		#container {
+			#content {
+				background:$black url(../images/gray-dark-grunge.png);
+			}
+		}
+		.header {
+			@include linear-gradient($black, rgba($black,0));
+			background-color:transparent;
+		}
+		#logo {
+			a {
+				background-image:url(../images/bachelor-provo-logo.png);
+			}
+		}
+		.main-nav-container {
+			background-color:$black;
+		}
+		.main-menu {
+			background-color:rgba($black, .9);
+			border-top-color:rgba($white, .1);
+			li {
+				a {
+					color:$white;
+					border-bottom-color:rgba($white, .1);
+					background-color:rgba($black,.04);
+					&:hover {
+						color:$white;
+					}
+				}
+			}
+		}
+		.trigger-nav {
+			color:$black;
+			.ic {
+				& > span {
+					background-color:$white;
+				}
+			}
+			&.active {
+				.ic {
+					& > span {
+						background-color:#white;
+					}
+				}
+			}
+		}
+		.episode-list {
+			& > li {
+				border-bottom-color:$border-color-theme-dark;
+			}
+			
+		}
+		.modules {
+			.module {
+				border-bottom-color:$border-color-theme-dark;
+			}
+		}
+		.contact-form-container {
+			border-color-color:$border-color-theme-dark;
+			.instructions {
+				border-top-color:1px solid $border-color-theme-dark;
+			}
+		}
+		body.home {
+			.content-primary {
+				border-bottom-color:$border-color-theme-dark;
+			}
+		}
+		body.single-people {
+			h1 {
+				border-bottom-color:$border-color-theme-dark;
+			}
+		}
+		body.single-seasons {
+			.article-header {
+				border-bottom-color:$border-color-theme-dark;
+			}
+		}
+		body.single-episodes {
+			.article-header {
+				border-bottom-color:$border-color-theme-dark;
+			}
+		}
 	}
 	&.mobile-nav-active {
 		body {
@@ -120,7 +215,7 @@ LAYOUT & GRID STYLES
 	#content {
 		background:$white;
 		min-height:100%;
-		padding-top:$logo-height + $logo-top-padding + $gutter;
+		padding-top:$logo-height + $logo-top-padding*2 + $gutter;
 		@include box-sizing;
 		margin-bottom:$footer-height;
 		position:relative;
@@ -263,7 +358,7 @@ and more scalable.
 
 		a {
 			display:block;
-			color:$white;
+			color:$black;
 			text-decoration:none;
 			padding:0.75em;
 

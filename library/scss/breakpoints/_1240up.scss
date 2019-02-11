@@ -11,7 +11,7 @@ on larger screens.
 
 #container {
 	#content {
-		padding-top:$logo-height1240 + $logo-top-padding + $gutter1024;
+		padding-top:$logo-height1240 + $logo-top-padding*2 + $gutter1024;
 	}
 }
 .wrap {
