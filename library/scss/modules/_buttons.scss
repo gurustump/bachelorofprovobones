@@ -41,6 +41,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 	border-radius:1.25em;
 	border:0;
 	cursor:pointer;
+	outline:none;
 	@include transition(background-color $transition-speed ease-in-out);
 
 	// hovering on the btn
@@ -79,6 +80,12 @@ and it will create a button dependant on those variables.
 	background-color:$green;
 	&:hover {
 		background-color:darken($green, 10%);
+	}
+}
+.btn-pink, .btn-pink:visited {
+	background-color:$bones-pink;
+	&:hover {
+		background-color:darken($bones-pink, 10%);
 	}
 }
 .btn-small {

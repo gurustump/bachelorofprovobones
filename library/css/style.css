@@ -882,6 +882,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   border-radius: 1.25em;
   border: 0;
   cursor: pointer;
+  outline: none;
   -webkit-transition: background-color 375ms ease-in-out;
   -moz-transition: background-color 375ms ease-in-out;
   -ms-transition: background-color 375ms ease-in-out;
@@ -914,6 +915,11 @@ and it will create a button dependant on those variables.
   background-color: #00b217; }
   .btn-green:hover, .btn-green:visited:hover {
     background-color: #007f10; }
+
+.btn-pink, .btn-pink:visited {
+  background-color: #f01d4f; }
+  .btn-pink:hover, .btn-pink:visited:hover {
+    background-color: #cc0e3b; }
 
 .btn-small {
   font-size: .75em; }
