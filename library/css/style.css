@@ -1336,16 +1336,16 @@ html {
     html.theme-dark body.single-episodes .article-header, html.theme-deep-rose body.single-episodes .article-header {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
   html.theme-deep-rose #container #content {
-    background-image: url(../images/dark-grunge.png), -webkit-gradient(linear, left top, left bottom, from(#0b0000), color-stop(#240001), to(#150001));
-    background-image: url(../images/dark-grunge.png), -webkit-linear-gradient(#0b0000, #240001, #150001);
-    background-image: url(../images/dark-grunge.png), -o-linear-gradient(#0b0000, #240001, #150001);
-    background-image: url(../images/dark-grunge.png), linear-gradient(#0b0000, #240001, #150001);
+    background-image: url(../images/dark-grunge.png), -webkit-gradient(linear, left top, left bottom, from(#240001), color-stop(#330001), to(#150001));
+    background-image: url(../images/dark-grunge.png), -webkit-linear-gradient(#240001, #330001, #150001);
+    background-image: url(../images/dark-grunge.png), -o-linear-gradient(#240001, #330001, #150001);
+    background-image: url(../images/dark-grunge.png), linear-gradient(#240001, #330001, #150001);
     background-color: transparent; }
   html.theme-deep-rose .footer {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#1a0001), to(#150001));
-    background-image: -webkit-linear-gradient(#1a0001, #150001);
-    background-image: -o-linear-gradient(#1a0001, #150001);
-    background-image: linear-gradient(#1a0001, #150001);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1f0001), to(#150001));
+    background-image: -webkit-linear-gradient(#1f0001, #150001);
+    background-image: -o-linear-gradient(#1f0001, #150001);
+    background-image: linear-gradient(#1f0001, #150001);
     color: rgba(240, 29, 79, 0.35); }
   html.mobile-nav-active body {
     overflow: hidden;

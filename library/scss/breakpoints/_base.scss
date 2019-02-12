@@ -154,12 +154,12 @@ html {
 	&.theme-deep-rose {
 		#container {
 			#content {
-				background-image:url(../images/dark-grunge.png), linear-gradient(darken($deep-rose,5%),$deep-rose,darken($deep-rose,3%));
+				background-image:url(../images/dark-grunge.png), linear-gradient($deep-rose,lighten($deep-rose,3%),darken($deep-rose,3%));
 				background-color:transparent;
 			}
 		}
 		.footer {
-			background-image:linear-gradient(darken($deep-rose,2%),darken($deep-rose,3%));
+			background-image:linear-gradient(darken($deep-rose,1%),darken($deep-rose,3%));
 			color:rgba($bones-pink, .35);
 		}
 	}
