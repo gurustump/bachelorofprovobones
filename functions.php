@@ -259,7 +259,7 @@ function castMemberMarkup($castMember,$role,$seasonType) {
 	$markup .= '<div class="cast-info">';
 	$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
 	$markup .= '<span class="cast-type">';
-	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? ucfirst($contestantType) : "Provo's Most Eligible ".ucfirst($seasonType) );
+	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? 'Contestant' : "Provo's Most Eligible" );
 	$markup .= '</span></div>';
 	$markup .= '</a>';
 	$markup .= '</div>';
