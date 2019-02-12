@@ -11,7 +11,7 @@
 		<?php // force Internet Explorer to use the latest rendering engine available ?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title><?php wp_title(' &mdash; '); ?></title>
+		<title><?php wp_title(' | '); ?></title>
 
 		<?php // mobile meta (hooray!) ?>
 		<meta name="HandheldFriendly" content="True">
@@ -27,14 +27,18 @@
 		<?php // or, set /favicon.ico for IE10 win ?>
 		<meta name="msapplication-TileColor" content="#f01d4f">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
-            <meta name="theme-color" content="#121212">
+        <meta name="theme-color" content="#121212">
+
 		
-		<?php if (is_front_page()) { ?>
+		<meta property="og:title" content="<?php wp_title(' | '); ?>" />
+		<?php /* if (is_front_page()) { ?>
 		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/library/images/pme-og.jpg" />
-		<?php } ?>
-		
+		<?php } */ ?>
 		<?php if (is_singular() && has_post_thumbnail(get_the_ID())) { ?>
 		<meta property="og:image" content="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" />
+		<?php } else if (is_singular('episodes')) {
+			$youtubeURL = get_post_meta(get_the_ID(),'_bachelor_episode_youtube_url',true); ?>
+		<meta property="og:image" content="<?php echo $youtubeURL; ?>" />
 		<?php } else { ?>
 		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/library/images/pme-og.jpg" />
 		<?php } ?>

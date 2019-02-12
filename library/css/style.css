@@ -1434,6 +1434,9 @@ LAYOUT & GRID STYLES
       left: 0;
       bottom: -56px; }
 
+#main {
+  margin-bottom: 16px; }
+
 .wrap {
   margin: 0 16px; }
 
@@ -2555,6 +2558,8 @@ Stylesheet: Tablet Landscape Stylsheet
     border-top-color: rgba(255, 255, 255, 0.15); }
   #container #content {
     padding-top: 102px; }
+  #main {
+    margin-bottom: 32px; }
   .wrap {
     margin: 0 32px; }
   .entry-content.has-content-secondary {

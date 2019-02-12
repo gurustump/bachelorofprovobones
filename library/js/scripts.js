@@ -130,12 +130,6 @@ jQuery(document).ready(function($) {
 		html.toggleClass('mobile-nav-active');
 	});
 	
-	$('.MAIN_NAV').on('click','a',function(e) {
-		if (mobileDeviceType()) {
-			$('.TRIGGER_NAV').click();
-		}
-	});
-	
 	function headerHeight() {
 		var scrollTrigger = 0;
 		// var secondaryScrollTrigger = isHome ? $('.HOME_LOGO').outerHeight()*.50: 0;

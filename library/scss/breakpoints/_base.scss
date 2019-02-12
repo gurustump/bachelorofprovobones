@@ -267,6 +267,9 @@ LAYOUT & GRID STYLES
 		}
 	}
 }
+#main {
+	margin-bottom:$gutter;
+}
 .wrap {
 	margin:0 $gutter;
 }
