@@ -54,31 +54,39 @@ function bones_head_cleanup() {
 // A better title
 // http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html
 function rw_title( $title, $sep, $seplocation ) {
-  global $page, $paged;
+	global $page, $paged;
 
-  // Don't affect in feeds.
-  if ( is_feed() ) return $title;
+	// Don't affect in feeds.
+	if ( is_feed() ) return $title;
+	
+	if (is_singular(array('episodes','seasons')) ) {
+		$post_type_data = get_post_type_object(get_post_type());
+		$post_type_slug = $post_type_data->rewrite['slug'];
+		$title = str_replace("{$sep}",'',$title);
+		$title = " {$sep} " . ucfirst($post_type_slug) . $title;
+	}
 
-  // Add the blog's name
-  if ( 'right' == $seplocation ) {
-    $title .= get_bloginfo( 'name' );
-  } else {
-    $title = get_bloginfo( 'name' ) . $title;
-  }
+	// Add the blog's name
+	if ( 'right' == $seplocation ) {
+		$title .= get_bloginfo( 'name' );
+	} else {
+		$title = get_bloginfo( 'name' ) . $title;
+	}
 
-  // Add the blog description for the home/front page.
-  $site_description = get_bloginfo( 'description', 'display' );
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
 
-  if ( $site_description && ( is_home() || is_front_page() ) ) {
-    $title .= " {$sep} {$site_description}";
-  }
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title .= " {$sep} {$site_description}";
+	}
 
-  // Add a page number if necessary:
-  if ( $paged >= 2 || $page >= 2 ) {
-    $title .= " {$sep} " . sprintf( __( 'Page %s', 'dbt' ), max( $paged, $page ) );
-  }
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title .= " {$sep} " . sprintf( __( 'Page %s', 'dbt' ), max( $paged, $page ) );
+	}
 
-  return $title;
+
+	return $title;
 
 } // end better title
 
