@@ -24,6 +24,11 @@
 									<?php 
 									$currentSeasonID = get_option('bachelor_main_options')['current_season'];
 									$currentSeasonEpisodeIDs = get_post_meta($currentSeasonID,'_bachelor_season_attached_episodes',true);
+									$currentMostRecentEpisode = get_posts(array(
+										'post_type' => 'episodes',
+										'post__in' => $currentSeasonEpisodeIDs,
+										'numberposts' => 1,
+									));
 									
 									$homeModule = get_posts(array( 
 										'numberposts' => 1,
@@ -39,14 +44,12 @@
 									<div class="content-primary<?php echo $homeModule ? ' home-module-container':''; ?>">
 										<div class="current-episode">
 											<h2>Latest Episode</h2>
-											<?php $currentMostRecentEpisode = get_posts(array(
-												'post_type' => 'episodes',
-												'post__in' => $currentSeasonEpisodeIDs,
-												'numberposts' => 1,
-											));
-											echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true))); ?>
+											<?php if ($currentMostRecentEpisode) {
+												echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true)));
+											} else { ?>
+												<div class="coming-soon"></div>
+											<?php } ?>
 										</div>
-										
 										<?php if ($homeModule) { foreach($homeModule as $module) { ?>
 										<div class="home-module">
 											<h2 class="module-title"><?php echo $module->post_title; ?></h2>

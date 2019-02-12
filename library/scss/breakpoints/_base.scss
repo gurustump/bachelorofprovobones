@@ -14,8 +14,9 @@ and will be used across all viewports.
 $gutter:16px;
 $gutter768:24px;
 $gutter1024:32px;
-$logo-height:80px;
+$logo-height:60px;
 $logo-top-padding:10px;
+$logo-heightScrolled:80px;
 $logo-height1240:120px;
 $logo-height1560:140px;
 $logo-top-padding:10px;
@@ -55,8 +56,6 @@ html {
 		#logo {
 			a {
 				background-image:url(../images/pme-logo-horiz-theme-dark.png);
-				background-position:left center;
-				width:$logo-height*3;
 			}
 		}
 		.main-nav-container {
@@ -106,6 +105,9 @@ html {
 			.module {
 				border-bottom-color:$border-color-theme-dark;
 			}
+		}
+		.coming-soon {
+			background:rgba($white,.05);
 		}
 		.contact-form-container {
 			border-color-color:$border-color-theme-dark;
@@ -336,10 +338,11 @@ HEADER STYLES
 	a {
 		outline:none;
 		display:block;
-		width:$logo-height*3;
+		width:$logo-height*4;
 		height:$logo-height;
-		background:url(../images/bachelor-provo-logo.png) no-repeat;
+		background:url(../images/pme-logo-horiz-theme-light.png) no-repeat;
 		background-size:contain;
+		background-position:left center;
 		text-indent:-9999px;
 		transition:height $transition-speed, width $transition-speed;
 	}
@@ -473,7 +476,7 @@ and more scalable.
 	color:$white;
 	position:fixed;
 	padding:13px;
-	top:0;
+	top:7px;
 	right:-4px;
 	font-size:17px;
 	z-index:9999;
@@ -515,7 +518,7 @@ and more scalable.
 					opacity:0;
 				}
 				&.bar-3 {
-					@include transform(rotate(-90deg) translateX(5px));
+					@include transform(rotate(-90deg) translateX(6px));
 				}
 			}
 		}
@@ -857,6 +860,21 @@ POSTS & CONTENT STYLES
 		top:0;
 		width:100%;
 		height:100%;
+	}
+}
+.coming-soon {
+	padding-bottom:56.25%;
+	position:relative;
+	background:$border-color;
+	&:after {
+		content:"Coming Soon!";
+		display:block;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		font-weight:bold;
+		text-transform:uppercase;
 	}
 }
 .contact-form-container {

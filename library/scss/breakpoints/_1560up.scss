@@ -8,14 +8,6 @@ You can add some advanced styles here if you like. This kicks in
 on larger screens.
 
 ******************************************************************/
-
-html.theme-dark {
-	#logo {
-		a {
-			width:$logo-height1560*4;
-		}
-	}
-}
 #container {
 	#content {
 		padding-top:$logo-height1560 + $logo-top-padding*2 + $gutter1024;
@@ -32,7 +24,7 @@ html.theme-dark {
 	margin:0;
 	padding-top:10px;
 	a {
-		width:$logo-height1560*3;
+		width:$logo-height1560*4;
 		height:$logo-height1560;
 	}
 }

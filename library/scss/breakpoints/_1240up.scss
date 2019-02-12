@@ -11,27 +11,20 @@ on larger screens.
 html {
 	&.scrolled {
 		.header {
-			height:$logo-height + $logo-top-padding*2;
+			height:$logo-heightScrolled + $logo-top-padding*2;
 		}
 		#logo {
 			a {
-				width:$logo-height*3;
-				height:$logo-height;
+				width:$logo-heightScrolled*4;
+				height:$logo-heightScrolled;
 			}
 		}
 		.main-menu {
 			li {
 				a {
-					height:$logo-height;
-					line-height:$logo-height;
+					height:$logo-heightScrolled;
+					line-height:$logo-heightScrolled;
 				}
-			}
-		}
-	}
-	&.theme-dark {
-		#logo {
-			a {
-				width:$logo-height1240*4;
 			}
 		}
 	}
@@ -54,7 +47,7 @@ html {
 	margin:0;
 	padding-top:10px;
 	a {
-		width:$logo-height1240*3;
+		width:$logo-height1240*4;
 		height:$logo-height1240; 
 	}
 }
