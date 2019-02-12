@@ -5,22 +5,24 @@ Author:
 Stylesheet: Tablet Landscape Stylsheet
 
 ******************************************************************/
-html.theme-dark {
-	.entry-content.has-content-secondary {
-		.content-secondary {
-			border-left-color:$border-color-theme-dark;
-		}
-	}
-	body.home {
-		.home-module-container {
-			.home-module {
+html {
+	&.theme-dark, &.theme-deep-rose {
+		.entry-content.has-content-secondary {
+			.content-secondary {
 				border-left-color:$border-color-theme-dark;
 			}
 		}
-	}
-	body.single-people {
-		.article-header {
-			border-top-color:$border-color-theme-dark;
+		body.home {
+			.home-module-container {
+				.home-module {
+					border-left-color:$border-color-theme-dark;
+				}
+			}
+		}
+		body.single-people {
+			.article-header {
+				border-top-color:$border-color-theme-dark;
+			}
 		}
 	}
 }

@@ -32,14 +32,14 @@ html {
 		overflow-x:hidden;
 		background:$white;
 	}
-	&.scrolled.theme-dark {
-		.header {
-			background-image:none;
-			background-color:rgba($black,.9);
-		}
-	}
-	&.theme-dark {
+	&.theme-dark, &.theme-deep-rose {
 		background:$black;
+		&.scrolled {
+			.header {
+				background-image:none;
+				background-color:rgba($black,.9);
+			}
+		}
 		body {
 			color:$text-color-theme-dark;
 			background-color:$black;
@@ -110,7 +110,22 @@ html {
 			background:rgba($white,.05);
 		}
 		.contact-form-container {
-			border-color-color:$border-color-theme-dark;
+			border-color:$border-color-theme-dark;
+			position:relative;
+			& > * {
+				position:relative;
+				z-index:1;
+			}
+			&:after {
+				content:"";
+				position:absolute;
+				left:0;
+				top:0;
+				height:100%;
+				width:100%;
+				background-image:url(../images/gray-dark-grunge.jpg);
+				opacity:.85;
+			}
 			.instructions {
 				border-top-color:1px solid $border-color-theme-dark;
 			}
@@ -134,6 +149,18 @@ html {
 			.article-header {
 				border-bottom-color:$border-color-theme-dark;
 			}
+		}
+	}
+	&.theme-deep-rose {
+		#container {
+			#content {
+				background-image:url(../images/dark-grunge.png), linear-gradient(darken($deep-rose,5%),$deep-rose,darken($deep-rose,3%));
+				background-color:transparent;
+			}
+		}
+		.footer {
+			background-image:linear-gradient(darken($deep-rose,2%),darken($deep-rose,3%));
+			color:rgba($bones-pink, .35);
 		}
 	}
 	&.mobile-nav-active {
@@ -1265,7 +1292,7 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	color: $meta-gray;
+	color:$meta-gray;
 	background:$black;
 	overflow:hidden;
 	height:$footer-height;

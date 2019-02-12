@@ -8,16 +8,18 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
-html.theme-dark {
-	.main-nav-container {
-		background:transparent;
-	}
-	.main-menu {
-		background:transparent;
-		li {
-			a {
-				&:hover {
-					border-bottom-color:$border-color-theme-dark;
+html {
+	&.theme-dark, &.theme-deep-rose {
+		.main-nav-container {
+			background:transparent;
+		}
+		.main-menu {
+			background:transparent;
+			li {
+				a {
+					&:hover {
+						border-bottom-color:$border-color-theme-dark;
+					}
 				}
 			}
 		}
