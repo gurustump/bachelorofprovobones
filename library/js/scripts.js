@@ -113,9 +113,15 @@ jQuery(document).ready(function($) {
 	var html = $('html');
 	var body = $('body');
 	
+	// Check what page we're on
+	if (typeof isHome === "undefined") var isHome = body.hasClass('home');
+	
 	win.resize(function() {
 		waitForFinalEvent( function() {
 			headerHeight();
+			if (isHome) {
+				checkSponsorSliderWidth('resize');
+			}
 		}, timeToWaitForLast, 'resizeWindow');
 	});
 	
@@ -132,17 +138,47 @@ jQuery(document).ready(function($) {
 	
 	function headerHeight() {
 		var scrollTrigger = 0;
-		// var secondaryScrollTrigger = isHome ? $('.HOME_LOGO').outerHeight()*.50: 0;
 		if (win.scrollTop() > scrollTrigger) {
 			html.addClass('scrolled');
 		} else {
 			html.removeClass('scrolled');
 		}
-		/* if (win.scrollTop() > secondaryScrollTrigger) {
-			html.addClass('secondary-scrolled');
+	}
+	var sponsorSlider = $('.SLICK_SPONSOR_LIST');
+	function checkSponsorSliderWidth(message) {
+		console.log(message);
+		var sumItemWidth = 0;
+		sponsorSlider.find('.SLICK_SPONSOR_ITEM').each(function() {
+			sumItemWidth += $(this).outerWidth();
+		});
+		if (sumItemWidth > sponsorSlider.width()) {
+			setUpSponsorSlider()
 		} else {
-			html.removeClass('secondary-scrolled');
-		} */
+			takeDownSponsorSlider();
+		}
+	}
+	function setUpSponsorSlider() {
+		sponsorSlider.slick({
+			autoplay:true,
+			autoplaySpeed:0,
+			arrows:false,
+			centerMode:true,
+			cssEase:'linear',
+			dots:false,
+			infinite:true,
+			pauseOnHover:true,
+			speed:4000,
+			variableWidth:true
+		});
+	}
+	function takeDownSponsorSlider() {
+		if (sponsorSlider.hasClass('slick-initialized')) {
+			sponsorSlider.slick('unslick');
+		}
+		console.log('okay then');
+	}
+	if (isHome) {
+		checkSponsorSliderWidth('init');
 	}
 
   /*

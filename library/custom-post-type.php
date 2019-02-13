@@ -48,7 +48,7 @@ function person_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 6,
+			'menu_position' => 5,
 			'menu_icon' => 'dashicons-universal-access',
 			'rewrite'	=> array( 'slug' => 'people', 'with_front' => false ),
 			//'has_archive' => 'show',
@@ -114,7 +114,7 @@ function season_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 7,
+			'menu_position' => 6,
 			'menu_icon' => 'dashicons-calendar-alt',
 			'rewrite'	=> array( 'slug' => 'season', 'with_front' => false ),
 			//'has_archive' => 'show',
@@ -156,7 +156,7 @@ function episode_custom_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8,
+			'menu_position' => 7,
 			'menu_icon' => 'dashicons-media-video',
 			'rewrite'	=> array( 'slug' => 'episode', 'with_front' => false ),
 			//'has_archive' => 'show',
@@ -196,7 +196,7 @@ function module_post_type() {
 			'exclude_from_search' => true,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 9, 
+			'menu_position' => 8, 
 			'menu_icon' => 'dashicons-grid-view',
 			'rewrite'	=> array( 'slug' => 'modules', 'with_front' => false ),
 			'has_archive' => 'module',
@@ -208,6 +208,43 @@ function module_post_type() {
 }
 
 add_action( 'init', 'module_post_type');
+
+
+function sponsor_post_type() { 
+	register_post_type( 'sponsor', 
+		array( 'labels' => array(
+			'name' => __( 'Sponsors', 'bonestheme' ),
+			'singular_name' => __( 'Sponsor', 'bonestheme' ),
+			'all_items' => __( 'All Sponsors', 'bonestheme' ), 
+			'add_new' => __( 'Add New', 'bonestheme' ),
+			'add_new_item' => __( 'Add New Sponsor', 'bonestheme' ),
+			'edit' => __( 'Edit', 'bonestheme' ),
+			'edit_item' => __( 'Edit Sponsor', 'bonestheme' ),
+			'new_item' => __( 'New Sponsor', 'bonestheme' ),
+			'view_item' => __( 'View Sponsor', 'bonestheme' ),
+			'search_items' => __( 'Search Sponsors', 'bonestheme' ),
+			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ),
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ),
+			'parent_item_colon' => ''
+			),
+			'description' => __( 'This is the sponsor custom post type, mainly used for sections on various pages', 'bonestheme' ),
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 9, 
+			'menu_icon' => 'dashicons-heart',
+			'rewrite'	=> array( 'slug' => 'sponsor', 'with_front' => false ),
+			'has_archive' => 'sponsor',
+			'hierarchical' => false,
+			'capability_type' => 'post',
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+		)
+	);	
+}
+
+add_action( 'init', 'sponsor_post_type');
 	
 	/*
 	for more information on taxonomies, go here:

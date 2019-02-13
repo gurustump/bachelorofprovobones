@@ -32,6 +32,12 @@ LAYOUT & GRID STYLES
 	margin:0 $gutter768;
 }
 
+.slider-list {
+	.slider-item {
+		width:240px;
+		flex:0 0 240px;
+	}
+}
 /*********************
 HEADER STYLES
 *********************/
@@ -193,3 +199,15 @@ mobile. Make sure to double check these!
 	}
 } /* end .footer-links */
 
+
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.home {
+	.slider-list {
+		.slider-item {
+			width:120px;
+			flex:0 0 120px;
+		}
+	}
+}

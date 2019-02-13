@@ -28,6 +28,15 @@ html {
 			}
 		}
 	}
+	&.theme-dark, &.theme-deep-rose {
+		body.home {
+			.slider-list {
+				.slider-item {
+					padding:0 $gutter*.25;
+				}
+			}
+		}
+	}
 }
 
 #container {
@@ -56,6 +65,24 @@ html {
 		a {
 			height:$logo-height1240;
 			line-height:$logo-height1240;
+		}
+	}
+}
+.slider-list {
+	.slider-item {
+		width:20%;
+		flex:0 0 20%;
+	}
+}
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.home {
+	.slider-list {
+		.slider-item {
+			width:140px;
+			flex:0 0 140px;
+			padding:0 $gutter;
 		}
 	}
 }

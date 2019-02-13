@@ -1228,6 +1228,82 @@ select {
   background-repeat: no-repeat;
   background-position: 97.5% center; }
 
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; }
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0; }
+  .slick-list:focus {
+    outline: none; }
+  .slick-list.dragging {
+    cursor: pointer;
+    cursor: hand; }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  .slick-track:before, .slick-track:after {
+    content: "";
+    display: table; }
+  .slick-track:after {
+    clear: both; }
+  .slick-loading .slick-track {
+    visibility: hidden; }
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none; }
+  [dir="rtl"] .slick-slide {
+    float: right; }
+  .slick-slide img {
+    display: block; }
+  .slick-slide.slick-loading img {
+    display: none; }
+  .slick-slide.dragging img {
+    pointer-events: none; }
+  .slick-initialized .slick-slide {
+    display: block; }
+  .slick-loading .slick-slide {
+    visibility: hidden; }
+  .slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent; }
+
+.slick-arrow.slick-hidden {
+  display: none; }
+
 /*********************
 BASE (MOBILE) SIZE
 This are the mobile styles. It's what people see on their phones. If
@@ -1306,6 +1382,8 @@ html {
       background: #000; }
     html.theme-dark .episode-list > li, html.theme-deep-rose .episode-list > li {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .slider-list .slider-item, html.theme-deep-rose .slider-list .slider-item {
+      padding: 0 4px 8px; }
     html.theme-dark .modules .module, html.theme-deep-rose .modules .module {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark .coming-soon, html.theme-deep-rose .coming-soon {
@@ -1328,6 +1406,11 @@ html {
       html.theme-dark .contact-form-container .instructions, html.theme-deep-rose .contact-form-container .instructions {
         border-top-color: 1px solid rgba(255, 255, 255, 0.15); }
     html.theme-dark body.home .content-primary, html.theme-deep-rose body.home .content-primary {
+      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.home .sponsor-container h2, html.theme-deep-rose body.home .sponsor-container h2 {
+      color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark body.home .slider-list, html.theme-deep-rose body.home .slider-list {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark body.single-people h1, html.theme-deep-rose body.single-people h1 {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
@@ -1702,9 +1785,11 @@ POSTS & CONTENT STYLES
 
 /* end .hentry */
 .single-title,
-.page-title,
 .entry-title {
   margin: 0; }
+
+.page-title {
+  margin: 0 0 16px; }
 
 /* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
@@ -1897,6 +1982,53 @@ POSTS & CONTENT STYLES
     display: block;
     margin-bottom: 0; }
 
+.slider-list {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .slider-list .slider-item {
+    width: 50%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    padding: 0 16px 16px; }
+    .slider-list .slider-item a {
+      position: relative;
+      display: block; }
+      .slider-list .slider-item a:hover .slider-item-title {
+        opacity: 1; }
+      .slider-list .slider-item a img {
+        display: block;
+        margin: 0; }
+  .slider-list .slider-item-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-size: .75em;
+    text-transform: uppercase;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), black);
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0), black);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), black);
+    padding: 16px 8px 8px;
+    color: #fff;
+    line-height: 1em;
+    opacity: 0;
+    -webkit-transition: opacity 375ms;
+    -o-transition: opacity 375ms;
+    transition: opacity 375ms; }
+
 .modules .module {
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -1905,6 +2037,11 @@ POSTS & CONTENT STYLES
     content: "";
     display: table;
     clear: both; }
+
+.module-content:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 .video-outer-wrapper {
   margin-bottom: 1.5em; }
@@ -2305,11 +2442,32 @@ PAGE SPECIFIC STYLES
 ******************************************/
 body.home .content-primary {
   margin-bottom: 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 16px; }
+  /*border-bottom:1px solid $border-color;
+		padding-bottom:$gutter;*/ }
 
 body.home .home-module-container .current-episode {
   margin-bottom: 16px; }
+
+body.home .sponsor-container {
+  padding-top: 16px; }
+  body.home .sponsor-container h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    font-size: .75em;
+    text-align: center;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px; }
+
+body.home .slider-list {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  body.home .slider-list .slider-item {
+    padding-bottom: 0;
+    width: 100px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px; }
 
 body.single-people h1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -2376,6 +2534,9 @@ body.single-episodes .article-header {
       body.single-episodes .article-header .breadcrumb a:before {
         position: absolute;
         left: 0; }
+
+body.single-episodes .episode-description {
+  margin-top: 16px; }
 
 /*********************
 LARGER MOBILE DEVICES
@@ -2492,6 +2653,11 @@ LAYOUT & GRID STYLES
     padding-top: 94px; }
   .wrap {
     margin: 0 24px; }
+  .slider-list .slider-item {
+    width: 240px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px; }
   /*********************
 HEADER STYLES
 *********************/
@@ -2540,7 +2706,15 @@ mobile. Make sure to double check these!
 			it's very rare to have multi-depth menus in
 			the footer.
 			*/ }
-  /* end .footer-links */ }
+  /* end .footer-links */
+  /******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+  body.home .slider-list .slider-item {
+    width: 120px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 120px;
+    flex: 0 0 120px; } }
 
 @media only screen and (min-width: 1024px) {
   /******************************************************************
@@ -2562,6 +2736,8 @@ Stylesheet: Tablet Landscape Stylsheet
     margin-bottom: 32px; }
   .wrap {
     margin: 0 32px; }
+  .page-title {
+    margin: 0 0 32px; }
   .entry-content.has-content-secondary {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2654,7 +2830,9 @@ PAGE SPECIFIC STYLES
   body.single-seasons .article-header {
     padding-bottom: 32px; }
   body.single-episodes .article-header {
-    margin-bottom: 16px; } }
+    margin-bottom: 16px; }
+  body.single-episodes .episode-description {
+    margin-top: 32px; } }
 
 /*********************
 DESKTOP
@@ -2777,6 +2955,8 @@ on larger screens.
   html.scrolled .main-menu li a {
     height: 80px;
     line-height: 80px; }
+  html.theme-dark body.home .slider-list .slider-item, html.theme-deep-rose body.home .slider-list .slider-item {
+    padding: 0 4px; }
   #container #content {
     padding-top: 172px; }
   .wrap {
@@ -2792,7 +2972,21 @@ on larger screens.
       height: 120px; }
   .main-menu li a {
     height: 120px;
-    line-height: 120px; } }
+    line-height: 120px; }
+  .slider-list .slider-item {
+    width: 20%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%; }
+  /******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+  body.home .slider-list .slider-item {
+    width: 140px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    padding: 0 16px; } }
 
 @media only screen and (min-width: 1560px) {
   /******************************************************************

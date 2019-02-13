@@ -59,6 +59,38 @@
 										<?php } } ?>
 									</div>
 									
+									<?php 
+									$sponsors = get_posts(array(
+										'numberposts' => -1,
+										'post_type' => 'sponsor',
+										'meta_query' => array(
+											array(
+												'key' => '_bachelor_sponsor_type',
+												'value' => 'sponsor',
+												'compare' => 'LIKE',
+											),
+										),
+										
+									));
+									if ($sponsors) { ?>
+									<div class="sponsor-container">
+										<h2>Sponsors</h2>
+										<div class="slider-list sponsor-list SLICK_SPONSOR_LIST">
+											<?php foreach($sponsors as $sponsor) {
+											if (!has_post_thumbnail($sponsor->ID)) { continue; } 
+											$sponsorURL = get_post_meta($sponsor->ID,'_bachelor_sponsor_website',true);
+											?>
+											<div class="slider-item sponsor SLICK_SPONSOR_ITEM">
+												<?php echo $sponsorURL ? '<a target="_blank" href="'.$sponsorURL.'">' : ''; ?>
+													<img src="<?php echo get_the_post_thumbnail_url($sponsor->ID,'thumbnail'); ?>" alt="<?php echo $sponsor->post_title; ?>" />
+													<span class="slider-item-title sponsor-name"><?php echo $sponsor->post_title; ?></span>
+												<?php echo $sponsorURL ? '</a>' : ''; ?>
+											</div>
+											<?php } ?>
+										</div>
+									</div>
+									<?php } ?>
+									
 									<?php
 									$currentSeasonType = get_post_meta($currentSeasonID,'_bachelor_season_show_type',true);
 									$currentSeasonCast = get_post_meta($currentSeasonID,'_bachelor_season_attached_people',true);

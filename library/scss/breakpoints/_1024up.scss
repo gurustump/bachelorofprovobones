@@ -37,6 +37,9 @@ html {
 .wrap {
 	margin:0 $gutter1024;
 }
+.page-title {
+	margin:0 0 $gutter1024;
+}
 
 .entry-content.has-content-secondary {
 	display:flex;
@@ -125,5 +128,8 @@ body.single-seasons {
 body.single-episodes {
 	.article-header {
 		margin-bottom:$gutter;
+	}
+	.episode-description {
+		margin-top:$gutter1024;
 	}
 }

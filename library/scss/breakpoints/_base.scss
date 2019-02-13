@@ -101,6 +101,11 @@ html {
 			}
 			
 		}
+		.slider-list {
+			.slider-item {
+				padding:0 $gutter*.25 $gutter*.5;
+			}
+		}
 		.modules {
 			.module {
 				border-bottom-color:$border-color-theme-dark;
@@ -132,6 +137,15 @@ html {
 		}
 		body.home {
 			.content-primary {
+				border-bottom-color:$border-color-theme-dark;
+			}
+			.sponsor-container {
+				h2 {
+					color:$border-color-theme-dark;
+					border-color:$border-color-theme-dark;
+				}
+			}
+			.slider-list {
 				border-bottom-color:$border-color-theme-dark;
 			}
 		}
@@ -574,9 +588,11 @@ POSTS & CONTENT STYLES
 } /* end .hentry */
 
 .single-title,
-.page-title,
 .entry-title {
 	margin: 0;
+}
+.page-title {
+	margin:0 0 $gutter;
 }
 
 .single-title {}
@@ -869,6 +885,46 @@ POSTS & CONTENT STYLES
 	}
 	
 }
+.slider-list {
+	margin-bottom:$gutter;
+	padding-bottom:$gutter;
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+	.slider-item {
+		width:50%;
+		flex:0 0 50%;
+		padding:0 $gutter $gutter;
+		a {
+			position:relative;
+			display:block;
+			&:hover {
+				.slider-item-title {
+					opacity:1;
+				}
+			}
+			img {
+				display:block;
+				margin:0;
+			}
+		}
+	}
+	.slider-item-title {
+		position:absolute;
+		width:100%;
+		bottom:0;
+		left:0;
+		text-align:center;
+		font-size:.75em;
+		text-transform:uppercase;
+		background-image:linear-gradient(rgba($black,0),rgba($black, 1));
+		padding:$gutter $gutter*.5 $gutter*.5;
+		color:$white;
+		line-height:1em;
+		opacity:0;
+		transition:opacity $transition-speed;
+	}
+}
 .modules {
 	.module {
 		@include clearfix;
@@ -876,6 +932,9 @@ POSTS & CONTENT STYLES
 		border-bottom:1px solid $border-color;
 		margin-bottom:$gutter;
 	}
+}
+.module-content {
+	@include clearfix;
 }
 .video-outer-wrapper {
 	margin-bottom:1.5em;
@@ -1415,12 +1474,33 @@ PAGE SPECIFIC STYLES
 body.home {
 	.content-primary {
 		margin-bottom:$gutter;
-		border-bottom:1px solid $border-color;
-		padding-bottom:$gutter;
+		/*border-bottom:1px solid $border-color;
+		padding-bottom:$gutter;*/
 	}
 	.home-module-container {
 		.current-episode {
 			margin-bottom:$gutter;
+		}
+	}
+	.sponsor-container {
+		padding-top:$gutter;
+		h2 {
+			border-bottom:1px solid $border-color;
+			border-top:1px solid $border-color;
+			text-transform:uppercase;
+			font-size:.75em;
+			text-align:center;
+			font-weight:normal;
+			color:$border-color;
+			margin-bottom:$gutter;
+		}
+	}
+	.slider-list {
+		border-bottom:1px solid $border-color;
+		.slider-item {
+			padding-bottom:0;
+			width:100px;
+			flex:0 0 100px;
 		}
 	}
 }
@@ -1484,5 +1564,8 @@ body.single-episodes {
 				}
 			}
 		}
+	}
+	.episode-description {
+		margin-top:$gutter;
 	}
 }
