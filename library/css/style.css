@@ -1405,6 +1405,20 @@ html {
         opacity: .85; }
       html.theme-dark .contact-form-container .instructions, html.theme-deep-rose .contact-form-container .instructions {
         border-top-color: 1px solid rgba(255, 255, 255, 0.15); }
+    html.theme-dark .footer, html.theme-deep-rose .footer {
+      background-image: url(../images/gray-dark-grunge.png), -webkit-gradient(linear, left top, left bottom, from(#1a1a1a), to(#000));
+      background-image: url(../images/gray-dark-grunge.png), -webkit-linear-gradient(#1a1a1a, #000);
+      background-image: url(../images/gray-dark-grunge.png), -o-linear-gradient(#1a1a1a, #000);
+      background-image: url(../images/gray-dark-grunge.png), linear-gradient(#1a1a1a, #000);
+      color: #999; }
+      html.theme-dark .footer .social .svg-container svg, html.theme-deep-rose .footer .social .svg-container svg {
+        fill: #666666; }
+      html.theme-dark .footer .social .svg-container:hover svg, html.theme-deep-rose .footer .social .svg-container:hover svg {
+        fill: #999; }
+    html.theme-dark .footer-links ul li a, html.theme-deep-rose .footer-links ul li a {
+      color: #999; }
+      html.theme-dark .footer-links ul li a:hover, html.theme-deep-rose .footer-links ul li a:hover {
+        color: #fff; }
     html.theme-dark body.home .content-primary, html.theme-deep-rose body.home .content-primary {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark body.home .sponsor-container h2, html.theme-deep-rose body.home .sponsor-container h2 {
@@ -1429,7 +1443,15 @@ html {
     background-image: -webkit-linear-gradient(#1f0001, #150001);
     background-image: -o-linear-gradient(#1f0001, #150001);
     background-image: linear-gradient(#1f0001, #150001);
-    color: rgba(240, 29, 79, 0.35); }
+    color: #6d071f; }
+    html.theme-deep-rose .footer .social .svg-container svg {
+      fill: #6d071f; }
+    html.theme-deep-rose .footer .social .svg-container:hover svg {
+      fill: #9d0a2d; }
+  html.theme-deep-rose .footer-links ul li a {
+    color: #9d0a2d; }
+    html.theme-deep-rose .footer-links ul li a:hover {
+      color: #f01d4f; }
   html.mobile-nav-active body {
     overflow: hidden;
     height: 100%; }
@@ -1505,7 +1527,7 @@ LAYOUT & GRID STYLES
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-    margin-bottom: 56px;
+    margin-bottom: 250px;
     position: relative;
     z-index: 1;
     /* stupid spacer for iphones */ }
@@ -1513,9 +1535,9 @@ LAYOUT & GRID STYLES
       content: "";
       position: absolute;
       width: 1px;
-      height: 56px;
+      height: 250px;
       left: 0;
-      bottom: -56px; }
+      bottom: -250px; }
 
 #main {
   margin-bottom: 16px; }
@@ -2288,38 +2310,79 @@ FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  color: #999;
-  background: #000;
+  color: #eaedf2;
+  background: #999;
   overflow: hidden;
-  height: 56px;
+  height: 250px;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: -1; }
+  .footer .footer-logo a {
+    display: block;
+    text-indent: -9999px;
+    background: url(../images/pme-logo-horiz-theme-dark.png) no-repeat;
+    background-size: contain;
+    height: 45px;
+    width: 180px; }
+  .footer .social {
+    text-align: center; }
+    .footer .social .svg-container {
+      outline: 0;
+      margin: 0 8px;
+      display: inline-block;
+      width: 48px;
+      height: 48px; }
+      .footer .social .svg-container:hover svg {
+        fill: #fff; }
+      .footer .social .svg-container svg {
+        fill: #eaedf2;
+        -webkit-transition: fill 375ms;
+        -o-transition: fill 375ms;
+        transition: fill 375ms; }
 
 #inner-footer {
-  height: 100%; }
-  #inner-footer .copyright {
-    margin-bottom: 0;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    position: relative;
-    top: 50%; }
+  height: 100%;
+  padding: 16px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
 
-/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
+.footer-links {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+  .footer-links ul {
+    padding-bottom: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .footer-links ul li a {
+      padding: 12px 16px;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      color: #eaedf2;
+      text-transform: uppercase; }
+      .footer-links ul li a:hover {
+        color: #fff; }
+    .footer-links ul li:first-child a {
+      padding-left: 0;
+      border: 0; }
+    .footer-links ul li:last-child a {
+      padding-right: 0; }
+
 /* end .footer-links */
+.copyright {
+  font-size: .75em;
+  margin-bottom: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%; }
+
 /******************************************
 ADMIN BAR CUSTOMIZATION
 ******************************************/
@@ -2695,17 +2758,6 @@ SIDEBARS & ASIDES
   /*********************
 FOOTER STYLES
 *********************/
-  /*
-you'll probably need to do quite a bit
-of overriding here if you styled them for
-mobile. Make sure to double check these!
-*/
-  .footer-links ul li {
-    /*
-			be careful with the depth of your menus.
-			it's very rare to have multi-depth menus in
-			the footer.
-			*/ }
   /* end .footer-links */
   /******************************************
 PAGE SPECIFIC STYLES

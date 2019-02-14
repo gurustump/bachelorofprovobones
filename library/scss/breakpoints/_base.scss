@@ -20,7 +20,7 @@ $logo-heightScrolled:80px;
 $logo-height1240:120px;
 $logo-height1560:140px;
 $logo-top-padding:10px;
-$footer-height:56px;
+$footer-height:250px;
 
 /*********************
 GENERAL STYLES
@@ -135,6 +135,35 @@ html {
 				border-top-color:1px solid $border-color-theme-dark;
 			}
 		}
+		.footer {
+			background-image:url(../images/gray-dark-grunge.png), linear-gradient(lighten($black,10%),$black);
+			//background:lighten($black,10%) url(../images/gray-dark-grunge.png);
+			color:$meta-gray;
+			.social {
+				.svg-container {
+					svg {
+						fill:darken($meta-gray,20%);
+					}
+					&:hover {
+						svg {
+							fill:$meta-gray;
+						}
+					}
+				}
+			}
+		}
+		.footer-links {
+			ul {
+				li {
+					a {
+						color:$meta-gray;
+						&:hover {
+							color:$white;
+						}
+					}
+				}
+			}
+		}
 		body.home {
 			.content-primary {
 				border-bottom-color:$border-color-theme-dark;
@@ -174,7 +203,31 @@ html {
 		}
 		.footer {
 			background-image:linear-gradient(darken($deep-rose,1%),darken($deep-rose,3%));
-			color:rgba($bones-pink, .35);
+			color:darken($bones-pink, 30%);
+			.social {
+				.svg-container {
+					svg {
+						fill:darken($bones-pink,30%);
+					}
+					&:hover {
+						svg {
+							fill:darken($bones-pink,20%);
+						}
+					}
+				}
+			}
+		}
+		.footer-links {
+			ul {
+				li {
+					a {
+						color:darken($bones-pink,20%);
+						&:hover {
+							color:$bones-pink;
+						}
+					}
+				}
+			}
 		}
 	}
 	&.mobile-nav-active {
@@ -1354,8 +1407,8 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	color:$meta-gray;
-	background:$black;
+	color:$gray;
+	background:$meta-gray;
 	overflow:hidden;
 	height:$footer-height;
 	position:fixed;
@@ -1363,38 +1416,73 @@ FOOTER STYLES
 	left:0;
 	width:100%;
 	z-index:-1;
+	.footer-logo {
+		a {
+			display:block;
+			text-indent:-9999px;
+			background:url(../images/pme-logo-horiz-theme-dark.png) no-repeat;
+			background-size:contain;
+			height:$logo-height*.75;
+			width:$logo-height*3;
+		}
+	}
+	.social {
+		text-align:center;
+		.svg-container {
+			outline:0;
+			margin:0 $gutter*.5;
+			display:inline-block;
+			width:$gutter*3;
+			height:$gutter*3;
+			&:hover {
+				svg {
+					fill:$white;
+				}
+			}
+			svg {
+				fill:$gray;
+				transition:fill $transition-speed;
+			}
+		}
+	}
 }
 #inner-footer {
 	height:100%;
-	.copyright {
-		margin-bottom:0;
-		@include v-center;
-	}
+	padding:$gutter 0;
+	@include box-sizing;
 }
-
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
-	.footer-links {
-
-		ul {
-
-			li {}
-
+.footer-links {
+	border-bottom:1px solid $border-color-theme-dark;
+	ul {
+		padding-bottom:$gutter*.5;
+		display:flex;
+		li {
+			a {
+				padding:$gutter*.75 $gutter;
+				border-left:1px solid $border-color-theme-dark;
+				color:$gray;
+				text-transform:uppercase;
+				&:hover {
+					color:$white;
+				}
+			}
+			&:first-child a {
+				padding-left:0;
+				border:0;
+			}
+			&:last-child a {
+				padding-right:0;
+			}
 		}
+	}
+} /* end .footer-links */
 
-	} /* end .footer-links */
 
-
-	.copyright {}
-
-	
+.copyright {
+	font-size:.75em;
+	margin-bottom:0;
+	@include v-center;
+}
 /******************************************
 ADMIN BAR CUSTOMIZATION
 ******************************************/

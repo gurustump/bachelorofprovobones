@@ -1,8 +1,13 @@
+	<?php include('library/svg.php'); ?>
 			<footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 
 				<div id="inner-footer" class="wrap cf">
+				
+					<div class="footer-logo">
+						<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>
+					</div>
 
-					<nav role="navigation">
+					<nav class="footer-nav" role="navigation">
 						<?php wp_nav_menu(array(
     					'container' => 'div',                           // enter '' to remove nav container (just make sure .footer-links in _base.scss isn't wrapping)
     					'container_class' => 'footer-links cf',         // class of container (should you choose to use it)
@@ -17,8 +22,15 @@
     					'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
 						)); ?>
 					</nav>
-
+					
 					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
+					
+					<div class="social">
+						<a class="svg-container" target="_blank" href="https://www.instagram.com/provosmosteligible/"><?php echo $icInstagram; ?></a>
+						<a class="svg-container" target="_blank" href="https://twitter.com/provo_bachelor"><?php echo $icTwitter; ?></a>
+						<a class="svg-container" target="_blank" href="https://www.youtube.com/channel/UCOw0nF1kZiGxE5bsmKowwLA"><?php echo $icYoutube; ?></a>
+						<?php /*<a target="_blank" href="" class="fb">Facebook</a>*/ ?>
+					</div>
 
 				</div>
 
