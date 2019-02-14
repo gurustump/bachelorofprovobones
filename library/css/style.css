@@ -1448,10 +1448,13 @@ html {
       fill: #6d071f; }
     html.theme-deep-rose .footer .social .svg-container:hover svg {
       fill: #9d0a2d; }
-  html.theme-deep-rose .footer-links ul li a {
-    color: #9d0a2d; }
-    html.theme-deep-rose .footer-links ul li a:hover {
-      color: #f01d4f; }
+  html.theme-deep-rose .footer-links {
+    border-color: rgba(240, 29, 79, 0.15); }
+    html.theme-deep-rose .footer-links ul li a {
+      color: #9d0a2d;
+      border-color: rgba(240, 29, 79, 0.15); }
+      html.theme-deep-rose .footer-links ul li a:hover {
+        color: #f01d4f; }
   html.mobile-nav-active body {
     overflow: hidden;
     height: 100%; }

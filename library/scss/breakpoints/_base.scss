@@ -218,10 +218,12 @@ html {
 			}
 		}
 		.footer-links {
+			border-color:rgba($bones-pink,.15);
 			ul {
 				li {
 					a {
 						color:darken($bones-pink,20%);
+						border-color:rgba($bones-pink,.15);
 						&:hover {
 							color:$bones-pink;
 						}
