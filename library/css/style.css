@@ -2907,8 +2907,10 @@ be seen on the Desktop.
     background: transparent; }
   html.theme-dark .main-menu, html.theme-deep-rose .main-menu {
     background: transparent; }
-    html.theme-dark .main-menu li a:hover, html.theme-deep-rose .main-menu li a:hover {
-      border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .main-menu li a, html.theme-deep-rose .main-menu li a {
+      border-color: transparent; }
+      html.theme-dark .main-menu li a:hover, html.theme-deep-rose .main-menu li a:hover {
+        border-color: rgba(255, 255, 255, 0.15); }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -2931,13 +2933,13 @@ NAVIGATION STYLES
       position: relative;
       /* showing sub-menus */ }
       .main-menu li a {
-        border-bottom: 0;
+        border-bottom: 1px solid transparent;
         border-color: transparent;
-        -webkit-transition: height 375ms, line-height 375ms, border 375ms;
-        -moz-transition: height 375ms, line-height 375ms, border 375ms;
-        -ms-transition: height 375ms, line-height 375ms, border 375ms;
-        -o-transition: height 375ms, line-height 375ms, border 375ms;
-        transition: height 375ms, line-height 375ms, border 375ms;
+        -webkit-transition: height 375ms, line-height 375ms, border-color 375ms;
+        -moz-transition: height 375ms, line-height 375ms, border-color 375ms;
+        -ms-transition: height 375ms, line-height 375ms, border-color 375ms;
+        -o-transition: height 375ms, line-height 375ms, border-color 375ms;
+        transition: height 375ms, line-height 375ms, border-color 375ms;
         background: none;
         font-size: 18px;
         height: 60px;
@@ -2945,9 +2947,7 @@ NAVIGATION STYLES
         padding: 0 12px; }
         .main-menu li a:hover {
           text-decoration: none;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-          html.secondary-scrolled .main-menu li a:hover {
-            background-color: rgba(0, 0, 0, 0.5); }
+          border-color: rgba(0, 0, 0, 0.1); }
       .main-menu li li a {
         height: 55px;
         line-height: 55px; }

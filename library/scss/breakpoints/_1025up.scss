@@ -17,8 +17,9 @@ html {
 			background:transparent;
 			li {
 				a {
+					border-color:transparent;
 					&:hover {
-						border-bottom-color:$border-color-theme-dark;
+						border-color:$border-color-theme-dark;
 					}
 				}
 			}
@@ -48,9 +49,9 @@ NAVIGATION STYLES
 		float: left;
 		position: relative;
 		a {
-			border-bottom:0;
+			border-bottom:1px solid transparent;
 			border-color:transparent;
-			@include transition(height $transition-speed, line-height $transition-speed, border $transition-speed);
+			@include transition(height $transition-speed, line-height $transition-speed, border-color $transition-speed);
 			background:none;
 			font-size:18px;
 			height:$logo-height;
@@ -58,10 +59,7 @@ NAVIGATION STYLES
 			padding:0 12px;
 			&:hover {
 				text-decoration:none;
-				border-bottom:1px solid $border-color;
-				html.secondary-scrolled & {
-					background-color:rgba($black,.5);
-				}
+				border-color:$border-color;
 			}
 		}
 		li a {
