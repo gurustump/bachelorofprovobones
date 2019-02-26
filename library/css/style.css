@@ -2959,7 +2959,7 @@ NAVIGATION STYLES
         line-height: 55px; }
       .main-menu li ul.sub-menu,
       .main-menu li ul.children {
-        margin-top: 0;
+        margin-top: -30px;
         border-top: 0;
         position: absolute;
         opacity: 0;
