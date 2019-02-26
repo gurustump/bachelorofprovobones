@@ -2944,6 +2944,8 @@ NAVIGATION STYLES
       /* showing sub-menus */ }
       .main-menu li.menu-item.menu-item-has-children > a:hover {
         border-color: transparent; }
+      .main-menu li:last-child ul.sub-menu, .main-menu li:last-child ul.children {
+        right: 0; }
       .main-menu li a {
         border-bottom: 1px solid transparent;
         border-color: transparent;
