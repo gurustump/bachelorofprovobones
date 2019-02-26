@@ -123,5 +123,14 @@ select {
   background-repeat: no-repeat;
   background-position: 97.5% center;
 }
+.wpcf7-checkbox {
+	.wpcf7-list-item {
+		display:block;
+		margin-bottom:3px;
+		input[type=checkbox] {
+			margin-right:3px;
+		}
+	}
+}
 
 
