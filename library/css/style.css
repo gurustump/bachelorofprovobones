@@ -1672,9 +1672,6 @@ and more scalable.
 			the style.scss file where it's relevant. We want to
 			keep this file as small as possible!
 			*/ }
-    .nav li ul.sub-menu li a,
-    .nav li ul.children li a {
-      padding-left: 30px; }
 
 /* end .nav */
 .main-nav-container {
@@ -2914,6 +2911,10 @@ be seen on the Desktop.
       border-color: transparent; }
       html.theme-dark .main-menu li a:hover, html.theme-deep-rose .main-menu li a:hover {
         border-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .main-menu li ul.sub-menu li a,
+    html.theme-dark .main-menu li ul.children li a, html.theme-deep-rose .main-menu li ul.sub-menu li a,
+    html.theme-deep-rose .main-menu li ul.children li a {
+      border-top: 1px solid rgba(255, 255, 255, 0.15); }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -2935,6 +2936,8 @@ NAVIGATION STYLES
       float: left;
       position: relative;
       /* showing sub-menus */ }
+      .main-menu li.menu-item.menu-item-has-children > a:hover {
+        border-color: transparent; }
       .main-menu li a {
         border-bottom: 1px solid transparent;
         border-color: transparent;
@@ -2974,7 +2977,8 @@ NAVIGATION STYLES
           padding-left: 10px;
           border-right: 0;
           display: block;
-          border-top: 1px solid rgba(255, 255, 255, 0.1); }
+          background: rgba(255, 255, 255, 0.1);
+          border-top: 1px solid rgba(0, 0, 0, 0.1); }
         .main-menu li ul.sub-menu li ul,
         .main-menu li ul.children li ul {
           top: 0;

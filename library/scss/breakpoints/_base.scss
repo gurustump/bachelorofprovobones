@@ -492,27 +492,11 @@ and more scalable.
 		*/
 		ul.sub-menu,
 		ul.children {
-
 			li {
-
 				a {
-					padding-left: 30px;
-
-					&:hover,
-					&:focus {}
-
-					&:link {}
-
 				}
-
-				&:first-child {}
-
-				&:last-child {}
-
 			}
-
 		}
-
 	} /* end .menu li */
 
 	/* highlight current page */
