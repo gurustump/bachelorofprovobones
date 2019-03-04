@@ -1390,7 +1390,7 @@ html {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark .slider-list .slider-item, html.theme-deep-rose .slider-list .slider-item {
       padding: 0 4px 8px; }
-    html.theme-dark .modules .module, html.theme-deep-rose .modules .module {
+    html.theme-dark .modules .module, html.theme-dark .widget, html.theme-deep-rose .modules .module, html.theme-deep-rose .widget {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark .coming-soon, html.theme-deep-rose .coming-soon {
       background: rgba(255, 255, 255, 0.05); }
@@ -2071,6 +2071,11 @@ POSTS & CONTENT STYLES
   display: table;
   clear: both; }
 
+.widget {
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px; }
+
 .video-outer-wrapper {
   margin-bottom: 1.5em; }
 
@@ -2739,17 +2744,13 @@ SIDEBARS & ASIDES
   .sidebar {
     margin-top: 2.2em; }
   .widgettitle {
-    border-bottom: 2px solid #444;
     margin-bottom: 0.75em; }
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
-    .widget ul li {
-      margin-bottom: 0.75em;
-      /* deep nesting */ }
-      .widget ul li ul {
-        margin-top: 0.75em;
-        padding-left: 1em; }
+  .widget ul li {
+    margin-bottom: 0.75em;
+    /* deep nesting */ }
+    .widget ul li ul {
+      margin-top: 0.75em;
+      padding-left: 1em; }
   /* links widget */
   /* meta widget */
   /* pages widget */
@@ -2839,6 +2840,9 @@ Stylesheet: Tablet Landscape Stylsheet
   .modules .module {
     padding-bottom: 32px;
     margin-bottom: 32px; }
+  .widget {
+    margin-bottom: 32px;
+    padding-bottom: 32px; }
   /******************************************
 PAGE SPECIFIC STYLES
 ******************************************/

@@ -28,7 +28,7 @@
 								<?php } ?>
 							</header>
 							<?php
-							$seasonModules = get_posts(array( 
+							$modules = get_posts(array( 
 								'numberposts' => -1,
 								'post_type' => 'modules',
 								'meta_query' => array(
@@ -45,8 +45,9 @@
 							$seasonType = get_post_meta(get_the_ID(),'_bachelor_season_show_type',true);
 							$seasonCast = get_post_meta(get_the_ID(),'_bachelor_season_attached_people',true);
 							$seasonEpisodes = get_post_meta(get_the_ID(),'_bachelor_season_attached_episodes',true);
+							$hasContentSecondary = $seasonCast || $modules || is_active_sidebar('sidebar1');
 							?>
-							<section class="entry-content<?php echo ($seasonModules || $seasonCast) ? ' has-content-secondary':''; ?>">
+							<section class="entry-content<?php echo ($hasContentSecondary) ? ' has-content-secondary':''; ?>">
 								<div class="content-primary">
 									<div class="episode-guide">
 										<?php
@@ -84,11 +85,11 @@
 									</div>
 								</div>
 								<?php
-								if ($seasonModules || $seasonCast) { ?>
+								if ($hasContentSecondary) { ?>
 								<div class="content-secondary">
-									<?php if ($seasonModules) { ?>
+									<?php if ($modules) { ?>
 									<div class="modules">
-										<?php foreach($seasonModules as $module) { ?>
+										<?php foreach($modules as $module) { ?>
 										<div class="module">
 											<h2 class="module-title"><?php echo $module->post_title; ?></h2>
 											<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
@@ -108,6 +109,9 @@
 										</div>
 									</div>
 									<?php } ?>
+									<?php if (is_active_sidebar('sidebar1')) { 
+										get_sidebar();
+									} ?>
 								</div>
 								<?php } ?>
 							</div>

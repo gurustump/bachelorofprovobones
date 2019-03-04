@@ -2,7 +2,7 @@
 
 			<div id="content">
 				<div id="inner-content" class="wrap cf">
-						<?php $postPageModules = get_posts(array( 
+						<?php $modules = get_posts(array( 
 							'numberposts' => -1,
 							'post_type' => 'modules',
 							'meta_query' => array(
@@ -17,12 +17,13 @@
 							'meta_key' => '_bachelor_module_priority',
 						)); 
 						$page_title = get_the_title( get_option('page_for_posts', true) );
+						$hasContentSecondary = $modules || is_active_sidebar('sidebar1');
 						?>
 						<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 							<header class="page-header">
 								<h1 class="page-title" itemprop="headline"><?php echo $page_title; ?></h1>
 							</header> <?php // end article header ?>
-							<div<?php echo $postPageModules ? ' class="has-content-secondary"':''; ?>>
+							<div<?php echo $hasContentSecondary ? ' class="has-content-secondary"':''; ?>>
 								<div class="content-primary">
 									<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 									<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
@@ -52,18 +53,21 @@
 									</article>
 									<?php endif; ?>
 								</div>
-								<?php if ($postPageModules) { ?>
+								<?php if ($hasContentSecondary) { ?>
 								<div class="content-secondary">
-									<?php if ($postPageModules) { ?>
+									<?php if ($modules) { ?>
 									<div class="modules">
-										<?php foreach($postPageModules as $module) { ?>
+										<?php foreach($modules as $module) { ?>
 										<div class="module">
 											<h2 class="module-title"><?php echo $module->post_title; ?></h2>
 											<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
 										</div>
 										<?php } ?>
-										</div>
+									</div>
 									<?php } ?>
+									<?php if (is_active_sidebar('sidebar1')) { 
+										get_sidebar();
+									} ?>
 								</div>
 								<?php } ?>
 							</div>

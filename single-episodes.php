@@ -31,39 +31,44 @@
 								<h1 class="single-title custom-post-type-title">Episode <?php the_title(); ?></h1>
 								<div class="breadcrumb"><a href="<?php echo get_the_permalink($thisSeason[0]->ID); ?>">Season <?php echo $thisSeason[0]->post_title; ?></a></div>
 							</header>
-							<?php $episodeModules = get_posts(array( 
+							<?php $modules = get_posts(array( 
 								'numberposts' => -1,
 								'post_type' => 'modules',
 								'meta_query' => array(
 									array(
 										'key' => '_bachelor_module_location',
-										'value' => 'episode',
+										'value' => 'episodes',
 										'compare' => 'LIKE',
 									),
 								),
 								'order' => 'ASC',
 								'orderby' => 'meta_value',
 								'meta_key' => '_bachelor_module_priority',
-							)); ?>
-							<section class="entry-content<?php echo $episodeModules ? ' has-content-secondary':''; ?>">
+							));
+							$hasContentSecondary = $modules || is_active_sidebar('sidebar1');
+							?>
+							<section class="entry-content<?php echo $hasContentSecondary ? ' has-content-secondary':''; ?>">
 								<div class="content-primary">
 									<?php echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta(get_the_ID(),'_bachelor_episode_youtube_url',true))); ?>
 									<div class="episode-description">
 										<?php the_content(); ?>
 									</div>
 								</div>
-								<?php if ($episodeModules) { ?>
+								<?php if ($hasContentSecondary) { ?>
 								<div class="content-secondary">
-									<?php if ($episodeModules) { ?>
+									<?php if ($modules) { ?>
 									<div class="modules">
-										<?php foreach($episodeModules as $module) { ?>
+										<?php foreach($modules as $module) { ?>
 										<div class="module">
 											<h2 class="module-title"><?php echo $module->post_title; ?></h2>
 											<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
 										</div>
 										<?php } ?>
-										</div>
+									</div>
 									<?php } ?>
+									<?php if (is_active_sidebar('sidebar1')) { 
+										get_sidebar();
+									} ?>
 								</div>
 								<?php } ?>
 							</div>

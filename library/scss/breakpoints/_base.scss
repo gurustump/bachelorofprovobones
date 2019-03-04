@@ -106,10 +106,8 @@ html {
 				padding:0 $gutter*.25 $gutter*.5;
 			}
 		}
-		.modules {
-			.module {
-				border-bottom-color:$border-color-theme-dark;
-			}
+		.modules .module, .widget {
+			border-bottom-color:$border-color-theme-dark;
 		}
 		.coming-soon {
 			background:rgba($white,.05);
@@ -974,6 +972,11 @@ POSTS & CONTENT STYLES
 }
 .module-content {
 	@include clearfix;
+}
+.widget {
+	padding-bottom:$gutter;
+	border-bottom:1px solid $border-color;
+	margin-bottom:$gutter;
 }
 .video-outer-wrapper {
 	margin-bottom:1.5em;
