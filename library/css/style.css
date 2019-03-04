@@ -2796,11 +2796,11 @@ Stylesheet: Tablet Landscape Stylsheet
     margin: 0 32px; }
   .page-title {
     margin: 0 0 32px; }
-  .entry-content.has-content-secondary {
+  .has-content-secondary {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    .entry-content.has-content-secondary .content-primary {
+    .has-content-secondary .content-primary {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 60%;
       flex: 0 0 60%;
@@ -2811,7 +2811,7 @@ Stylesheet: Tablet Landscape Stylsheet
       box-sizing: border-box;
       padding-right: 32px;
       margin-bottom: 0; }
-    .entry-content.has-content-secondary .content-secondary {
+    .has-content-secondary .content-secondary {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 40%;
       flex: 0 0 40%;
@@ -2822,9 +2822,9 @@ Stylesheet: Tablet Landscape Stylsheet
       box-sizing: border-box;
       padding-left: 32px;
       border-left: 1px solid rgba(0, 0, 0, 0.1); }
-    .entry-content.has-content-secondary .thumb-list {
+    .has-content-secondary .thumb-list {
       margin-right: -1.33%; }
-      .entry-content.has-content-secondary .thumb-list .thumb-item {
+      .has-content-secondary .thumb-list .thumb-item {
         margin-right: 1.33%;
         margin-bottom: 1.33%;
         width: 32%;
