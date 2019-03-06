@@ -17,7 +17,7 @@ $gutter1024:32px;
 $logo-height:60px;
 $logo-top-padding:10px;
 $logo-heightScrolled:80px;
-$logo-height1240:120px;
+$logo-height1240:100px;
 $logo-height1560:140px;
 $logo-top-padding:10px;
 $footer-height:250px;
@@ -1606,6 +1606,7 @@ body.single-people {
 		img {
 			display:block;
 			width:100%;
+			max-width:400px;
 		}
 	}
 }
@@ -1644,5 +1645,21 @@ body.single-episodes {
 	}
 	.episode-description {
 		margin-top:$gutter;
+	}
+}
+body.blog {
+	article.post {
+		& > .image-container {
+			margin-bottom:$gutter;
+			a {
+				display:block;
+				outline:0;
+			}
+			img {
+				display:block;
+				width:100%;
+				max-width:400px;
+			}
+		}
 	}
 }

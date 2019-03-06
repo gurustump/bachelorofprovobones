@@ -41,6 +41,9 @@ html {
 NAVIGATION STYLES
 *********************/
 
+#logo {
+	position:absolute;
+}
 .main-nav-container {
 	float:right;
 	position:static;
@@ -71,7 +74,7 @@ NAVIGATION STYLES
 			border-color:transparent;
 			@include transition(height $transition-speed, line-height $transition-speed, border-color $transition-speed);
 			background:none;
-			font-size:18px;
+			font-size:17px;
 			height:$logo-height;
 			line-height:$logo-height;
 			padding:0 12px;

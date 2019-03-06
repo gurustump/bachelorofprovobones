@@ -2562,7 +2562,8 @@ body.single-people .byline {
 
 body.single-people .image-container img {
   display: block;
-  width: 100%; }
+  width: 100%;
+  max-width: 400px; }
 
 body.single-seasons .article-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -2611,6 +2612,16 @@ body.single-episodes .article-header {
 
 body.single-episodes .episode-description {
   margin-top: 16px; }
+
+body.blog article.post > .image-container {
+  margin-bottom: 16px; }
+  body.blog article.post > .image-container a {
+    display: block;
+    outline: 0; }
+  body.blog article.post > .image-container img {
+    display: block;
+    width: 100%;
+    max-width: 400px; }
 
 /*********************
 LARGER MOBILE DEVICES
@@ -2773,7 +2784,15 @@ PAGE SPECIFIC STYLES
     width: 120px;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 120px;
-    flex: 0 0 120px; } }
+    flex: 0 0 120px; }
+  body.blog article.post:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.blog article.post > .image-container {
+    float: left;
+    margin: 0 24px 24px 0;
+    width: 320px; } }
 
 @media only screen and (min-width: 1024px) {
   /******************************************************************
@@ -2928,6 +2947,8 @@ be seen on the Desktop.
   /*********************
 NAVIGATION STYLES
 *********************/
+  #logo {
+    position: absolute; }
   .main-nav-container {
     float: right;
     position: static;
@@ -2959,7 +2980,7 @@ NAVIGATION STYLES
         -o-transition: height 375ms, line-height 375ms, border-color 375ms;
         transition: height 375ms, line-height 375ms, border-color 375ms;
         background: none;
-        font-size: 18px;
+        font-size: 17px;
         height: 60px;
         line-height: 60px;
         padding: 0 12px; }
@@ -3029,21 +3050,22 @@ on larger screens.
   html.theme-dark body.home .slider-list .slider-item, html.theme-deep-rose body.home .slider-list .slider-item {
     padding: 0 4px; }
   #container #content {
-    padding-top: 172px; }
+    padding-top: 152px; }
   .wrap {
     max-width: 1200px;
     margin: 0 auto; }
   .header {
-    height: 140px; }
+    height: 120px; }
   #logo {
     margin: 0;
     padding-top: 10px; }
     #logo a {
-      width: 480px;
-      height: 120px; }
+      width: 400px;
+      height: 100px; }
   .main-menu li a {
-    height: 120px;
-    line-height: 120px; }
+    height: 100px;
+    line-height: 100px;
+    font-size: 18px; }
   .slider-list .slider-item {
     width: 20%;
     -webkit-box-flex: 0;

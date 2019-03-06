@@ -27,6 +27,13 @@
 								<div class="content-primary">
 									<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 									<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+										<?php if (has_post_thumbnail()) { ?>
+										<div class="image-container">
+											<a href="<?php the_permalink() ?>">
+												<img src="<?php the_post_thumbnail_url('movie-thumb'); ?>" alt="" />
+											</a>
+										</div>
+										<?php } ?>
 										<header class="article-header">
 											<h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 											<p class="byline vcard">

@@ -192,3 +192,13 @@ body.home {
 		}
 	}
 }
+body.blog {
+	article.post {
+		@include clearfix;
+		& > .image-container {
+			float:left;
+			margin:0 $gutter768 $gutter768 0;
+			width:320px;
+		}
+	}
+}
