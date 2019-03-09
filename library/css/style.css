@@ -2562,8 +2562,7 @@ body.single-people .byline {
 
 body.single-people .image-container img {
   display: block;
-  width: 100%;
-  max-width: 400px; }
+  width: 100%; }
 
 body.single-seasons .article-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
