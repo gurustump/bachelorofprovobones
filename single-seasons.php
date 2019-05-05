@@ -60,6 +60,7 @@
 												<li>
 													<?php 
 													$youtubeURL = get_post_meta($episodeID,'_bachelor_episode_youtube_url',true);
+													$appendEpisode = get_post_meta($episodeID,'_bachelor_episode_append_episode',true);
 													if (has_post_thumbnail($episodeID) || $youtubeURL) { ?>
 													<div class="image-container">
 														<a href="<?php echo get_post_permalink($episodeID); ?>">
@@ -73,7 +74,7 @@
 													<?php } ?>
 													<div class="content-container">
 														<?php /*<pre><?php print_r($episode); ?></pre> */ ?>
-														<h3><a href="<?php echo get_post_permalink($episodeID); ?>">Episode <?php echo $episode->post_title; ?></a></h3>
+														<h3><a href="<?php echo get_post_permalink($episodeID); ?>"><?php echo $appendEpisode ? 'Episode ':''; ?><?php echo $episode->post_title; ?></a></h3>
 														<div class="episode-description">
 															<?php echo $episode->post_excerpt; ?>
 														</div>

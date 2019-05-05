@@ -25,10 +25,12 @@
 									'compare' => 'LIKE',
 								),
 							),
-						)); ?>
+						)); 
+						$appendEpisode = get_post_meta(get_the_ID(),'_bachelor_episode_append_episode',true)
+						?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 							<header class="article-header">
-								<h1 class="single-title custom-post-type-title">Episode <?php the_title(); ?></h1>
+								<h1 class="single-title custom-post-type-title"><?php echo $appendEpisode ? 'Episode ':'';?><?php the_title(); ?></h1>
 								<div class="breadcrumb"><a href="<?php echo get_the_permalink($thisSeason[0]->ID); ?>">Season <?php echo $thisSeason[0]->post_title; ?></a></div>
 							</header>
 							<?php $modules = get_posts(array( 
