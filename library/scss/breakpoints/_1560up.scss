@@ -54,3 +54,11 @@ on larger screens.
 		margin-bottom:1%;
 	}
 }
+.crew-list, .has-content-secondary .crew-list {
+	.thumb-list {
+		.thumb-item {
+			width:120px;
+			padding-bottom:120px;
+		}
+	}
+}

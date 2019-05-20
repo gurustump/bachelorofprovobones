@@ -44,6 +44,7 @@
 							));
 							$seasonType = get_post_meta(get_the_ID(),'_bachelor_season_show_type',true);
 							$seasonCast = get_post_meta(get_the_ID(),'_bachelor_season_attached_people',true);
+							$seasonCrew = get_post_meta(get_the_ID(),'_bachelor_season_crew_member',true);
 							$seasonEpisodes = get_post_meta(get_the_ID(),'_bachelor_season_attached_episodes',true);
 							$hasContentSecondary = $seasonCast || $modules || is_active_sidebar('sidebar1');
 							?>
@@ -84,6 +85,25 @@
 											</ul>
 										<?php } ?>
 									</div>
+									<?php if ($seasonCrew) { ?>
+									<div class="crew-list">
+										<h2>Season <?php the_title(); ?> Credits</h2>
+										<div class="crew-positions">
+										<?php foreach($seasonCrew as $crewmember) { ?>
+											<div class="crew-position-item">
+												<h3><?php echo $crewmember['title'] ?></h3>
+												<div class="thumb-list">
+												<?php foreach($crewmember['crew_members'] as $key => $crewMemberID) {
+													$crewMember = get_post($crewMemberID);
+													$role = 'crew';
+													echo personThumbMarkup($crewMember,$role,$seasonType);
+												} ?>
+												</div>
+											</div>
+										<?php } ?>
+										</div>
+									</div>
+									<?php } ?>
 								</div>
 								<?php
 								if ($hasContentSecondary) { ?>
@@ -105,7 +125,7 @@
 											<?php foreach($seasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												echo castMemberMarkup($castMember,$role,$seasonType);
+												echo personThumbMarkup($castMember,$role,$seasonType);
 											} ?>
 										</div>
 									</div>

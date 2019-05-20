@@ -15,12 +15,14 @@
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						
-						<?php $personMeta = get_post_meta(get_the_ID()); ?>
+						<?php $personMeta = get_post_meta(get_the_ID()); 
+						$personName = $personMeta['_bachelor_person_role'][0] == 'crew' ? $personMeta['_bachelor_person_first_name'][0].' '.$personMeta['_bachelor_person_last_name'][0] : get_the_title();
+						?>
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 							<header class="article-header">
 								<div class="title-container">
-									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
+									<h1 class="single-title custom-post-type-title"><?php echo $personName; ?></h1>
 									<?php if ($personMeta['_bachelor_person_age'][0] || $personMeta['_bachelor_person_college_major'][0] || $personMeta['_bachelor_person_instagram'][0]) { ?>
 									<table class="byline">
 										<?php if ($personMeta['_bachelor_person_age'][0]) { ?>

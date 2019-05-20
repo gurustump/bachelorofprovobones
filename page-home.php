@@ -101,7 +101,7 @@
 											<?php foreach($currentSeasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												echo castMemberMarkup($castMember,$role,$currentSeasonType);
+												echo personThumbMarkup($castMember,$role,$currentSeasonType);
 											} ?>
 										</div>
 									</div>

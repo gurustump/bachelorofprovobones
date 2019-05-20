@@ -1940,7 +1940,7 @@ POSTS & CONTENT STYLES
     background: #fff; }
     .thumb-list .thumb-item.retired .image-container {
       opacity: .4; }
-    .thumb-list .thumb-item.retired > a .cast-info {
+    .thumb-list .thumb-item.retired > a .person-info {
       background-color: rgba(0, 0, 0, 0);
       background-image: -webkit-linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
       background-image: -moz-linear-gradient(  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
@@ -1966,7 +1966,7 @@ POSTS & CONTENT STYLES
         -webkit-transition: all 375ms;
         -o-transition: all 375ms;
         transition: all 375ms; }
-      .thumb-list .thumb-item > a .cast-info {
+      .thumb-list .thumb-item > a .person-info {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -1979,13 +1979,28 @@ POSTS & CONTENT STYLES
         background-image: linear-gradient(  rgba(0, 0, 0, 0), black);
         padding: 12% 4% 4%;
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
-        .thumb-list .thumb-item > a .cast-info span {
+        .thumb-list .thumb-item > a .person-info span {
           display: block; }
-        .thumb-list .thumb-item > a .cast-info .cast-name {
+        .thumb-list .thumb-item > a .person-info .person-name {
           font-size: .8em;
           font-weight: bold; }
-        .thumb-list .thumb-item > a .cast-info .cast-type {
+        .thumb-list .thumb-item > a .person-info .person-type {
           font-size: .75em; }
+
+.crew-list h2, .has-content-secondary .crew-list h2 {
+  margin-bottom: 32px; }
+
+.crew-list h3, .has-content-secondary .crew-list h3 {
+  margin-bottom: 8px; }
+
+.crew-list .thumb-list, .has-content-secondary .crew-list .thumb-list {
+  margin-bottom: 16px;
+  margin-right: -1.33%; }
+  .crew-list .thumb-list .thumb-item, .has-content-secondary .crew-list .thumb-list .thumb-item {
+    margin-right: 1.33%;
+    width: 32%;
+    padding-bottom: 32%;
+    margin-bottom: 1.33%; }
 
 .episode-list > li {
   display: -webkit-box;
@@ -2737,6 +2752,13 @@ LAYOUT & GRID STYLES
     padding-top: 94px; }
   .wrap {
     margin: 0 24px; }
+  .crew-list .thumb-list, .has-content-secondary .crew-list .thumb-list {
+    margin-right: -1%; }
+    .crew-list .thumb-list .thumb-item, .has-content-secondary .crew-list .thumb-list .thumb-item {
+      margin-right: 1%;
+      width: 19%;
+      padding-bottom: 19%;
+      margin-bottom: 1%; }
   .slider-list .slider-item {
     width: 240px;
     -webkit-box-flex: 0;
@@ -3120,7 +3142,10 @@ on larger screens.
       margin-right: 1%;
       width: 19%;
       padding-bottom: 19%;
-      margin-bottom: 1%; } }
+      margin-bottom: 1%; }
+  .crew-list .thumb-list .thumb-item, .has-content-secondary .crew-list .thumb-list .thumb-item {
+    width: 120px;
+    padding-bottom: 120px; } }
 
 /*********************
 RETINA (2x RESOLUTION DEVICES)

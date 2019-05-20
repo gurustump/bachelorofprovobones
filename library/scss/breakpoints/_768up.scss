@@ -31,6 +31,17 @@ LAYOUT & GRID STYLES
 	margin:0 $gutter768;
 }
 
+.crew-list, .has-content-secondary .crew-list {
+	.thumb-list {
+		margin-right:-1%;
+		.thumb-item {
+			margin-right:1%;
+			width:19%;
+			padding-bottom:19%;
+			margin-bottom:1%;
+		}
+	}
+}
 .slider-list {
 	.slider-item {
 		width:240px;

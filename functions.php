@@ -247,26 +247,27 @@ function bones_fonts() {
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
 // UTILITY & CONTENT FUNCTIONS
-function castMemberMarkup($castMember,$role,$seasonType) {
+function personThumbMarkup($person,$role,$seasonType) {
 	$contestantType = $seasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
-	$castMemberMeta = get_post_meta($castMember->ID);
-	$exit_episode = $castMemberMeta['_bachelor_person_exit_episode'][0];
+	$personMeta = get_post_meta($person->ID);
+	$exit_episode = $personMeta['_bachelor_person_exit_episode'][0];
+	$personName = $role == 'crew' ? $personMeta['_bachelor_person_first_name'][0].' '.$personMeta['_bachelor_person_last_name'][0] : $person->post_title;
 	$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
-	$markup .= '<a href="'.get_permalink($castMember->ID).'">';
-	if (has_post_thumbnail($castMember->ID)) {
+	$markup .= '<a href="'.get_permalink($person->ID).'">';
+	if (has_post_thumbnail($person->ID)) {
 		$markup .= '<span class="image-container">';
-		$markup .= '<img src="'.get_the_post_thumbnail_url($castMember->ID,'thumbnail').'" alt="'.$castMember->post_name.'" />';
+		$markup .= '<img src="'.get_the_post_thumbnail_url($person->ID,'thumbnail').'" alt="'.$person->post_name.'" />';
 		$markup .= '</span>';
 	}
-	$markup .= '<div class="cast-info">';
-	$markup .= '<span class="cast-name">'.$castMember->post_title.'</span>';
-	$markup .= '<span class="cast-type">';
-	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? 'Contestant' : "Provo's Most Eligible" );
+	$markup .= '<div class="person-info">';
+	$markup .= '<span class="person-name">'.$personName.'</span>';
+	$markup .= '<span class="person-type">';
+	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? 'Contestant' : ($role == 'crew' ? '' : "Provo's Most Eligible" ));
 	$markup .= '</span></div>';
 	$markup .= '</a>';
 	$markup .= '</div>';
 	//$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
-	//$markup .= print_r($castMember,true);
+	//$markup .= print_r($person,true);
 	//$markup .= '</pre>';
 	return $markup;
 }

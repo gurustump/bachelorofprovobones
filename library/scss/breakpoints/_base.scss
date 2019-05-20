@@ -857,7 +857,7 @@ POSTS & CONTENT STYLES
 				opacity:.4;
 			}
 			& > a {
-				.cast-info {
+				.person-info {
 					@include linear-gradient(rgba($black,0),rgba($black,.7));
 				}
 			}
@@ -881,7 +881,7 @@ POSTS & CONTENT STYLES
 				display:block;
 				transition:all $transition-speed;
 			}
-			.cast-info {
+			.person-info {
 				position:absolute;
 				left:0;
 				bottom:0;
@@ -892,14 +892,32 @@ POSTS & CONTENT STYLES
 				span {
 					display:block;
 				}
-				.cast-name {
+				.person-name {
 					font-size:.8em;
 					font-weight:bold;
 				}
-				.cast-type {
+				.person-type {
 					font-size:.75em;
 				}
 			}
+		}
+	}
+}
+.crew-list, .has-content-secondary .crew-list {
+	h2 {
+		margin-bottom:$gutter*2;
+	}
+	h3 {
+		margin-bottom:$gutter*.5;
+	}
+	.thumb-list {
+		margin-bottom:$gutter;
+		margin-right:-1.33%;
+		.thumb-item {
+			margin-right:1.33%;
+			width:32%;
+			padding-bottom:32%;
+			margin-bottom:1.33%;
 		}
 	}
 }
