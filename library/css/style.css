@@ -923,6 +923,11 @@ and it will create a button dependant on those variables.
   .btn-pink:hover, .btn-pink:visited:hover {
     background-color: #cc0e3b; }
 
+html.theme-sunset .btn-pink, html.theme-sunset .btn-pink:visited {
+  background-color: #a20061; }
+  html.theme-sunset .btn-pink:hover, html.theme-sunset .btn-pink:visited:hover {
+    background-color: #6f0042; }
+
 .btn-small {
   font-size: .75em; }
 
@@ -1461,6 +1466,82 @@ html {
       border-color: rgba(240, 29, 79, 0.15); }
       html.theme-deep-rose .footer-links ul li a:hover {
         color: #f01d4f; }
+  html.theme-sunset #container #content {
+    background-image: url(../images/dark-grunge.png), -webkit-gradient(linear, left top, left bottom, from(#050505), color-stop(rgba(162, 0, 97, 0.35)), color-stop(rgba(106, 30, 91, 0.35)), to(#050505));
+    background-image: url(../images/dark-grunge.png), -webkit-linear-gradient(#050505, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+    background-image: url(../images/dark-grunge.png), -o-linear-gradient(#050505, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+    background-image: url(../images/dark-grunge.png), linear-gradient(#050505, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+    background-color: #000;
+    padding-top: 126px; }
+  html.theme-sunset .header {
+    height: 110px;
+    background-image: -webkit-radial-gradient(bottom left, circle, #fff 2%, #deb959 10%, #a20061 35%, #6a1e5b 70%, #050505) !important;
+    background-image: -o-radial-gradient(bottom left, circle, #fff 2%, #deb959 10%, #a20061 35%, #6a1e5b 70%, #050505) !important;
+    background-image: radial-gradient(circle at bottom left, #fff 2%, #deb959 10%, #a20061 35%, #6a1e5b 70%, #050505) !important;
+    -webkit-transition: height 375ms, padding-top 375ms;
+    -o-transition: height 375ms, padding-top 375ms;
+    transition: height 375ms, padding-top 375ms; }
+    html.theme-sunset .header:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1px;
+      left: -1%;
+      width: 102%;
+      height: 100%;
+      background: url(../images/pme-terrain-theme-sunset.svg) no-repeat;
+      background-position: left bottom;
+      background-size: 100% auto; }
+    html.theme-sunset .header:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 100%;
+      height: 15px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#050505), to(rgba(5, 5, 5, 0)));
+      background: -webkit-linear-gradient(#050505, rgba(5, 5, 5, 0));
+      background: -o-linear-gradient(#050505, rgba(5, 5, 5, 0));
+      background: linear-gradient(#050505, rgba(5, 5, 5, 0)); }
+    html.theme-sunset .header #inner-header {
+      position: relative;
+      z-index: 1; }
+  html.theme-sunset #logo {
+    padding: 10px 0 20px;
+    float: none; }
+    html.theme-sunset #logo a {
+      background-image: url(../images/pme-logo-theme-sunset.svg);
+      background-position: center top;
+      height: 80px;
+      margin: 0 auto; }
+  html.theme-sunset a {
+    color: #d50080; }
+  html.theme-sunset.mobile-nav-active .header {
+    background: #050505 !important; }
+    html.theme-sunset.mobile-nav-active .header:after {
+      content: normal; }
+  html.theme-sunset .footer {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#32001e), to(#070206));
+    background-image: -webkit-linear-gradient(#32001e, #070206);
+    background-image: -o-linear-gradient(#32001e, #070206);
+    background-image: linear-gradient(#32001e, #070206);
+    color: #090005; }
+    html.theme-sunset .footer .social .svg-container svg {
+      fill: #7c004a; }
+    html.theme-sunset .footer .social .svg-container:hover svg {
+      fill: #a20061; }
+    html.theme-sunset .footer .footer-logo a {
+      background-image: url(../images/pme-logo-theme-sunset.svg);
+      height: 50px;
+      margin-bottom: 10px; }
+  html.theme-sunset .footer-links {
+    border-color: rgba(162, 0, 97, 0.25); }
+    html.theme-sunset .footer-links ul li a {
+      color: #a20061;
+      border-color: rgba(162, 0, 97, 0.15); }
+      html.theme-sunset .footer-links ul li a:hover {
+        color: #d50080; }
   html.mobile-nav-active body {
     overflow: hidden;
     height: 100%; }
@@ -2745,6 +2826,8 @@ come into play. Have fun!
   /*********************
 GENERAL STYLES
 *********************/
+  html.theme-sunset #logo a {
+    background-size: auto 92%; }
   /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -2965,6 +3048,30 @@ be seen on the Desktop.
     html.theme-dark .main-menu li ul.children li a, html.theme-deep-rose .main-menu li ul.sub-menu li a,
     html.theme-deep-rose .main-menu li ul.children li a {
       border-top: 1px solid rgba(255, 255, 255, 0.15); }
+  html.theme-sunset .header {
+    width: 133.33%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+    html.theme-sunset .header #inner-header {
+      width: 75%;
+      margin: 0 auto; }
+  html.theme-sunset #logo {
+    margin-left: 32px; }
+    html.theme-sunset #logo a {
+      background-size: contain;
+      background-position: left center; }
+  html.theme-sunset .main-nav-container {
+    margin-right: 20px; }
+  html.theme-sunset .main-menu li a {
+    -webkit-transition: height 375ms, line-height 375ms, border-color 375ms, background-color 375ms;
+    -o-transition: height 375ms, line-height 375ms, border-color 375ms, background-color 375ms;
+    transition: height 375ms, line-height 375ms, border-color 375ms, background-color 375ms; }
+    html.theme-sunset .main-menu li a:hover {
+      background: rgba(255, 255, 255, 0.15); }
+  html.theme-sunset .main-menu li ul.sub-menu, html.theme-sunset .main-menu li ul.children {
+    margin-top: 0; }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -3070,6 +3177,39 @@ on larger screens.
     line-height: 80px; }
   html.theme-dark body.home .slider-list .slider-item, html.theme-deep-rose body.home .slider-list .slider-item {
     padding: 0 4px; }
+  html.theme-sunset #container #content {
+    padding-top: 146px; }
+  html.theme-sunset .header {
+    height: 130px;
+    width: 1560px;
+    background-image: -webkit-radial-gradient(bottom left, circle, #fff 1%, #deb959 5%, #a20061 35%, #6a1e5b 70%, #050505) !important;
+    background-image: -o-radial-gradient(bottom left, circle, #fff 1%, #deb959 5%, #a20061 35%, #6a1e5b 70%, #050505) !important;
+    background-image: radial-gradient(circle at bottom left, #fff 1%, #deb959 5%, #a20061 35%, #6a1e5b 70%, #050505) !important; }
+    html.theme-sunset .header #inner-header {
+      width: auto;
+      height: 100%; }
+      html.theme-sunset .header #inner-header:before {
+        content: "";
+        display: block;
+        height: 100px;
+        width: 71.5px;
+        position: absolute;
+        left: -116px;
+        bottom: 0;
+        background: url(../images/pme-couple-theme-sunset.svg) no-repeat bottom left;
+        background-size: cover; }
+  html.theme-sunset #logo {
+    margin-left: 0; }
+    html.theme-sunset #logo a {
+      height: 100px; }
+  html.theme-sunset .main-nav-container {
+    margin-right: -12px; }
+  html.theme-sunset.scrolled #container #content {
+    padding-top: 126px; }
+  html.theme-sunset.scrolled .header {
+    height: 110px; }
+  html.theme-sunset.scrolled #logo a {
+    height: 80px; }
   #container #content {
     padding-top: 152px; }
   .wrap {
@@ -3113,6 +3253,26 @@ You can add some advanced styles here if you like. This kicks in
 on larger screens.
 
 ******************************************************************/
+  html.theme-sunset #container #content {
+    padding-top: 186px; }
+  html.theme-sunset .header {
+    height: 170px;
+    width: 1920px; }
+    html.theme-sunset .header #inner-header {
+      width: auto;
+      height: 100%; }
+      html.theme-sunset .header #inner-header:before {
+        height: 140px;
+        width: 100.1px;
+        left: -156px;
+        -webkit-transition: height 375ms, width 375ms;
+        -o-transition: height 375ms, width 375ms;
+        transition: height 375ms, width 375ms; }
+  html.theme-sunset #logo a {
+    height: 140px; }
+  html.theme-sunset.scrolled .header #inner-header:before {
+    height: 100px;
+    width: 71.5px; }
   #container #content {
     padding-top: 192px; }
   .wrap {
@@ -3146,6 +3306,26 @@ on larger screens.
   .crew-list .thumb-list .thumb-item, .has-content-secondary .crew-list .thumb-list .thumb-item {
     width: 120px;
     padding-bottom: 120px; } }
+
+@media only screen and (min-width: 1920px) {
+  /******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Extra Super Large Monitor Stylesheet
+
+You can add some advanced styles here if you like. This kicks in
+on larger screens.
+
+******************************************************************/
+  html.theme-sunset #container #content {
+    padding-top: 216px;
+    -webkit-transition: padding-top 375ms;
+    -o-transition: padding-top 375ms;
+    transition: padding-top 375ms; }
+  html.theme-sunset .header {
+    height: 200px;
+    width: 100%; } }
 
 /*********************
 RETINA (2x RESOLUTION DEVICES)

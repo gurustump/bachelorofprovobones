@@ -91,6 +91,14 @@ and it will create a button dependant on those variables.
 		background-color:darken($bones-pink, 10%);
 	}
 }
+html.theme-sunset {
+	.btn-pink, .btn-pink:visited {
+		background-color:$sunset-main;
+		&:hover {
+			background-color:darken($sunset-main, 10%);
+		}
+	}
+}
 .btn-small {
 	font-size:.75em;
 }

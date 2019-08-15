@@ -33,6 +33,40 @@ html {
 			}
 		}
 	}
+	&.theme-sunset {
+		.header {
+			width:133.33%;
+			left:50%;
+			transform:translateX(-50%);
+			#inner-header {
+				width:75%;
+				margin:0 auto;
+			}
+		}
+		#logo {
+			margin-left:32px;
+			a {
+				background-size:contain;
+				background-position:left center;
+			}
+		}
+		.main-nav-container {
+			margin-right:20px;
+		}
+		.main-menu {
+			li {
+				a {
+					transition:height $transition-speed, line-height $transition-speed, border-color $transition-speed,background-color $transition-speed;;
+					&:hover {
+						background:rgba($white,.15);
+					}
+				}
+				ul.sub-menu, ul.children {
+					margin-top:0;
+				}
+			}
+		}
+	}
 }
 
 .wrap {

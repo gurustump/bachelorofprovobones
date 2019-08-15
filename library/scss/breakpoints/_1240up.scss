@@ -37,6 +37,57 @@ html {
 			}
 		}
 	}
+	&.theme-sunset {
+		#container {
+			#content {
+				padding-top:$logo-height1240 + $logo-top-padding*3 + $gutter;
+			}
+		}
+		.header {
+			height:$logo-height1240 + $logo-top-padding*3;
+			width:1560px;
+			background-image:radial-gradient(circle at bottom left, $sunset-light 1%,$sunset-tertiary 5%,$sunset-main 35%,$sunset-secondary 70%,$sunset-dark) !important;
+			#inner-header {
+				width:auto;
+				height:100%;
+				&:before {
+					content:"";
+					display:block;
+					height:$logo-height1240;
+					width:$logo-height1240*.715;
+					position:absolute;
+					left:$logo-height1240*-1 - $gutter;
+					bottom:0;
+					background:url(../images/pme-couple-theme-sunset.svg) no-repeat bottom left;
+					background-size:cover;
+				}
+			}
+		}
+		#logo {
+			margin-left:0;
+			a {
+				height:$logo-height1240;
+			}
+		}
+		.main-nav-container {
+			margin-right:-12px;
+		}
+		&.scrolled {
+			#container {
+				#content {
+					padding-top:$logo-heightScrolled + $logo-top-padding*3 + $gutter;
+				}
+			}
+			.header {
+				height:$logo-heightScrolled + $logo-top-padding*3;
+			}
+			#logo {
+				a {
+					height:$logo-heightScrolled;
+				}
+			}
+		}
+	}
 }
 
 #container {

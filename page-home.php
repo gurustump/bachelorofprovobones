@@ -43,11 +43,12 @@
 									)); ?>
 									<div class="content-primary<?php echo $homeModule ? ' home-module-container':''; ?>">
 										<div class="current-episode">
-											<h2>Latest Episode</h2>
-											<?php if ($currentMostRecentEpisode) {
-												echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true)));
+											<?php if ($currentSeasonEpisodeIDs) { ?>
+												<h2>Latest Episode</h2>
+												<?php echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true)));
 											} else { ?>
-												<div class="coming-soon"></div>
+												<h2><?php echo get_post_meta(get_the_ID(),'_bachelor_page_main_section_title',true); ?></h2>
+												<div class="main-section-content"><?php echo get_post_meta(get_the_ID(),'_bachelor_page_main_section_content',true); ?></div>
 											<?php } ?>
 										</div>
 										<?php if ($homeModule) { foreach($homeModule as $module) { ?>

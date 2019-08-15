@@ -16,7 +16,15 @@ come into play. Have fun!
 /*********************
 GENERAL STYLES
 *********************/
-body {}
+html {
+	&.theme-sunset {
+		#logo {
+			a {
+				background-size:auto 92%;
+			}
+		}
+	}
+}
 
 /*********************
 LAYOUT & GRID STYLES
