@@ -93,7 +93,6 @@
 									<?php } ?>
 									
 									<?php
-									$currentSeasonType = get_post_meta($currentSeasonID,'_bachelor_season_show_type',true);
 									$currentSeasonCast = get_post_meta($currentSeasonID,'_bachelor_season_attached_people',true);
 									if ($currentSeasonCast) { ?>
 									<div class="current-cast cast-list">
@@ -102,7 +101,7 @@
 											<?php foreach($currentSeasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												echo personThumbMarkup($castMember,$role,$currentSeasonType);
+												echo personThumbMarkup($castMember,$role,false);
 											} ?>
 										</div>
 									</div>

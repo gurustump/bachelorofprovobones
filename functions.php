@@ -247,11 +247,11 @@ function bones_fonts() {
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
 // UTILITY & CONTENT FUNCTIONS
-function personThumbMarkup($person,$role,$seasonType) {
-	$contestantType = $seasonType == 'bachelor' ? 'bachelorette' : 'bachelor';
+function personThumbMarkup($person,$role,$crewPosition) {
 	$personMeta = get_post_meta($person->ID);
 	$exit_episode = $personMeta['_bachelor_person_exit_episode'][0];
 	$personName = $role == 'crew' ? $personMeta['_bachelor_person_first_name'][0].' '.$personMeta['_bachelor_person_last_name'][0] : $person->post_title;
+	$personType = 
 	$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
 	$markup .= '<a href="'.get_permalink($person->ID).'">';
 	if (has_post_thumbnail($person->ID)) {
@@ -262,13 +262,39 @@ function personThumbMarkup($person,$role,$seasonType) {
 	$markup .= '<div class="person-info">';
 	$markup .= '<span class="person-name">'.$personName.'</span>';
 	$markup .= '<span class="person-type">';
-	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? 'Contestant' : ($role == 'crew' ? '' : "Provo's Most Eligible" ));
+	$markup .= $role == 'host' ? 'Host' : ($role == 'contestant' ? 'Contestant' : ($role == 'crew' ? $crewPosition['title'] : "Provo's Most Eligible" ));
 	$markup .= '</span></div>';
 	$markup .= '</a>';
 	$markup .= '</div>';
 	//$markup .= '<pre style="padding:20px 30px;font-size:10px;border:1px solid #eee;margin-bottom:20px;">';
 	//$markup .= print_r($person,true);
 	//$markup .= '</pre>';
+	return $markup;
+}
+function crewListMarkup($headingTag,$season) {
+	$currentSeasonID = $season ? $season : get_option('bachelor_main_options')['current_season'];
+	$currentSeasonCrew = get_post_meta($currentSeasonID,'_bachelor_season_crew_member',true);
+	$markup = '';
+	if ($currentSeasonCrew) { 
+		$currentDept = '';
+		$markup = '<div class="thumb-list">';
+			$markup .= '<div class="thumb-row">';
+		foreach($currentSeasonCrew as $key => $crewPosition) {
+			if ($currentDept != '' && $currentDept != $crewPosition['department']) {
+			$markup .= '</div>';
+			$markup .= '<div class="thumb-row">';
+			}
+			if ($currentDept == '' || $currentDept != $crewPosition['department']) {
+				$markup .= '<'.$headingTag.'>'.$crewPosition['department'].'</'.$headingTag.'>';
+			}
+			$currentDept = $crewPosition['department'];
+			$crewMember = get_post($crewPosition['crew_members'][0]);
+			$role = 'crew';
+			$markup .= personThumbMarkup($crewMember,$role,$crewPosition);
+			$markup .= $key + 1 == count($currentSeasonCrew) ? '</div>' : '';
+		}
+		$markup .= '</div>';
+	}
 	return $markup;
 }
 function getYoutubeIDfromURL($url) {

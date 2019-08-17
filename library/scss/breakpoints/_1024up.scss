@@ -42,15 +42,17 @@ html {
 }
 
 .has-content-secondary {
-	display:flex;
-	.content-primary {
-		flex:0 0 60%;
+	// display:flex;
+	.content-primary,.content-tertiary {
+		float:left;
+		width:60%;
 		@include box-sizing;
 		padding-right:$gutter1024;
 		margin-bottom:0;
 	}
 	.content-secondary {
-		flex:0 0 40%;
+		float:right;
+		width:40%;
 		@include box-sizing;
 		padding-left:$gutter1024;
 		border-left:1px solid $border-color;
@@ -62,6 +64,14 @@ html {
 			margin-bottom:1.33%;
 			width:32%;
 			padding-bottom:32%;
+		}
+	}
+	.crew-list {
+		.thumb-list {
+			.thumb-item {
+				width:24%;
+				padding-bottom:24%;
+			}
 		}
 	}
 }

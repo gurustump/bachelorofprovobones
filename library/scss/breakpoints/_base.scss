@@ -326,6 +326,10 @@ html {
 				}
 			}
 		}
+		.copyright {
+			color:darken($sunset-main,10%);
+			top:45%;
+		}
 	}
 	&.mobile-nav-active {
 		body {
@@ -941,6 +945,11 @@ POSTS & CONTENT STYLES
 .thumb-list {
 	@include clearfix;
 	margin-right:-2%;
+	.thumb-row {
+		clear:left;
+		margin-bottom:$gutter;
+		@include clearfix;
+	}
 	.thumb-item {
 		margin-right:2%;
 		width:48%;
@@ -1006,7 +1015,7 @@ POSTS & CONTENT STYLES
 	}
 	h3 {
 		margin-bottom:$gutter*.5;
-	}
+	}/*
 	.thumb-list {
 		margin-bottom:$gutter;
 		margin-right:-1.33%;
@@ -1016,7 +1025,7 @@ POSTS & CONTENT STYLES
 			padding-bottom:32%;
 			margin-bottom:1.33%;
 		}
-	}
+	}*/
 }
 .episode-list {
 	& > li {

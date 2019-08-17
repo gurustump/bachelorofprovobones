@@ -85,25 +85,6 @@
 											</ul>
 										<?php } ?>
 									</div>
-									<?php if ($seasonCrew) { ?>
-									<div class="crew-list">
-										<h2>Season <?php the_title(); ?> Credits</h2>
-										<div class="crew-positions">
-										<?php foreach($seasonCrew as $crewmember) { ?>
-											<div class="crew-position-item">
-												<h3><?php echo $crewmember['title'] ?></h3>
-												<div class="thumb-list">
-												<?php foreach($crewmember['crew_members'] as $key => $crewMemberID) {
-													$crewMember = get_post($crewMemberID);
-													$role = 'crew';
-													echo personThumbMarkup($crewMember,$role,$seasonType);
-												} ?>
-												</div>
-											</div>
-										<?php } ?>
-										</div>
-									</div>
-									<?php } ?>
 								</div>
 								<?php
 								if ($hasContentSecondary) { ?>
@@ -125,7 +106,7 @@
 											<?php foreach($seasonCast as $key => $castMemberID) {
 												$castMember = get_post($castMemberID);
 												$role = get_post_meta($castMemberID,'_bachelor_person_role',true);
-												echo personThumbMarkup($castMember,$role,$seasonType);
+												echo personThumbMarkup($castMember,$role,false);
 											} ?>
 										</div>
 									</div>
@@ -135,6 +116,14 @@
 									} ?>
 								</div>
 								<?php } ?>
+								<div class="content-tertiary">
+									<?php if ($seasonCrew) { ?>
+									<div class="crew-list">
+										<h2>Season <?php the_title(); ?> Credits</h2>
+										<?php echo crewListMarkup('h3',false); ?>
+									</div>
+									<?php } ?>
+								</div>
 							</div>
 						</article>
 						<?php endwhile; ?>

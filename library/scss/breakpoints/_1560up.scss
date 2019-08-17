@@ -75,11 +75,11 @@ html {
 	}
 }
 .entry-content.has-content-secondary {
-	.content-primary {
-		flex:0 0 70%;
+	.content-primary, .content-tertiary {
+		width:70%;
 	}
 	.content-secondary {
-		flex:0 0 30%;
+		width:30%;
 	}
 }
 
@@ -95,8 +95,8 @@ html {
 .crew-list, .has-content-secondary .crew-list {
 	.thumb-list {
 		.thumb-item {
-			width:120px;
-			padding-bottom:120px;
+			width:13.28%;
+			padding-bottom:13.28%;
 		}
 	}
 }
