@@ -119,8 +119,8 @@
 								<div class="content-tertiary">
 									<?php if ($seasonCrew) { ?>
 									<div class="crew-list">
-										<h2>Season <?php the_title(); ?> Credits</h2>
-										<?php echo crewListMarkup('h3',false); ?>
+										<h2>Season <?php the_title(); ?> Crew</h2>
+										<?php echo crewListMarkup('h3',get_the_ID()); ?>
 									</div>
 									<?php } ?>
 								</div>
