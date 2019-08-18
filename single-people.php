@@ -23,13 +23,16 @@
 							<header class="article-header">
 								<div class="title-container">
 									<h1 class="single-title custom-post-type-title"><?php echo $personName; ?></h1>
-									<?php if ($personMeta['_bachelor_person_age'][0] || $personMeta['_bachelor_person_college_major'][0] || $personMeta['_bachelor_person_instagram'][0]) { ?>
+									<?php if ($personMeta['_bachelor_person_age'][0] || $personMeta['_bachelor_person_college_major'][0] || $personMeta['_bachelor_person_occupation'][0] || $personMeta['_bachelor_person_instagram'][0]) { ?>
 									<table class="byline">
 										<?php if ($personMeta['_bachelor_person_age'][0]) { ?>
 										<tr><td colspan="2"><?php echo $personMeta['_bachelor_person_age'][0]; ?></td></tr>
 										<?php } ?>
 										<?php if ($personMeta['_bachelor_person_college_major'][0]) { ?>
 										<tr><td>major: </td><td><?php echo $personMeta['_bachelor_person_college_major'][0]; ?></td></tr>
+										<?php } ?>
+										<?php if ($personMeta['_bachelor_person_occupation'][0]) { ?>
+										<tr><td>occupation: </td><td><?php echo $personMeta['_bachelor_person_occupation'][0]; ?></td></tr>
 										<?php } ?>
 										<?php if ($personMeta['_bachelor_person_instagram'][0]) { ?>
 										<tr><td>IG:</td><td><a target="_blank" href="https://instagram.com/<?php echo str_replace('@','',$personMeta['_bachelor_person_instagram'][0]); ?>"><?php echo $personMeta['_bachelor_person_instagram'][0]; ?></a></td></tr>
