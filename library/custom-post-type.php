@@ -64,7 +64,6 @@ function person_custom_type() {
 // adding the function to the Wordpress init
 add_action( 'init', 'person_custom_type');
 
-/*
 register_taxonomy( 'person_cat', 
 	array('people'),
 	array('hierarchical' => true,
@@ -80,13 +79,14 @@ register_taxonomy( 'person_cat',
 			'add_new_item' => __( 'Add New People Category', 'bonestheme' ),
 			'new_item_name' => __( 'New People Category Name', 'bonestheme' )
 		),
+		'public' => false,
 		'show_admin_column' => true, 
 		'show_ui' => true,
 		'query_var' => true,
-		'rewrite' => array( 'slug' => 'cast' ),
+		'rewrite' => array( 'slug' => 'people-catetory' ),
 	)
 );
-*/
+
 
 // Season custom post type
 function season_custom_type() { 
