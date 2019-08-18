@@ -232,7 +232,7 @@ html {
 	&.theme-sunset {
 		#container {
 			#content {
-				background-image:url(../images/dark-grunge.png), linear-gradient($sunset-dark,rgba($sunset-main,.35),rgba($sunset-secondary,.35),$sunset-dark);
+				background-image:url(../images/dark-grunge.png), linear-gradient($sunset-dark 15%,rgba($sunset-main,.35),rgba($sunset-secondary,.35),$sunset-dark);
 				background-color:$black;
 				padding-top:$logo-heightScrolled + $logo-top-padding*3 + $gutter;
 			}
@@ -257,10 +257,10 @@ html {
 				content:"";
 				display:block;
 				position:absolute;
-				bottom:-15px;
+				bottom:-30px;
 				left:0;
 				width:100%;
-				height:15px;
+				height:30px;
 				background:linear-gradient($sunset-dark,rgba($sunset-dark,0));
 			}
 			#inner-header {
