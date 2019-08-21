@@ -133,6 +133,11 @@ body.single-people {
 		width:60%;
 		@include box-sizing;
 	}
+	.entry-content {
+		float:left;
+		clear:left;
+		width:40%;
+	}
 }
 body.single-seasons {
 	.article-header {
