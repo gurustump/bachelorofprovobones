@@ -48,7 +48,7 @@
 												<?php echo createYoutubePlayer(getYoutubeIDfromURL(get_post_meta($currentMostRecentEpisode[0]->ID,'_bachelor_episode_youtube_url',true)));
 											} else { ?>
 												<h2><?php echo get_post_meta(get_the_ID(),'_bachelor_page_main_section_title',true); ?></h2>
-												<div class="main-section-content"><?php echo get_post_meta(get_the_ID(),'_bachelor_page_main_section_content',true); ?></div>
+												<div class="main-section-content"><?php echo wpautop(do_shortcode(get_post_meta(get_the_ID(),'_bachelor_page_main_section_content',true))); ?></div>
 											<?php } ?>
 										</div>
 										<?php if ($homeModule) { foreach($homeModule as $module) { ?>

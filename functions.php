@@ -101,8 +101,8 @@ add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
 
 function bones_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'extra-large' => __('Extra Large'),
         'small' => __('Small'),
+        'extra-large' => __('Extra Large'),
         'movie-thumb' => __('Movie (16:9) Thumbnail'),
     ) );
 }
