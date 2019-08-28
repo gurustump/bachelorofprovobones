@@ -13,8 +13,14 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
 
+// Sass variables
+@import "partials/variables";
 
-body.login {}
+
+body.login {
+	background-image:url(../images/dark-grunge.png), linear-gradient($sunset-dark 15%,rgba($sunset-main,.35),rgba($sunset-secondary,.35),$sunset-dark);
+	background-color:$black;
+}
 
 
 #login {} /* the form box */
@@ -25,7 +31,7 @@ You'll have to load your own images and mess
 with the width and height.
 */
 .login h1 a {
-	background: url(../images/login-logo.png) no-repeat top center; /* make sure to replace this! */
+	background: url(../images/pme-logo-theme-sunset.svg) no-repeat top center; /* make sure to replace this! */
 	width: 326px;
 	height: 67px;
 	text-indent: -9999px;

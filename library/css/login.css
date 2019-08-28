@@ -12,6 +12,25 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+body.login {
+  background-image: url(../images/dark-grunge.png), -webkit-gradient(linear, left top, left bottom, color-stop(15%, #050505), color-stop(rgba(162, 0, 97, 0.35)), color-stop(rgba(106, 30, 91, 0.35)), to(#050505));
+  background-image: url(../images/dark-grunge.png), -webkit-linear-gradient(#050505 15%, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+  background-image: url(../images/dark-grunge.png), -o-linear-gradient(#050505 15%, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+  background-image: url(../images/dark-grunge.png), linear-gradient(#050505 15%, rgba(162, 0, 97, 0.35), rgba(106, 30, 91, 0.35), #050505);
+  background-color: #000; }
+
 /* the form box */
 /*
 This is the Wordpress logo in the admin area.
@@ -19,7 +38,7 @@ You'll have to load your own images and mess
 with the width and height.
 */
 .login h1 a {
-  background: url(../images/login-logo.png) no-repeat top center;
+  background: url(../images/pme-logo-theme-sunset.svg) no-repeat top center;
   /* make sure to replace this! */
   width: 326px;
   height: 67px;
@@ -35,6 +54,7 @@ form {
   background: white;
   border: 1px solid #E5E5E5;
   border-radius: 3px;
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
 body form .input {
@@ -49,6 +69,7 @@ body form .input {
   border: 1px solid #E5E5E5;
   background: #FBFBFB;
   outline: none;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
   box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2); }
 
 /*

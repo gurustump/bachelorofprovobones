@@ -23,7 +23,7 @@
 							<header class="article-header">
 								<div class="title-container">
 									<h1 class="single-title custom-post-type-title"><?php echo $personName; ?></h1>
-									<?php if ($personMeta['_bachelor_person_age'][0] || $personMeta['_bachelor_person_college_major'][0] || $personMeta['_bachelor_person_occupation'][0] || $personMeta['_bachelor_person_instagram'][0] || $personMeta['_bachelor_person_homepage_url'][0]) { ?>
+									<?php if ($personMeta['_bachelor_person_age'][0] || $personMeta['_bachelor_person_college_major'][0] || $personMeta['_bachelor_person_occupation'][0] || $personMeta['_bachelor_person_instagram'][0] || $personMeta['_bachelor_person_homepage_url'][0] || $personMeta['_bachelor_person_crew_position'][0]) { ?>
 									<table class="byline">
 										<?php if ($personMeta['_bachelor_person_age'][0]) { ?>
 										<tr><td colspan="2"><?php echo $personMeta['_bachelor_person_age'][0]; ?></td></tr>
