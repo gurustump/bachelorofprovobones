@@ -2668,9 +2668,11 @@ body.single-people .byline {
     text-transform: none;
     font-size: inherit; }
 
-body.single-people .image-container img {
-  display: block;
-  width: 100%; }
+body.single-people .image-container {
+  margin-bottom: 16px; }
+  body.single-people .image-container img {
+    display: block;
+    width: 100%; }
 
 body.single-seasons .article-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
