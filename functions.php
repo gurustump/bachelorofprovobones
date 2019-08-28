@@ -254,9 +254,18 @@ function personThumbMarkup($person,$role,$crewPosition) {
 	$personType = 
 	$markup = '<div class="thumb-item '.$role.($exit_episode ? ' retired' : '').'">';
 	$markup .= '<a href="'.get_permalink($person->ID).'">';
-	if (has_post_thumbnail($person->ID)) {
+	if (($role == 'crew' && $personMeta['_bachelor_person_alt_crew_photo']) || ($role != 'crew' && $personMeta['_bachelor_person_alt_cast_photo']) || has_post_thumbnail($person->ID)) {
+		if ($role == 'crew' && $personMeta['_bachelor_person_alt_crew_photo']) {
+			$imgSrcMeta = wp_get_attachment_image_src(get_post_meta($person->ID,'_bachelor_person_alt_crew_photo_id',1),'thumbnail');
+			$imgSrc = $imgSrcMeta[0];
+		} elseif ($role != 'crew' && $personMeta['_bachelor_person_alt_cast_photo']) {
+			$imgSrcMeta = wp_get_attachment_image_src(get_post_meta($person->ID,'_bachelor_person_alt_cast_photo_id',1),'thumbnail');
+			$imgSrc = $imgSrcMeta[0];
+		} else {
+			$imgSrc = get_the_post_thumbnail_url($person->ID,'thumbnail');
+		}
 		$markup .= '<span class="image-container">';
-		$markup .= '<img src="'.get_the_post_thumbnail_url($person->ID,'thumbnail').'" alt="'.$person->post_name.'" />';
+		$markup .= '<img src="'.$imgSrc.'" alt="'.$person->post_name.'" />';
 		$markup .= '</span>';
 	}
 	$markup .= '<div class="person-info">';
