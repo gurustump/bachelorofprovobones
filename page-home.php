@@ -59,7 +59,6 @@
 										<?php /*<pre style="clear:both"><?php print_r($module); ?></pre>*/ ?>
 										<?php } } ?>
 									</div>
-									
 									<?php 
 									$sponsors = get_posts(array(
 										'numberposts' => -1,
@@ -70,8 +69,19 @@
 												'value' => 'sponsor',
 												'compare' => 'LIKE',
 											),
+											array(
+												'key' => '_bachelor_sponsor_location',
+												'value' => 'home-slider',
+												'compare' => 'LIKE',
+											),
 										),
-										
+										'tax_query' => array(
+											array(
+												'taxonomy' => 'sponsor_cat',
+												'field' => 'slug',
+												'terms' => 'season-'.get_post(get_option('bachelor_main_options')['current_season'])->post_title,
+											),
+										),
 									));
 									if ($sponsors) { ?>
 									<div class="sponsor-container">

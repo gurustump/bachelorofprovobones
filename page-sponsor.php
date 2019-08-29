@@ -29,7 +29,13 @@
 												'compare' => 'LIKE',
 											),
 										),
-										
+										'tax_query' => array(
+											array(
+												'taxonomy' => 'sponsor_cat',
+												'field' => 'slug',
+												'terms' => 'season-'.get_post(get_option('bachelor_main_options')['current_season'])->post_title,
+											),
+										),
 									));
 									if ($sponsors) { ?>
 									<div class="slider-list sponsor-list">

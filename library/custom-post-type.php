@@ -245,6 +245,29 @@ function sponsor_post_type() {
 }
 
 add_action( 'init', 'sponsor_post_type');
+
+register_taxonomy( 'sponsor_cat', 
+	array('sponsor'),
+	array('hierarchical' => true,
+		'labels' => array(
+			'name' => __( 'Sponsor Categories', 'bonestheme' ),
+			'singular_name' => __( 'Sponsor Category', 'bonestheme' ),
+			'search_items' =>  __( 'Search Sponsor Categories', 'bonestheme' ),
+			'all_items' => __( 'All Sponsor Categories', 'bonestheme' ),
+			'parent_item' => __( 'Parent Sponsor Category', 'bonestheme' ),
+			'parent_item_colon' => __( 'Parent Sponsor Category:', 'bonestheme' ),
+			'edit_item' => __( 'Edit Sponsor Category', 'bonestheme' ),
+			'update_item' => __( 'Update Sponsor Category', 'bonestheme' ),
+			'add_new_item' => __( 'Add New Sponsor Category', 'bonestheme' ),
+			'new_item_name' => __( 'New Sponsor Category Name', 'bonestheme' )
+		),
+		'public' => false,
+		'show_admin_column' => true, 
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'sponsor-catetory' ),
+	)
+);
 	
 	/*
 	for more information on taxonomies, go here:

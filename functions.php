@@ -351,6 +351,57 @@ function button_shortcode($atts) {
 }
 add_shortcode('button','button_shortcode');
 
+// Sponsors Shortcode
+function sponsor_list_shortcode($atts) {
+	$a = shortcode_atts( array(
+		'location' => 'shortcode',
+		'season' => get_post(get_option('bachelor_main_options')['current_season'])->post_title,
+		'type' => '',
+		'number' => -1,
+	), $atts);
+	$sponsor_query = array(
+		'numberposts' => $a['number'],
+		'post_type' => 'sponsor',
+		'meta_query' => array(
+			array(
+				'key' => '_bachelor_sponsor_location',
+				'value' => $a['location'],
+				'compare' => 'LIKE',
+			)
+		),
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'sponsor_cat',
+				'field' => 'slug',
+				'terms' => 'season-'.$a['season'],
+			),
+		),
+	);
+	if ($a['type'] == 'sponsor' || $a['type'] == 'date-idea') {
+		array_push($sponsor_query['meta_query'], array(
+			'key' => '_bachelor_sponsor_type',
+			'value' => $a['type'],
+			'compare' => 'LIKE',
+		));
+	}
+	$markup = '<div class="thumb-list sponsor-list">';
+	$sponsors = get_posts($sponsor_query);
+	foreach($sponsors as $sponsor) {
+		if (!has_post_thumbnail($sponsor->ID)) { continue; } 
+		$sponsorURL = get_post_meta($sponsor->ID,'_bachelor_sponsor_website',true);
+		$markup .= '<div class="thumb-item">';
+		$markup .= $sponsorURL ? '<a target="_blank" href="'.$sponsorURL.'">' : '';
+		$markup .= '<img src="'.get_the_post_thumbnail_url($sponsor->ID,'thumbnail').'" alt="'.$sponsor->post_title.'" />';
+		$markup .= '<span class="sponsor-name">'.$sponsor->post_title.'</span>';
+		$markup .= $sponsorURL ? '</a>' : '';
+		$markup .= '</div>';
+	}
+	$markup .= '</div>';
+	return $markup;
+	//return '<div class="video-outer-wrapper'.($a['align'] ?  ' '.$a['align'] : '').'"'.($a['width'] ?  ' style="width:'.$a['width'].'"' : '').'>'.createYoutubePlayer(getYoutubeIDfromURL($a['url'])).'</div>';
+}
+add_shortcode('sponsors','sponsor_list_shortcode');
+
 // filtering gallery shortcode
 add_shortcode('gallery', 'gurustump_gallery_shortcode');
 

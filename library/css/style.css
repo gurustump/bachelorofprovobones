@@ -2052,12 +2052,14 @@ POSTS & CONTENT STYLES
         -ms-transform: scale(1.2);
         transform: scale(1.2);
         opacity: 1; }
+      .thumb-list .thumb-item > a:hover .sponsor-name {
+        opacity: 1; }
       .thumb-list .thumb-item > a .image-container {
         display: block;
         -webkit-transition: all 375ms;
         -o-transition: all 375ms;
         transition: all 375ms; }
-      .thumb-list .thumb-item > a .person-info {
+      .thumb-list .thumb-item > a .person-info, .thumb-list .thumb-item > a .sponsor-name {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -2070,13 +2072,22 @@ POSTS & CONTENT STYLES
         background-image: linear-gradient(  rgba(0, 0, 0, 0), black);
         padding: 12% 4% 4%;
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
-        .thumb-list .thumb-item > a .person-info span {
-          display: block; }
-        .thumb-list .thumb-item > a .person-info .person-name {
-          font-size: .8em;
-          font-weight: bold; }
-        .thumb-list .thumb-item > a .person-info .person-type {
-          font-size: .75em; }
+      .thumb-list .thumb-item > a .person-info span {
+        display: block; }
+      .thumb-list .thumb-item > a .person-info .person-name {
+        font-size: .8em;
+        font-weight: bold; }
+      .thumb-list .thumb-item > a .person-info .person-type {
+        font-size: .75em; }
+      .thumb-list .thumb-item > a .sponsor-name {
+        text-align: center;
+        font-size: .75em;
+        text-transform: uppercase;
+        line-height: 1em;
+        opacity: 0;
+        -webkit-transition: opacity 375ms;
+        -o-transition: opacity 375ms;
+        transition: opacity 375ms; }
 
 .crew-list, .has-content-secondary .crew-list {
   /*
@@ -3255,7 +3266,25 @@ PAGE SPECIFIC STYLES
     -webkit-box-flex: 0;
     -ms-flex: 0 0 140px;
     flex: 0 0 140px;
-    padding: 0 16px; } }
+    padding: 0 16px; }
+  body.page-template-page-sponsor-date-idea .lists {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    body.page-template-page-sponsor-date-idea .lists .slider-item {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.3%;
+      flex: 0 0 33.3%; }
+  body.page-template-page-sponsor-date-idea .list-container {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0; }
+    body.page-template-page-sponsor-date-idea .list-container:first-child {
+      padding-right: 16px; }
+    body.page-template-page-sponsor-date-idea .list-container:last-child {
+      padding-left: 16px; } }
 
 @media only screen and (min-width: 1560px) {
   /******************************************************************
@@ -3316,7 +3345,20 @@ on larger screens.
       margin-bottom: 1%; }
   .crew-list .thumb-list .thumb-item, .has-content-secondary .crew-list .thumb-list .thumb-item {
     width: 13.28%;
-    padding-bottom: 13.28%; } }
+    padding-bottom: 13.28%; }
+  /******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+  body.home .slider-list .slider-item {
+    width: 140px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    padding: 0 16px; }
+  body.page-template-page-sponsor-date-idea .lists .slider-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%; } }
 
 @media only screen and (min-width: 1920px) {
   /******************************************************************

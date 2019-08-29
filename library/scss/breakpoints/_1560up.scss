@@ -100,3 +100,22 @@ html {
 		}
 	}
 }
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body.home {
+	.slider-list {
+		.slider-item {
+			width:140px;
+			flex:0 0 140px;
+			padding:0 $gutter;
+		}
+	}
+}
+body.page-template-page-sponsor-date-idea {
+	.lists {
+		.slider-item {
+			flex:0 0 25%;
+		}
+	}
+}

@@ -138,3 +138,21 @@ body.home {
 		}
 	}
 }
+body.page-template-page-sponsor-date-idea {
+	.lists {
+		display:flex;
+		.slider-item {
+			flex:0 0 33.3%;
+		}
+	}
+	.list-container {
+		flex-grow:1;
+		flex-basis:0;
+		&:first-child {
+			padding-right:$gutter;
+		}
+		&:last-child {
+			padding-left:$gutter;
+		}
+	}
+}
