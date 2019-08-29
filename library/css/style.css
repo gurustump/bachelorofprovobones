@@ -2059,6 +2059,9 @@ POSTS & CONTENT STYLES
         -webkit-transition: all 375ms;
         -o-transition: all 375ms;
         transition: all 375ms; }
+      .thumb-list .thumb-item > a img {
+        margin: 0;
+        display: block; }
       .thumb-list .thumb-item > a .person-info, .thumb-list .thumb-item > a .sponsor-name {
         position: absolute;
         left: 0;

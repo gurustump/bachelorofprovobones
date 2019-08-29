@@ -990,6 +990,10 @@ POSTS & CONTENT STYLES
 				display:block;
 				transition:all $transition-speed;
 			}
+			img {
+				margin:0;
+				display:block;
+			}
 			.person-info, .sponsor-name {
 				position:absolute;
 				left:0;
