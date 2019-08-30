@@ -318,6 +318,10 @@ function getYoutubePoster($youtubeID,$max) {
 function createYoutubePlayer($youtubeID) {
 	return '<div class="video-container"><iframe src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
 }
+function excerptNoReadMore($theID) {
+	$thisExcerpt = get_the_excerpt($theID);
+	return substr($thisExcerpt, 0, strpos($thisExcerpt, '<a class="excerpt-read-more"'));
+}
 
 // SHORTCODES
 // root path shortcode
