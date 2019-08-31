@@ -64,11 +64,11 @@
 										'numberposts' => -1,
 										'post_type' => 'sponsor',
 										'meta_query' => array(
-											array(
+											/*array(
 												'key' => '_bachelor_sponsor_type',
 												'value' => 'sponsor',
 												'compare' => 'LIKE',
-											),
+											),*/
 											array(
 												'key' => '_bachelor_sponsor_location',
 												'value' => 'home-slider',
