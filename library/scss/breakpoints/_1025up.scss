@@ -165,6 +165,11 @@ NAVIGATION STYLES
 	li.current_page_ancestor {
 		a {}
 	}  /* end current highlighters */
+	.sub-menu {
+		li {
+			min-width:100%;
+		}
+	}
 
 } /* end .nav */
 .trigger-nav {

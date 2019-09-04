@@ -1824,6 +1824,10 @@ and more scalable.
     background: rgba(255, 255, 255, 0.04); }
     .main-menu li a:hover {
       color: #000; }
+  .main-menu .sub-menu {
+    margin-bottom: 0; }
+    .main-menu .sub-menu li a {
+      padding-left: 16px; }
 
 .trigger-nav {
   height: 50px;
@@ -3197,6 +3201,8 @@ NAVIGATION STYLES
         top: auto;
         opacity: 1;
         height: auto; }
+    .main-menu .sub-menu li {
+      min-width: 100%; }
   /* end .nav */
   .trigger-nav {
     display: none; }
