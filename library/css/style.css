@@ -1521,6 +1521,25 @@ html {
     background: #050505 !important; }
     html.theme-sunset.mobile-nav-active .header:after {
       content: normal; }
+  html.theme-sunset .pagination ul {
+    background-color: #6a1e5b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6f0042), to(#090005));
+    background-image: -webkit-linear-gradient(#6f0042, #090005);
+    background-image: -o-linear-gradient(#6f0042, #090005);
+    background-image: linear-gradient(#6f0042, #090005); }
+  html.theme-sunset .pagination li {
+    border-right-color: rgba(106, 30, 91, 0.3); }
+  html.theme-sunset .pagination .current, html.theme-sunset .pagination .current:hover {
+    color: #050505;
+    background: transparent; }
+  html.theme-sunset .pagination a, html.theme-sunset .pagination span {
+    font-weight: 900; }
+  html.theme-sunset .pagination a:hover, html.theme-sunset .pagination a:focus {
+    background-color: #a20061;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#a20061), to(#3c0024));
+    background-image: -webkit-linear-gradient(#a20061, #3c0024);
+    background-image: -o-linear-gradient(#a20061, #3c0024);
+    background-image: linear-gradient(#a20061, #3c0024); }
   html.theme-sunset .footer {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#32001e), to(#070206));
     background-image: -webkit-linear-gradient(#32001e, #070206);
@@ -2256,7 +2275,8 @@ PAGE NAVI STYLES
     white-space: nowrap;
     padding: 0;
     clear: both;
-    border-radius: 3px; }
+    border-radius: 3px;
+    overflow: hidden; }
   .pagination li {
     padding: 0;
     margin: 0;
@@ -3179,7 +3199,12 @@ NAVIGATION STYLES
         height: auto; }
   /* end .nav */
   .trigger-nav {
-    display: none; } }
+    display: none; }
+  /******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+  body.single-post .sidebar, body.blog .sidebar {
+    margin-top: 0; } }
 
 /*********************
 LARGE VIEWING SIZE

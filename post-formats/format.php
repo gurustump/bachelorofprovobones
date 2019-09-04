@@ -13,56 +13,54 @@
 				 * folder and replace the function below with the contents of the "format.php" file.
 				*/
 			?>
-
-			<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-				<header class="article-header entry-header">
-				  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
-				  <p class="byline entry-meta vcard">
-					<?php printf( __( 'Posted', 'bonestheme' ).' %1$s %2$s',
-					   /* the time the post was published */
-					   '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
-					   /* the author of the post */
-					   '<span class="by">'.__( 'by', 'bonestheme' ).'</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
-					); ?>
-				  </p>
-				</header> <?php // end article header ?>
-				<?php $modules = get_posts(array( 
-					'numberposts' => -1,
-					'post_type' => 'modules',
-					'meta_query' => array(
-						array(
-							'key' => '_bachelor_module_location',
-							'value' => 'posts',
-							'compare' => 'LIKE',
-						),
+			<?php $modules = get_posts(array( 
+				'numberposts' => -1,
+				'post_type' => 'modules',
+				'meta_query' => array(
+					array(
+						'key' => '_bachelor_module_location',
+						'value' => 'posts',
+						'compare' => 'LIKE',
 					),
-					'order' => 'ASC',
-					'orderby' => 'meta_value',
-					'meta_key' => '_bachelor_module_priority',
-				));
-				$hasContentSecondary = $modules || is_active_sidebar('sidebar1');
-				?>
-				<section class="entry-content<?php echo $hasContentSecondary ? ' has-content-secondary':''; ?>" itemprop="articleBody">
-					<div class="content-primary">
-						<?php the_content(); ?>
-					</div>
-					<?php if ($hasContentSecondary) { ?>
-					<div class="content-secondary">
-						<?php if ($modules) { ?>
-						<div class="modules">
-							<?php foreach($modules as $module) { ?>
-							<div class="module">
-								<h2 class="module-title"><?php echo $module->post_title; ?></h2>
-								<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
-							</div>
-							<?php } ?>
+				),
+				'order' => 'ASC',
+				'orderby' => 'meta_value',
+				'meta_key' => '_bachelor_module_priority',
+			));
+			$hasContentSecondary = $modules || is_active_sidebar('sidebar1'); ?>
+			<section class="entry-content<?php echo $hasContentSecondary ? ' has-content-secondary':''; ?>" itemprop="articleBody">
+				<div class="content-primary">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+						<header class="article-header entry-header">
+							<h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+							<p class="byline entry-meta vcard">
+								<?php printf( __( 'Posted', 'bonestheme' ).' %1$s',
+							   /* the time the post was published */
+							   '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'
+							); ?>
+							</p>
+						</header> <?php // end article header ?>
+						<div class="article-body">
+							<?php the_content(); ?>
+						</div>
+						<?php //comments_template(); ?>
+					</article> <?php // end article ?>
+				</div>
+				<?php if ($hasContentSecondary) { ?>
+				<div class="content-secondary">
+					<?php if ($modules) { ?>
+					<div class="modules">
+						<?php foreach($modules as $module) { ?>
+						<div class="module">
+							<h2 class="module-title"><?php echo $module->post_title; ?></h2>
+							<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
 						</div>
 						<?php } ?>
-						<?php if (is_active_sidebar('sidebar1')) { 
-							get_sidebar();
-						} ?>
 					</div>
 					<?php } ?>
-				</section> <?php // end article section ?>
-				<?php //comments_template(); ?>
-			</article> <?php // end article ?>
+					<?php if (is_active_sidebar('sidebar1')) { 
+						get_sidebar();
+					} ?>
+				</div>
+				<?php } ?>
+			</section> <?php // end article section ?>

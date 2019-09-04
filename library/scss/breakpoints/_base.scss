@@ -289,6 +289,26 @@ html {
 				}
 			}
 		}
+		.pagination {
+			ul {
+				background-color:$sunset-secondary;
+				background-image:linear-gradient(darken($sunset-main,10%),darken($sunset-main,30%));
+			}
+			li {
+				border-right-color:rgba($sunset-secondary,.3);
+			}
+			.current, .current:hover {
+				color:$sunset-dark;
+				background:transparent;
+			}
+			a, span {
+				font-weight:900;
+			}
+			a:hover, a:focus {
+				background-color:$sunset-main;
+				background-image:linear-gradient($sunset-main,darken($sunset-main,20%));
+			}
+		}
 		.footer {
 			background-image:linear-gradient(darken($sunset-main,22%),darken($sunset-secondary,25%));
 			color:darken($sunset-main, 30%);
@@ -1171,56 +1191,52 @@ PAGE NAVI STYLES
 .wp-prev-next {
 	margin: 1.5em 0;
 }
-	.pagination{
+.pagination{
     text-align: center;
+	ul {
+		display: inline-block;
+		background-color: $white;
+		white-space: nowrap;
+		padding: 0;
+		clear: both;
+		border-radius: 3px;
+		overflow:hidden;
+	}
+	li {
+		padding: 0;
+		margin: 0;
+		float: left;
+		display:inline;
+		overflow: hidden;
+		border-right:1px solid $gray;
+	}
+	a, span {
+		margin: 0;
+		text-decoration: none;
+		padding: 0;
+		line-height: 1em;
+		font-size: 1em;
+		font-weight: normal;
+		padding: 0.75em;
+		min-width: 1em;
+		display: block;
+		color: $blue;
+		&:hover, &:focus {
+			background-color: $blue;
+			color: $white;
+		}
+	}
+	.current{
+		cursor: default;
+		color: $text-color;
 
-    ul {
-      display: inline-block;
-      background-color: $white;
-      white-space: nowrap;
-      padding: 0;
-      clear: both;
-      border-radius: 3px;
-    }
+		&:hover, &:focus {
+			background-color: $white;
+			color: $text-color;
+		}
+	}
 
-    li {
-      padding: 0;
-      margin: 0;
-      float: left;
-      display: inline;
-      overflow: hidden;
-      border-right: 1px solid $gray;
-    }
-
-    a, span {
-      margin: 0;
-      text-decoration: none;
-      padding: 0;
-      line-height: 1em;
-      font-size: 1em;
-      font-weight: normal;
-      padding: 0.75em;
-      min-width: 1em;
-      display: block;
-      color: $blue;
-
-      &:hover, &:focus {
-      	background-color: $blue;
-      	color: $white;
-      }
-    }
-
-    .current{
-    	cursor: default;
-    	color: $text-color;
-
-    	&:hover, &:focus {
-    		background-color: $white;
-    		color: $text-color;
-    	}
-    }
-
-  } /* end .bones_page_navi */
+} /* end .bones_page_navi */
 
 	/* fallback previous & next links */
 	.wp-prev-next {

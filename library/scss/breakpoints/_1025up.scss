@@ -170,3 +170,15 @@ NAVIGATION STYLES
 .trigger-nav {
 	display:none;
 }
+
+
+/******************************************
+PAGE SPECIFIC STYLES
+******************************************/
+body {
+	&.single-post, &.blog {
+		.sidebar {
+			margin-top:0;
+		}
+	}
+}

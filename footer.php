@@ -27,9 +27,9 @@
 					
 					<div class="social">
 						<a class="svg-container" target="_blank" href="https://www.instagram.com/provosmosteligible/"><?php echo $icInstagram; ?></a>
-						<a class="svg-container" target="_blank" href="https://twitter.com/provo_bachelor"><?php echo $icTwitter; ?></a>
+						<a class="svg-container" target="_blank" href="https://twitter.com/provos_eligible"><?php echo $icTwitter; ?></a>
 						<a class="svg-container" target="_blank" href="https://www.youtube.com/channel/UCOw0nF1kZiGxE5bsmKowwLA"><?php echo $icYoutube; ?></a>
-						<a class="svg-container" target="_blank" href="https://www.facebook.com/The-Bachelor-of-Provo-334040420513716/" class="fb"><?php echo $icFacebook; ?></a>
+						<a class="svg-container" target="_blank" href="https://www.facebook.com/provosmosteligible" class="fb"><?php echo $icFacebook; ?></a>
 					</div>
 
 				</div>
