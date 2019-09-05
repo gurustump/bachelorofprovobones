@@ -68,6 +68,11 @@ html {
 }
 .main-menu {
 	li {
+		&.menu-item-has-children {
+			& > a {
+				height:$logo-height1240;
+			}
+		}
 		a {
 			height:$logo-height1560;
 			line-height:$logo-height1560;

@@ -3125,6 +3125,16 @@ be seen on the Desktop.
       background: rgba(255, 255, 255, 0.15); }
   html.theme-sunset .main-menu li ul.sub-menu, html.theme-sunset .main-menu li ul.children {
     margin-top: 0; }
+    html.theme-sunset .main-menu li ul.sub-menu li a, html.theme-sunset .main-menu li ul.children li a {
+      background-color: rgba(0, 0, 0, 0.9);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 0; }
+      html.theme-sunset .main-menu li ul.sub-menu li a:hover, html.theme-sunset .main-menu li ul.children li a:hover {
+        background-color: #220a1e; }
+    html.theme-sunset .main-menu li ul.sub-menu li:first-child a, html.theme-sunset .main-menu li ul.children li:first-child a {
+      border-top: 1px solid rgba(255, 255, 255, 0.15); }
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -3186,23 +3196,24 @@ NAVIGATION STYLES
         overflow: hidden;
         z-index: 8999;
         /* highlight sub-menu current page */ }
-        .main-menu li ul.sub-menu li a,
-        .main-menu li ul.children li a {
-          padding-left: 10px;
-          border-right: 0;
-          display: block;
-          background: rgba(255, 255, 255, 0.1);
-          border-top: 1px solid rgba(0, 0, 0, 0.1); }
-        .main-menu li ul.sub-menu li ul,
-        .main-menu li ul.children li ul {
-          top: 0;
-          left: 100%; }
+        .main-menu li ul.sub-menu li,
+        .main-menu li ul.children li {
+          min-width: 100%; }
+          .main-menu li ul.sub-menu li a,
+          .main-menu li ul.children li a {
+            padding-left: 10px;
+            border-right: 0;
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1); }
+          .main-menu li ul.sub-menu li ul,
+          .main-menu li ul.children li ul {
+            top: 0;
+            left: 100%; }
       .main-menu li:hover > ul {
         top: auto;
         opacity: 1;
         height: auto; }
-    .main-menu .sub-menu li {
-      min-width: 100%; }
   /* end .nav */
   .trigger-nav {
     display: none; }
@@ -3363,6 +3374,8 @@ on larger screens.
     #logo a {
       width: 560px;
       height: 140px; }
+  .main-menu li.menu-item-has-children > a {
+    height: 100px; }
   .main-menu li a {
     height: 140px;
     line-height: 140px; }
