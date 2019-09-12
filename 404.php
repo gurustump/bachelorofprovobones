@@ -26,11 +26,11 @@
 
 							</section>
 
-							<footer class="article-footer">
+							<?php /*<footer class="article-footer">
 
 									<p><?php _e( 'This is the 404.php template.', 'bonestheme' ); ?></p>
 
-							</footer>
+							</footer> */ ?>
 
 						</article>
 
