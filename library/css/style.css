@@ -1397,6 +1397,8 @@ html {
       padding: 0 4px 8px; }
     html.theme-dark .modules .module, html.theme-dark .widget, html.theme-deep-rose .modules .module, html.theme-deep-rose .widget {
       border-bottom-color: rgba(255, 255, 255, 0.15); }
+    html.theme-dark .home-modules .home-module, html.theme-deep-rose .home-modules .home-module {
+      border-color: rgba(255, 255, 255, 0.15); }
     html.theme-dark .coming-soon, html.theme-deep-rose .coming-soon {
       background: rgba(255, 255, 255, 0.05); }
     html.theme-dark .contact-form-container, html.theme-deep-rose .contact-form-container {
@@ -2668,6 +2670,21 @@ body.home .content-primary {
 body.home .home-module-container .current-episode {
   margin-bottom: 16px; }
 
+body.home .latest-episode-excerpt {
+  margin-top: 16px; }
+
+body.home .home-module {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  body.home .home-module:first-child {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0; }
+
+body.home .additional-content {
+  margin-top: 16px; }
+
 body.home .sponsor-container {
   padding-top: 16px; }
   body.home .sponsor-container h2 {
@@ -2960,7 +2977,7 @@ Stylesheet: Tablet Landscape Stylsheet
 ******************************************************************/
   html.theme-dark .entry-content.has-content-secondary .content-secondary, html.theme-deep-rose .entry-content.has-content-secondary .content-secondary {
     border-left-color: rgba(255, 255, 255, 0.15); }
-  html.theme-dark body.home .home-module-container .home-module, html.theme-deep-rose body.home .home-module-container .home-module {
+  html.theme-dark body.home .home-module-container .home-modules, html.theme-deep-rose body.home .home-module-container .home-modules {
     border-left-color: rgba(255, 255, 255, 0.15); }
   html.theme-dark body.single-people .article-header, html.theme-deep-rose body.single-people .article-header {
     border-top-color: rgba(255, 255, 255, 0.15); }
@@ -3036,7 +3053,7 @@ PAGE SPECIFIC STYLES
       -ms-box-sizing: border-box;
       -o-box-sizing: border-box;
       box-sizing: border-box; }
-    body.home .home-module-container .home-module {
+    body.home .home-module-container .home-modules {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 40%;
       flex: 0 0 40%;
@@ -3047,6 +3064,11 @@ PAGE SPECIFIC STYLES
       box-sizing: border-box;
       padding: 16px 0 0 32px;
       border-left: 1px solid rgba(0, 0, 0, 0.1); }
+  body.home .additional-content {
+    margin-top: 32px; }
+  body.home .home-module {
+    padding-top: 32px;
+    margin-top: 32px; }
   body.single-people .article-header {
     border-top: 1px solid rgba(0, 0, 0, 0.1); }
   body.single-people .title-container {

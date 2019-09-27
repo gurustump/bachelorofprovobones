@@ -108,6 +108,11 @@ html {
 		.modules .module, .widget {
 			border-bottom-color:$border-color-theme-dark;
 		}
+		.home-modules {
+			.home-module {
+				border-color:$border-color-theme-dark;
+			}
+		}
 		.coming-soon {
 			background:rgba($white,.05);
 		}
@@ -1721,6 +1726,22 @@ body.home {
 		.current-episode {
 			margin-bottom:$gutter;
 		}
+	}
+	.latest-episode-excerpt {
+		margin-top:$gutter;
+	}
+	.home-module {
+		padding-top:$gutter;
+		margin-top:$gutter;
+		border-top:1px solid $border-color;
+		&:first-child {
+			padding-top:0;
+			margin-top:0;
+			border-top:0;
+		}
+	}
+	.additional-content {
+		margin-top:$gutter;
 	}
 	.sponsor-container {
 		padding-top:$gutter;

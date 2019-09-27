@@ -14,7 +14,7 @@ html {
 		}
 		body.home {
 			.home-module-container {
-				.home-module {
+				.home-modules {
 					border-left-color:$border-color-theme-dark;
 				}
 			}
@@ -111,12 +111,19 @@ body.home {
 			flex:0 0 60%;
 			@include box-sizing;
 		}
-		.home-module {
+		.home-modules {
 			flex:0 0 40%;
 			@include box-sizing;
 			padding:$gutter 0 0 $gutter1024;
 			border-left:1px solid $border-color;
 		}
+	}
+	.additional-content {
+		margin-top:$gutter1024;
+	}
+	.home-module {
+		padding-top:$gutter1024;
+		margin-top:$gutter1024;
 	}
 }
 body.single-people {

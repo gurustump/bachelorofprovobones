@@ -29,9 +29,9 @@
 										'post__in' => $currentSeasonEpisodeIDs,
 										'numberposts' => 1,
 									));
-									
+									$additionalContent = wpautop(do_shortcode(get_post_meta(get_the_ID(),'_bachelor_page_additional_content',true)));
 									$homeModule = get_posts(array( 
-										'numberposts' => 1,
+										'numberposts' => -1,
 										'post_type' => 'modules',
 										'meta_query' => array(
 											array(
@@ -49,15 +49,24 @@
 											} else { ?>
 												<h2><?php echo get_post_meta(get_the_ID(),'_bachelor_page_main_section_title',true); ?></h2>
 												<div class="main-section-content"><?php echo wpautop(do_shortcode(get_post_meta(get_the_ID(),'_bachelor_page_main_section_content',true))); ?></div>
+											<?php }
+											if ($additionalContent) { ?>
+											<div class="additional-content">
+												<?php echo $additionalContent; ?>
+											</div>
 											<?php } ?>
 										</div>
-										<?php if ($homeModule) { foreach($homeModule as $module) { ?>
-										<div class="home-module">
-											<h2 class="module-title"><?php echo $module->post_title; ?></h2>
-											<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
+										<?php if ($homeModule) { ?>
+										<div class="home-modules">
+											<?php foreach($homeModule as $module) { ?>
+											<div class="home-module">
+												<h2 class="module-title"><?php echo $module->post_title; ?></h2>
+												<div class="module-content"><?php echo wpautop(do_shortcode($module->post_content)); ?></div>
+											</div>
+											<?php /*<pre style="clear:both"><?php print_r($module); ?></pre>*/ ?>
+											<?php } ?>
 										</div>
-										<?php /*<pre style="clear:both"><?php print_r($module); ?></pre>*/ ?>
-										<?php } } ?>
+										<?php } ?>
 									</div>
 									<?php 
 									$sponsors = get_posts(array(
