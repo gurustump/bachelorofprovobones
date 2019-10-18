@@ -322,6 +322,15 @@ function excerptNoReadMore($theID) {
 	$thisExcerpt = get_the_excerpt($theID);
 	return substr($thisExcerpt, 0, strpos($thisExcerpt, '<a class="excerpt-read-more"'));
 }
+function getExcerptOrDefaultDesc($theID) {
+	$desc = '';
+	if (excerptNoReadMore($theID) != '') {
+		$desc .= excerptNoReadMore($theID);
+	} else {
+		$desc .= get_option('bachelor_main_options')['description'];
+	}
+	return $desc;
+}
 
 // SHORTCODES
 // root path shortcode

@@ -35,15 +35,22 @@
 		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/library/images/pme-og.jpg" />
 		<?php } */ ?>
 		<?php if (is_singular('people') && has_post_thumbnail(get_the_ID())) { ?>
-		<meta property="og:description" content="<?php echo excerptNoReadMore(get_the_ID()); ?>" />
 		<meta property="og:image" content="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'og'); ?>" />
 		<?php } else if (is_singular() && has_post_thumbnail(get_the_ID())) { ?>
-		<meta property="og:image" content="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" />
+		<meta property="og:image" content="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'og'); ?>" />
 		<?php } else if (is_singular('episodes')) {
 			$youtubeURL = get_post_meta(get_the_ID(),'_bachelor_episode_youtube_url',true); ?>
 		<meta property="og:image" content="<?php echo $youtubeURL; ?>" />
 		<?php } else { ?>
 		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/library/images/pme-og-season-2.jpg" />
+		<?php } ?>
+		
+		<?php if (is_front_page()) { ?>
+		<meta name="description" content="<?php echo get_option('bachelor_main_options')['description']; ?>">
+		<meta property="og:description" content="<?php echo get_option('bachelor_main_options')['description']; ?>" />
+		<?php } else { ?>
+		<meta name="description" content="<?php echo getExcerptOrDefaultDesc(get_the_ID()); ?>">
+		<meta property="og:description" content="<?php echo getExcerptOrDefaultDesc(get_the_ID()); ?>" />
 		<?php } ?>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
