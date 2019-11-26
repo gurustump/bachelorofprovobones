@@ -1996,13 +1996,6 @@ POSTS & CONTENT STYLES
     margin: 0 0 1.5em 0;
     max-width: 100%;
     height: auto; }
-  .entry-content .size-auto,
-  .entry-content .size-full,
-  .entry-content .size-large,
-  .entry-content .size-medium,
-  .entry-content .size-thumbnail {
-    max-width: 100%;
-    height: auto; }
   .entry-content pre {
     background: #000;
     color: #f8f9fa;
@@ -2012,6 +2005,18 @@ POSTS & CONTENT STYLES
     border-radius: 3px; }
 
 /* end .entry-content */
+.entry-content .size-auto,
+.entry-content .size-full,
+.entry-content .size-large,
+.entry-content .size-medium,
+.entry-content .size-thumbnail, .module-content .size-auto,
+.module-content .size-full,
+.module-content .size-large,
+.module-content .size-medium,
+.module-content .size-thumbnail {
+  max-width: 100%;
+  height: auto; }
+
 .wp-caption {
   max-width: 100%;
   background: #eee;

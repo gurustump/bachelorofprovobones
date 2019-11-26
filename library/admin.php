@@ -138,9 +138,8 @@ you like.
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="http://gurustump.com" target="_blank">Gurustump</a>.', 'bonestheme' );
+	_e( '<span id="footer-thankyou">Developed by <a href="http://www.gurustump.com" target="_blank">Gurustump</a></span>', 'bonestheme' );
 }
-
 // adding it to the admin area
 add_filter( 'admin_footer_text', 'bones_custom_admin_footer' );
 

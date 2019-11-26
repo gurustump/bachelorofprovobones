@@ -903,14 +903,6 @@ POSTS & CONTENT STYLES
 	.alignright, img.alignright {}
 	.aligncenter, img.aligncenter {}
 
-	.size-auto,
-	.size-full,
-	.size-large,
-	.size-medium,
-	.size-thumbnail {
-		max-width: 100%;
-		height: auto;
-	}
 
 	pre {
 		background: $black;
@@ -922,6 +914,16 @@ POSTS & CONTENT STYLES
 	}
 
 } /* end .entry-content */
+.entry-content, .module-content {
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		max-width: 100%;
+		height: auto;
+	}
+}
 
 .wp-caption {
 	max-width: 100%;
