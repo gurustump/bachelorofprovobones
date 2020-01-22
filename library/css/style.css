@@ -924,6 +924,7 @@ and it will create a button dependant on those variables.
     background-color: #cc0e3b; }
 
 html.theme-sunset .btn-pink, html.theme-sunset .btn-pink:visited {
+  color: #fff;
   background-color: #a20061; }
   html.theme-sunset .btn-pink:hover, html.theme-sunset .btn-pink:visited:hover {
     background-color: #6f0042; }
