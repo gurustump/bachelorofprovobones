@@ -10,9 +10,9 @@ is empty, but you can just start dropping your styles here to
 start customizing. All admin functions are located in lib/admin/
 
 ******************************************************************/
-.cfdb7-admin-form-details .image-container, td .image-container {
+.cfdb7-admin-form-details .image-container, td .image-container, .toplevel_page_cfdb7-list .image-container {
   width: 800px;
   max-width: 100%; }
-  .cfdb7-admin-form-details .image-container img, td .image-container img {
+  .cfdb7-admin-form-details .image-container img, td .image-container img, .toplevel_page_cfdb7-list .image-container img {
     display: block;
     max-width: 100%; }
