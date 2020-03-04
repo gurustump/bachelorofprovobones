@@ -6,15 +6,17 @@
 <!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="b-o-p no-js theme-<?php echo $colorTheme; ?>"><!--<![endif]-->
 
 	<head>
+		<?php if (get_option('bachelor_main_options')['google_analytics_ID']) { ?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134210880-1"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_option("bachelor_main_options")["google_analytics_ID"]; ?>"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
-			gtag('config', 'UA-134210880-1');
+			gtag('config', '<?php echo get_option("bachelor_main_options")["google_analytics_ID"]; ?>');
 		</script>
+		<?php } ?>
 
 		<meta charset="utf-8">
 
